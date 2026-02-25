@@ -1,0 +1,198 @@
+{
+  "regions": [
+    {
+      "id": "kepri",
+      "name": "Provinsi Kepulauan Riau",
+      "indicators": {
+        "pertumbuhan_ekonomi": { "value": 5.12, "unit": "%", "year": 2024, "trend": 0.3 },
+        "tpt": { "value": 6.83, "unit": "%", "year": 2024, "trend": -0.5 },
+        "pdrb_per_kapita": { "value": 142.56, "unit": "Juta Rupiah", "year": 2024, "trend": 5.2 },
+        "ipm": { "value": 75.48, "unit": "", "year": 2024, "trend": 0.42 },
+        "aps": { "value": 98.72, "unit": "%", "year": 2024, "trend": 0.1 },
+        "ipg": { "value": 93.15, "unit": "", "year": 2024, "trend": 0.28 },
+        "kemiskinan": { "value": 5.92, "unit": "%", "year": 2024, "trend": -0.18 },
+        "gini": { "value": 0.341, "unit": "", "year": 2024, "trend": -0.005 },
+        "inflasi": { "value": 2.85, "unit": "%", "year": 2024, "trend": -0.3 }
+      }
+    },
+    {
+      "id": "batam",
+      "name": "Kota Batam",
+      "indicators": {
+        "pertumbuhan_ekonomi": { "value": 6.48, "unit": "%", "year": 2024, "trend": 0.5 },
+        "tpt": { "value": 7.25, "unit": "%", "year": 2024, "trend": -0.8 },
+        "pdrb_per_kapita": { "value": 185.32, "unit": "Juta Rupiah", "year": 2024, "trend": 8.1 },
+        "ipm": { "value": 80.12, "unit": "", "year": 2024, "trend": 0.35 },
+        "aps": { "value": 99.15, "unit": "%", "year": 2024, "trend": 0.05 },
+        "ipg": { "value": 94.28, "unit": "", "year": 2024, "trend": 0.32 },
+        "kemiskinan": { "value": 4.85, "unit": "%", "year": 2024, "trend": -0.22 },
+        "gini": { "value": 0.312, "unit": "", "year": 2024, "trend": -0.008 },
+        "inflasi": { "value": 3.12, "unit": "%", "year": 2024, "trend": -0.15 }
+      }
+    },
+    {
+      "id": "tanjungpinang",
+      "name": "Kota Tanjungpinang",
+      "indicators": {
+        "pertumbuhan_ekonomi": { "value": 4.95, "unit": "%", "year": 2024, "trend": 0.2 },
+        "tpt": { "value": 8.12, "unit": "%", "year": 2024, "trend": -0.3 },
+        "pdrb_per_kapita": { "value": 98.45, "unit": "Juta Rupiah", "year": 2024, "trend": 3.5 },
+        "ipm": { "value": 78.56, "unit": "", "year": 2024, "trend": 0.48 },
+        "aps": { "value": 98.92, "unit": "%", "year": 2024, "trend": 0.08 },
+        "ipg": { "value": 95.32, "unit": "", "year": 2024, "trend": 0.18 },
+        "kemiskinan": { "value": 6.78, "unit": "%", "year": 2024, "trend": -0.15 },
+        "gini": { "value": 0.328, "unit": "", "year": 2024, "trend": -0.003 },
+        "inflasi": { "value": 2.45, "unit": "%", "year": 2024, "trend": -0.42 }
+      }
+    },
+    {
+      "id": "bintan",
+      "name": "Kabupaten Bintan",
+      "indicators": {
+        "pertumbuhan_ekonomi": { "value": 4.32, "unit": "%", "year": 2024, "trend": 0.15 },
+        "tpt": { "value": 5.65, "unit": "%", "year": 2024, "trend": -0.4 },
+        "pdrb_per_kapita": { "value": 112.78, "unit": "Juta Rupiah", "year": 2024, "trend": 4.2 },
+        "ipm": { "value": 73.25, "unit": "", "year": 2024, "trend": 0.52 },
+        "aps": { "value": 97.85, "unit": "%", "year": 2024, "trend": 0.12 },
+        "ipg": { "value": 91.45, "unit": "", "year": 2024, "trend": 0.35 },
+        "kemiskinan": { "value": 7.12, "unit": "%", "year": 2024, "trend": -0.25 },
+        "gini": { "value": 0.295, "unit": "", "year": 2024, "trend": -0.01 },
+        "inflasi": { "value": 2.65, "unit": "%", "year": 2024, "trend": -0.28 }
+      }
+    },
+    {
+      "id": "karimun",
+      "name": "Kabupaten Karimun",
+      "indicators": {
+        "pertumbuhan_ekonomi": { "value": 4.78, "unit": "%", "year": 2024, "trend": 0.25 },
+        "tpt": { "value": 6.45, "unit": "%", "year": 2024, "trend": -0.6 },
+        "pdrb_per_kapita": { "value": 95.12, "unit": "Juta Rupiah", "year": 2024, "trend": 3.8 },
+        "ipm": { "value": 72.18, "unit": "", "year": 2024, "trend": 0.45 },
+        "aps": { "value": 97.25, "unit": "%", "year": 2024, "trend": 0.15 },
+        "ipg": { "value": 90.85, "unit": "", "year": 2024, "trend": 0.22 },
+        "kemiskinan": { "value": 6.95, "unit": "%", "year": 2024, "trend": -0.32 },
+        "gini": { "value": 0.305, "unit": "", "year": 2024, "trend": -0.006 },
+        "inflasi": { "value": 2.92, "unit": "%", "year": 2024, "trend": -0.18 }
+      }
+    },
+    {
+      "id": "anambas",
+      "name": "Kabupaten Kepulauan Anambas",
+      "indicators": {
+        "pertumbuhan_ekonomi": { "value": 3.85, "unit": "%", "year": 2024, "trend": 0.12 },
+        "tpt": { "value": 4.25, "unit": "%", "year": 2024, "trend": -0.2 },
+        "pdrb_per_kapita": { "value": 78.92, "unit": "Juta Rupiah", "year": 2024, "trend": 2.8 },
+        "ipm": { "value": 68.45, "unit": "", "year": 2024, "trend": 0.62 },
+        "aps": { "value": 96.45, "unit": "%", "year": 2024, "trend": 0.18 },
+        "ipg": { "value": 88.72, "unit": "", "year": 2024, "trend": 0.42 },
+        "kemiskinan": { "value": 8.25, "unit": "%", "year": 2024, "trend": -0.28 },
+        "gini": { "value": 0.278, "unit": "", "year": 2024, "trend": -0.012 },
+        "inflasi": { "value": 3.45, "unit": "%", "year": 2024, "trend": 0.1 }
+      }
+    },
+    {
+      "id": "lingga",
+      "name": "Kabupaten Lingga",
+      "indicators": {
+        "pertumbuhan_ekonomi": { "value": 3.52, "unit": "%", "year": 2024, "trend": 0.08 },
+        "tpt": { "value": 3.85, "unit": "%", "year": 2024, "trend": -0.15 },
+        "pdrb_per_kapita": { "value": 65.38, "unit": "Juta Rupiah", "year": 2024, "trend": 2.1 },
+        "ipm": { "value": 66.92, "unit": "", "year": 2024, "trend": 0.55 },
+        "aps": { "value": 95.85, "unit": "%", "year": 2024, "trend": 0.22 },
+        "ipg": { "value": 87.65, "unit": "", "year": 2024, "trend": 0.38 },
+        "kemiskinan": { "value": 9.45, "unit": "%", "year": 2024, "trend": -0.35 },
+        "gini": { "value": 0.268, "unit": "", "year": 2024, "trend": -0.015 },
+        "inflasi": { "value": 3.18, "unit": "%", "year": 2024, "trend": 0.05 }
+      }
+    },
+    {
+      "id": "natuna",
+      "name": "Kabupaten Natuna",
+      "indicators": {
+        "pertumbuhan_ekonomi": { "value": 3.28, "unit": "%", "year": 2024, "trend": 0.1 },
+        "tpt": { "value": 4.52, "unit": "%", "year": 2024, "trend": -0.25 },
+        "pdrb_per_kapita": { "value": 72.15, "unit": "Juta Rupiah", "year": 2024, "trend": 2.5 },
+        "ipm": { "value": 69.78, "unit": "", "year": 2024, "trend": 0.58 },
+        "aps": { "value": 96.12, "unit": "%", "year": 2024, "trend": 0.2 },
+        "ipg": { "value": 89.35, "unit": "", "year": 2024, "trend": 0.45 },
+        "kemiskinan": { "value": 7.85, "unit": "%", "year": 2024, "trend": -0.3 },
+        "gini": { "value": 0.285, "unit": "", "year": 2024, "trend": -0.008 },
+        "inflasi": { "value": 3.32, "unit": "%", "year": 2024, "trend": 0.08 }
+      }
+    }
+  ],
+  "indicator_meta": {
+    "pertumbuhan_ekonomi": {
+      "name": "Pertumbuhan Ekonomi",
+      "short": "PE",
+      "icon": "trending-up",
+      "pair": "pdrb_per_kapita",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "scale": "%"
+    },
+    "tpt": {
+      "name": "Tingkat Pengangguran Terbuka",
+      "short": "TPT",
+      "icon": "users",
+      "pair": "kemiskinan",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "scale": "%"
+    },
+    "pdrb_per_kapita": {
+      "name": "PDRB Per Kapita",
+      "short": "PDRB",
+      "icon": "wallet",
+      "pair": "pertumbuhan_ekonomi",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "scale": "Juta Rupiah/Tahun"
+    },
+    "ipm": {
+      "name": "Indeks Pembangunan Manusia",
+      "short": "IPM",
+      "icon": "graduation-cap",
+      "pair": "ipg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "scale": "0-100"
+    },
+    "aps": {
+      "name": "Angka Partisipasi Sekolah",
+      "short": "APS",
+      "icon": "book-open",
+      "pair": null,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "scale": "%"
+    },
+    "ipg": {
+      "name": "Indeks Pembangunan Gender",
+      "short": "IPG",
+      "icon": "scale",
+      "pair": "ipm",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "scale": "0-100"
+    },
+    "kemiskinan": {
+      "name": "Persentase Kemiskinan",
+      "short": "Kemiskinan",
+      "icon": "arrow-down",
+      "pair": "tpt",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "scale": "%"
+    },
+    "gini": {
+      "name": "Rasio Gini",
+      "short": "Gini",
+      "icon": "bar-chart",
+      "pair": null,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "scale": "0-1"
+    },
+    "inflasi": {
+      "name": "Inflasi",
+      "short": "Inflasi",
+      "icon": "tag",
+      "pair": null,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "scale": "%"
+    }
+  }
+}
