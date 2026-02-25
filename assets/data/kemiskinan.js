@@ -1,4 +1,4 @@
-{
+const dataKemiskinan = {
     "indikator": "Persentase Penduduk Miskin",
     "satuan": "%",
     "sumber": "BPS Provinsi Kepulauan Riau",

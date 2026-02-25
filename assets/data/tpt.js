@@ -1,85 +1,102 @@
-{
-  "indikator": "Angka Partisipasi Sekolah (APS)",
+const dataTpt = {
+  "indikator": "Tingkat Pengangguran Terbuka (TPT)",
   "satuan": "Persen",
-  "kelompok_umur": "16-18 Tahun",
   "sumber": "BPS Provinsi Kepulauan Riau",
   "tahun": [
     2020,
     2021,
     2022,
-    2023
+    2023,
+    2024,
+    2025
   ],
   "wilayah": {
     "kepulauan_riau": {
       "nama": "Kepulauan Riau",
       "tahunan": [
-        84.62,
-        84.4,
-        84.54,
-        84.97
+        10.34,
+        9.91,
+        8.23,
+        6.8,
+        6.39,
+        6.45
       ]
     },
     "batam": {
       "nama": "Batam",
       "tahunan": [
-        84.74,
-        84.45,
-        85.12,
-        85.85
+        11.79,
+        11.64,
+        9.56,
+        8.14,
+        7.68,
+        7.57
       ]
     },
     "tanjungpinang": {
       "nama": "Tanjungpinang",
       "tahunan": [
-        91.51,
-        91.06,
-        87.16,
-        87.03
+        9.3,
+        6.31,
+        5.27,
+        4.76,
+        4.69,
+        4.72
       ]
     },
     "bintan": {
       "nama": "Bintan",
       "tahunan": [
-        90.2,
-        90.49,
-        92.7,
-        92.54
+        8.86,
+        8.62,
+        6.91,
+        5.43,
+        4.53,
+        4.81
       ]
     },
     "karimun": {
       "nama": "Karimun",
       "tahunan": [
-        77.66,
-        77.91,
-        77.1,
-        76.92
+        8.36,
+        7.2,
+        6.87,
+        6.02,
+        5.52,
+        6.31
       ]
     },
     "natuna": {
       "nama": "Natuna",
       "tahunan": [
-        77.57,
-        77.55,
-        75.6,
-        75.86
+        4.1,
+        5.15,
+        4.15,
+        4.05,
+        3.89,
+        3.98
       ]
     },
     "lingga": {
       "nama": "Lingga",
       "tahunan": [
-        80.11,
-        79.17,
-        80.31,
-        80.3
+        4.41,
+        4.23,
+        3.09,
+        3.52,
+        3.38,
+        3.52
       ]
     },
     "kepulauan_anambas": {
       "nama": "Kepulauan Anambas",
       "tahunan": [
-        88.9,
-        88.98,
-        88.25,
-        88.36
+        3.44,
+        1.27,
+        2.15,
+        2.55,
+        2.38,
+        2.56
       ]
     }
   }

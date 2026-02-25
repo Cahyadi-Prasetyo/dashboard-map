@@ -1,4 +1,4 @@
-{
+const dataIpg = {
     "indikator": "Indeks Pembangunan Gender (IPG)",
     "satuan": "Poin",
     "sumber": "BPS Provinsi Kepulauan Riau",

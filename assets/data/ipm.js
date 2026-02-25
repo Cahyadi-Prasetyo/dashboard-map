@@ -1,4 +1,4 @@
-{
+const dataIpm = {
     "indikator": "Indeks Pembangunan Manusia",
     "satuan": "Poin",
     "sumber": "BPS Provinsi Kepulauan Riau (Metode Baru: Umur Harapan Hidup Hasil Long Form SP2020)",

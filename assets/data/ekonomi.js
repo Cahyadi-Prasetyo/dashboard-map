@@ -1,4 +1,4 @@
-{
+const dataEkonomi = {
   "indikator": "Pertumbuhan Ekonomi",
   "satuan": "Persen",
   "sumber": "BPS Provinsi Kepulauan Riau",

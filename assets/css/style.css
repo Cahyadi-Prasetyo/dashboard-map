@@ -6413,7 +6413,7 @@
             }
 
             .style-286 {
-                --bs-bg-opacity: 1; background-color:rgb(227, 127, 42); padding-top:48px; padding-bottom:48px; box-sizing:border-box;
+                --bs-bg-opacity: 1; background-color:rgb(227, 127, 42); padding-top:48px; padding-bottom:48px; box-sizing:border-box; margin-top: 0px;
             }
 
             .style-287 {
@@ -6605,7 +6605,7 @@
             .style-141 {}
 
             footer.style-286 {
-                margin-top: 24px;
+                margin-top: 0px;
                 position: relative;
                 z-index: 1;
                 clear: both;
@@ -7900,6 +7900,19 @@
                 align-items: stretch;
             }
 
+            /* PAIRED SECTION (DUAL CARD L/R) */
+            .eko-section-3 {
+                background: #faf3ec; padding: 48px 0;
+            }
+
+            .eko-section-5 {
+                background: #e37f2a; padding-top: 48px; padding-bottom: 48px;
+            }
+
+            .eko-section-4 {
+                background: #ffffff; padding: 48px 0;
+            }
+
             /* Main Card */
             .eko-ipm-main-card {
                 background: #ffffff;
@@ -8261,4 +8274,86 @@
                 .eko-paired-description {
                     grid-template-columns: 1fr; gap: 20px;
                 }
+            }
+
+            /* ==========================================================================
+   UI/UX Enhancements (Global Dashboard)
+   ========================================================================== */
+
+            /* Smooth transitions for all cards */
+            .eko-card-square, .eko-detail, .eko-chart-wrapper, .eko-paired-card, .eko-ipm-main-card, .eko-ipm-meta-card, .eko-ipg-main, .eko-ipg-chart-box, .eko-description {
+                transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            }
+
+            /* Hover effects for main cards */
+            .eko-card-square:hover, .eko-detail:hover, .eko-chart-wrapper:hover, .eko-paired-card:hover, .eko-ipm-main-card:hover, .eko-ipm-meta-card:hover, .eko-ipg-main:hover, .eko-ipg-chart-box:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08) !important;
+            }
+
+            /* Subtle hover for description boxes */
+            .eko-description:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05) !important;
+            }
+
+            /* Table row hover interactions */
+            .eko-table tbody tr {
+                transition: background-color 0.2s ease;
+            }
+
+            .eko-table tbody tr:hover {
+                background-color: rgba(227, 127, 42, 0.05);
+                /* Very light orange highlight on hover */
+            }
+
+            /* Histogram bars hover state */
+            .eko-bar {
+                transition: height 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.2s ease, transform 0.2s ease !important;
+                cursor: crosshair;
+            }
+
+            .eko-bar-group:hover .eko-bar {
+                filter: brightness(1.15);
+                /* Slightly brighten bar on hover */
+                transform: scaleX(1.1);
+                /* Slightly widen */
+            }
+
+            .eko-bar-group:hover .eko-bar-value {
+                font-weight: 700;
+                transform: scale(1.15) translateY(-5px);
+                /* Pop up the value */
+                transition: all 0.2s ease;
+            }
+
+            .eko-bar-group:hover .eko-bar-negative .eko-bar-value {
+                transform: scale(1.15) translateY(5px);
+            }
+
+            /* Improved Navbar Links hover */
+            nav a {
+                transition: color 0.2s ease, opacity 0.2s ease;
+            }
+
+            nav a:hover {
+                opacity: 0.8;
+                color: #e37f2a !important;
+                /* Brand orange color */
+            }
+
+            /* Style the select dropdown */
+            .form-select {
+                transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            }
+
+            .form-select:hover, .form-select:focus {
+                border-color: #e37f2a;
+                box-shadow: 0 0 0 0.2rem rgba(227, 127, 42, 0.25);
+                outline: none;
+            }
+
+            /* Smooth scrolling for anchor links */
+            html {
+                scroll-behavior: smooth;
             }
