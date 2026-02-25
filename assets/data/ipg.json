@@ -1,0 +1,94 @@
+{
+    "indikator": "Indeks Pembangunan Gender (IPG)",
+    "satuan": "Poin",
+    "sumber": "BPS Provinsi Kepulauan Riau",
+    "tahun": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+    ],
+    "wilayah": {
+        "kepulauan_riau": {
+            "nama": "Kepulauan Riau",
+            "tahunan": [
+                93.31,
+                93.49,
+                93.50,
+                93.96,
+                94.20
+            ]
+        },
+        "karimun": {
+            "nama": "Karimun",
+            "tahunan": [
+                91.25,
+                91.00,
+                91.12,
+                91.33,
+                91.61
+            ]
+        },
+        "bintan": {
+            "nama": "Bintan",
+            "tahunan": [
+                93.12,
+                93.53,
+                93.78,
+                93.93,
+                94.05
+            ]
+        },
+        "natuna": {
+            "nama": "Natuna",
+            "tahunan": [
+                91.67,
+                91.95,
+                91.86,
+                92.07,
+                91.82
+            ]
+        },
+        "lingga": {
+            "nama": "Lingga",
+            "tahunan": [
+                89.25,
+                89.73,
+                90.48,
+                90.75,
+                91.12
+            ]
+        },
+        "kepulauan_anambas": {
+            "nama": "Kepulauan Anambas",
+            "tahunan": [
+                90.27,
+                90.30,
+                91.14,
+                91.25,
+                91.58
+            ]
+        },
+        "batam": {
+            "nama": "Batam",
+            "tahunan": [
+                94.43,
+                94.51,
+                94.75,
+                94.95,
+                95.72
+            ]
+        },
+        "tanjungpinang": {
+            "nama": "Tanjungpinang",
+            "tahunan": [
+                96.79,
+                97.14,
+                97.14,
+                96.96,
+                97.02
+            ]
+        }
+    }
+}
