@@ -1343,3 +1343,27 @@
                 .nav-dropdown-menu li:last-child a {
                     border-radius: 0 0 12px 12px;
                 }
+
+                /* ============================= */
+                /* HORIZONTAL SCROLL NAV MENU    */
+                /* ============================= */
+                .style-11 {
+                    display: flex;
+                    flex-wrap: nowrap;
+                    overflow-x: auto;
+                    -webkit-overflow-scrolling: touch;
+                    scrollbar-width: none;
+                    /* Firefox */
+                    gap: 8px;
+                    padding-bottom: 4px;
+                    margin-left: auto !important;
+                }
+
+                .style-11::-webkit-scrollbar {
+                    display: none;
+                    /* Chrome, Safari */
+                }
+
+                .style-3 {
+                    max-width: 96% !important;
+                }
