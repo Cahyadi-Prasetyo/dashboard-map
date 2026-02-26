@@ -1,5 +1,86 @@
         /* CAROUSEL SECTION */
+    /* ============================= */
+/* CONTAINER 2 KOLOM */
+/* ============================= */
+/* ============================= */
+/* CONTAINER FULL SCREEN */
+/* ============================= */
+    :root {
+    --primary: #e37f2a;
+    --primary-dark: #c96d21;
+    --primary-soft: #fff3ea;
+    --accent: #13273F;
+    --text-main: #2b2b2b;
+    --text-muted: #6b7280;
+    --bg-light: #f9fafb;
+    }
 
+    body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: var(--text-main);
+    }
+    .indikator-dua-kolom {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 50% : 50% */
+        width: 100%;
+        min-height: 100vh; /* 1 layar penuh */
+    }
+
+
+    /* ============================= */
+    /* PANEL */
+    /* ============================= */
+    .panel-indikator {
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* konten di tengah vertikal */
+    }
+
+
+    /* Warna beda kiri kanan (optional biar kelihatan split) */
+    .panel-indikator:first-child {
+        background: #ffffff;
+    }
+
+    .panel-indikator:last-child {
+        background: #f5f7fb;
+    }
+
+
+    /* ============================= */
+    /* BODY (image + chart dalam panel) */
+    /* ============================= */
+    .panel-body {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        gap: 20px;
+        align-items: center;
+    }
+
+
+    /* ============================= */
+    /* IMAGE */
+    /* ============================= */
+    .panel-image img {
+        width: 100%;
+        border-radius: 12px;
+    }
+
+
+    /* ============================= */
+    /* RESPONSIVE */
+    /* ============================= */
+    @media (max-width: 900px) {
+        .indikator-dua-kolom {
+            grid-template-columns: 1fr; /* jadi 1 kolom di HP */
+        }
+
+        .panel-body {
+            grid-template-columns: 1fr;
+        }
+    }
     .hero-carousel {
         position: relative;
         width: 100%;
@@ -184,8 +265,151 @@
     white-space: normal;
     max-width:1100px;   /* batasi lebar seperti BPS */
     width:100%;
-
     margin:0 auto;
+    }
+
+    .indikator-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+
+        width: 100%;
+        padding: 20px 20px;   /* beri jarak dari tepi layar */
+        box-sizing: border-box;
+    }
+
+    .indikator-card {
+        background: #ffffff;
+        border-radius: 18px;
+        padding: 24px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+        border-top: 6px solid var(--primary);
+    }
+
+    .indikator-top {
+        display: grid;
+        grid-template-columns: 140px 1fr;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .indikator-top img {
+        width: 140px;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .indikator-chart canvas {
+        height: 260px !important;
+    }
+
+    .indikator-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    }
+
+
+    /* JUDUL */
+    .indikator-card h3 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 30px;
+        color: var(--accent);
+    }
+
+    .indikator-card h3::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--primary);
+    margin-top: 10px;
+    border-radius: 3px;
+    }
+    /* SECTION GAMBAR + PENJELASAN */
+    .indikator-top {
+        display: grid;
+        grid-template-columns: minmax(240px, 320px) 1fr;
+        gap: 24px;
+        align-items: center;
+    }
+
+    .indikator-top img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-left: 5px;
+    }
+    .indikator-desc {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* container */
+    .indikator-info {
+        background: #f8fafc;
+        border-radius: 10px;
+        padding: 12px 14px;
+        border: 1px solid #e2e8f0;
+        transition: 0.2s;
+    }
+
+    .indikator-info:hover {
+        background: #f1f5f9;
+    }
+
+    /* header */
+    .indikator-info-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 4px;
+    }
+
+    .indikator-info-header span {
+        font-size: 13px;
+        font-weight: 600;
+        color: #0f172a;
+    }
+
+    /* icon */
+    .indikator-info-icon {
+        width: 22px;
+        height: 22px;
+        border-radius: 6px;
+        background: #2563eb;
+        color: white;
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* text */
+    .indikator-info-text {
+        font-size: 13px;
+        line-height: 1.6;
+        color: #475569;
+    }
+
+    /* GRAFIK */
+    .indikator-chart {
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+
+    .indikator-insight {
+        background: var(--primary-soft);
+        padding: 20px 25px;
+        border-radius: 12px;
+        font-size: 14px;
+        font-weight: 200px;
+        line-height: 1.7;
+        border-left: 4px solid var(--primary);
     }
 
     .indikator-card {
@@ -815,7 +1039,7 @@
             }
 
             .style-129 {
-                padding-right:48px; padding-left:48px; max-width:1320px; margin-top:-48px; --bs-gutter-x: 1.5rem; --bs-gutter-y: 0; width: 100%; margin-right: auto; margin-left: auto; box-sizing:border-box;
+                padding-right:48px; padding-left:48px; max-width:1320px; --bs-gutter-x: 1.5rem; --bs-gutter-y: 0; width: 100%; margin-right: auto; margin-left: auto; box-sizing:border-box;
             }
 
             .style-130 {
@@ -1104,13 +1328,4 @@
 
 .nav-dropdown-menu li:last-child a {
     border-radius: 0 0 12px 12px;
-}
-
-/* Hero carousel link styling */
-.hero-slide a {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    width: 100%;
-    height: 100%;
 }

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard — Kabupaten Lingga</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Dashboard — Kota Batam</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
     <style>
         /* Global Resets */
         html, body {
@@ -270,8 +270,8 @@
     <nav class="style-2">
         <div class="style-3">
             <a class="style-4" href="#">
-                <img src="logo_bps.png" alt="Logo" height="48" class="style-5" /> </a> <a class="style-6" href="#">
-                <img src="assets/img/logo.png" alt="Logo" height="36" class="style-7" /> </a> <button class="style-8" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <img src="../assets/img/logo_bps.png" alt="Logo" height="48" class="style-5" /> </a> <a class="style-6" href="#">
+                <img src="../assets/img/logo.png" alt="Logo" height="36" class="style-7" /> </a> <button class="style-8" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="style-9"></span> </button>
             <div class="style-10">
                 <ul class="style-11">
@@ -289,7 +289,7 @@
                             <li><a href="bintan.html">Kab. Bintan</a></li>
                             <li><a href="karimun.html">Kab. Karimun</a></li>
                             <li><a href="natuna.html">Kab. Natuna</a></li>
-                            <li><a href="lingga.html" class="active">Kab. Lingga</a></li>
+                            <li><a href="lingga.html">Kab. Lingga</a></li>
                             <li><a href="anambas.html">Kab. Kepulauan Anambas</a></li>
                         </ul>
                     </li>
@@ -300,7 +300,7 @@
     <div class="style-16">
         <div class="style-17">
 <!--            <div class="style-18">
-                <img src="kepri.jpeg" alt="hero image - petugas sensus" class="style-19" />
+                <img src="../assets/img/kepri.jpeg" alt="hero image - petugas sensus" class="style-19" />
                 </div> -->
 
             <div class="style-18">
@@ -309,16 +309,16 @@
 
                     <!-- Slide 1 -->
                     <div class="hero-slide">
-                        <img src="tpi.jpeg" class="hero-img">
+                        <img src="../assets/img/tpi.jpeg" class="hero-img">
                         <div class="hero-overlay">
                             <h2>Kota Tanjungpinang</h2>
                             <p>Pusat pemerintahan dan pariwisata budaya Melayu</p>
                         </div>
                     </div>
                     <div class="hero-slide active">
-                        <img src="lingga.jpeg" class="hero-img">
+                        <img src="../assets/img/batam.jpeg" class="hero-img">
                         <div class="hero-overlay">
-                            <h2>Lingga</h2>
+                            <h2>Batam</h2>
                             <p>Pusat industri manufaktur dan perdagangan internasional.</p>
                         </div>
                     </div>
@@ -342,7 +342,7 @@
                         Letaknya yang strategis di jalur perdagangan global menjadikan wilayah ini memiliki
                         peran penting dalam mendukung daya saing ekonomi Indonesia.</h6>
                         <div class="style-58">
-                        </div> <img src="aset2.png" alt="dots" height="48" class="style-59" />
+                        </div> <img src="../assets/img/aset2.png" alt="dots" height="48" class="style-59" />
                     </div>
                 </div>
             </div>
@@ -351,7 +351,7 @@
     <div class="style-60">
         <div class="style-61">
             <div class="style-62">
-                <h2 class="style-63">Indikator Strategis Kabupaten Lingga</h2>
+                <h2 class="style-63">Indikator Strategis Kota Batam</h2>
                 <p class="style-64">mengacu pada indikator kinerja utama pemerintah
                 </p>
                 
@@ -385,7 +385,7 @@
                     </div>
                     <div class="eko-card-value">6,69<span class="eko-card-unit">%</span></div>
                     <div class="eko-card-label">Pertumbuhan Ekonomi</div>
-                    <div class="eko-card-sub">Kabupaten Lingga &bull; 2024</div>
+                    <div class="eko-card-sub">Kota Batam &bull; 2024</div>
                 </div>
 
                 <!-- Kanan: Tabel BPS -->
@@ -436,7 +436,7 @@
             <!-- Histogram Pertumbuhan Ekonomi 5 Tahun -->
             <div class="eko-chart-wrapper">
                 <div class="eko-chart-header">
-                    <h4 class="eko-chart-title">Pertumbuhan Ekonomi Tahunan — Kabupaten Lingga</h4>
+                    <h4 class="eko-chart-title">Pertumbuhan Ekonomi Tahunan — Kota Batam</h4>
                     <span class="eko-chart-subtitle">Perbandingan 5 Tahun Terakhir (Persen)</span>
                 </div>
                 <div class="eko-histogram" id="ekoHistogram">
@@ -448,8 +448,8 @@
 
             <script>
             (function() {
-                const WILAYAH_KEY = 'lingga'; // Change per region page
-                fetch('assets/data/ekonomi.json')
+                const WILAYAH_KEY = 'batam'; // Change per region page
+                fetch('../assets/data/ekonomi.json')
                     .then(r => r.json())
                     .then(data => {
                         const tahun = data.tahun;
@@ -602,7 +602,7 @@
         <!-- Histogram -->
         <div class="eko-chart-wrapper" style="margin-top: 24px;">
             <div class="eko-chart-header">
-                <h4 class="eko-chart-title">Perkembangan IPM Tahunan — Kabupaten Lingga</h4>
+                <h4 class="eko-chart-title">Perkembangan IPM Tahunan — Kota Batam</h4>
                 <span class="eko-chart-subtitle">Perbandingan 2020 - 2025</span>
             </div>
             <div class="eko-histogram" id="ipmHistogram">
@@ -615,8 +615,8 @@
 
         <script>
         (function() {
-            const WILAYAH_KEY = 'lingga';
-            fetch('assets/data/ipm.json')
+            const WILAYAH_KEY = 'batam';
+            fetch('../assets/data/ipm.json')
                 .then(r => r.json())
                 .then(data => {
                     const wData = data.wilayah[WILAYAH_KEY];
@@ -728,7 +728,7 @@
                 <div class="eko-ipg-chart-box">
                     <div class="eko-chart-header" style="margin-bottom: 20px;">
                         <h4 class="eko-chart-title" style="font-size: 16px;">Perkembangan IPG Tahunan</h4>
-                        <span class="eko-chart-subtitle">Kabupaten Lingga (2020 - 2024)</span>
+                        <span class="eko-chart-subtitle">Kota Batam (2020 - 2024)</span>
                     </div>
                     <!-- Reuse the eko-bars-area styling -->
                     <div class="eko-histogram" id="ipgHistogram" style="height: 180px;">
@@ -744,8 +744,8 @@
             
             <script>
             (function() {
-                const WILAYAH_KEY = 'lingga';
-                fetch('assets/data/ipg.json')
+                const WILAYAH_KEY = 'batam';
+                fetch('../assets/data/ipg.json')
                     .then(r => r.json())
                     .then(data => {
                         const wData = data.wilayah[WILAYAH_KEY];
@@ -835,7 +835,7 @@
             <div class="eko-paired-card eko-tpt-theme">
                 <div class="eko-paired-card-header">
                     <h4 class="eko-paired-card-title"><i class="bi bi-briefcase-fill" style="color:#E37F2A;"></i> Tingkat Pengangguran Terbuka</h4>
-                    <p class="eko-paired-card-subtitle">Kabupaten Lingga (% Angkatan Kerja)</p>
+                    <p class="eko-paired-card-subtitle">Kota Batam (% Angkatan Kerja)</p>
                 </div>
                 <div class="eko-paired-highlight">
                     <span class="eko-paired-highlight-val" id="tpt-main-val">7,57%</span>
@@ -850,7 +850,7 @@
             <div class="eko-paired-card eko-aps-theme">
                 <div class="eko-paired-card-header">
                     <h4 class="eko-paired-card-title"><i class="bi bi-mortarboard-fill" style="color:#2d9cdb;"></i> Angka Partisipasi Sekolah</h4>
-                    <p class="eko-paired-card-subtitle">Kabupaten Lingga (Usia 16-18 Tahun)</p>
+                    <p class="eko-paired-card-subtitle">Kota Batam (Usia 16-18 Tahun)</p>
                 </div>
                 <div class="eko-paired-highlight">
                     <span class="eko-paired-highlight-val" id="aps-main-val">85,85%</span>
@@ -877,10 +877,10 @@
 
         <script>
         (function() {
-            const WILAYAH_KEY = 'lingga';
+            const WILAYAH_KEY = 'batam';
 
             // Fetch TPT
-            fetch('assets/data/tpt.json')
+            fetch('../assets/data/tpt.json')
                 .then(r => r.json())
                 .then(data => {
                     const wData = data.wilayah[WILAYAH_KEY];
@@ -889,7 +889,7 @@
                 .catch(() => renderHistogram('tptHistogram', [2020,2021,2022,2023,2024,2025], [11.79,11.64,9.56,8.14,7.68,7.57], '#E37F2A', true));
 
             // Fetch APS
-            fetch('assets/data/aps.json')
+            fetch('../assets/data/aps.json')
                 .then(r => r.json())
                 .then(data => {
                     const wData = data.wilayah[WILAYAH_KEY];
@@ -993,7 +993,7 @@
                     <div class="eko-paired-card eko-kemiskinan-theme">
                         <div class="eko-paired-card-header">
                             <h4 class="eko-paired-card-title"><i class="bi bi-people-fill"></i> Persentase Penduduk Miskin</h4>
-                            <p class="eko-paired-card-subtitle">Kabupaten Lingga (% dari Total Penduduk)</p>
+                            <p class="eko-paired-card-subtitle">Kota Batam (% dari Total Penduduk)</p>
                         </div>
                         <div class="eko-paired-highlight">
                             <span class="eko-paired-highlight-val" id="kemiskinan-main-val">3,81%</span>
@@ -1008,7 +1008,7 @@
                     <div class="eko-paired-card eko-gini-theme">
                         <div class="eko-paired-card-header">
                             <h4 class="eko-paired-card-title"><i class="bi bi-pie-chart-fill"></i> Rasio Gini</h4>
-                            <p class="eko-paired-card-subtitle">Kabupaten Lingga (Tingkat Ketimpangan)</p>
+                            <p class="eko-paired-card-subtitle">Kota Batam (Tingkat Ketimpangan)</p>
                         </div>
                         <div class="eko-paired-highlight">
                             <span class="eko-paired-highlight-val" id="gini-main-val">0,338</span>
@@ -1036,9 +1036,9 @@
                 <!-- Kemiskinan & Gini Script -->
                 <script>
                 (function() {
-                    const WILAYAH_KEY = 'lingga';
+                    const WILAYAH_KEY = 'batam';
 
-                    fetch('assets/data/kemiskinan.json')
+                    fetch('../assets/data/kemiskinan.json')
                         .then(r => r.json())
                         .then(data => {
                             const wData = data.wilayah[WILAYAH_KEY];
@@ -1048,7 +1048,7 @@
                             renderKemChart('kemiskinanHistogram', [2021, 2022, 2023, 2024, 2025], [5.05, 5.19, 4.67, 4.26, 3.81], '#e37f2a', true);
                         });
 
-                    fetch('assets/data/gini.json')
+                    fetch('../assets/data/gini.json')
                         .then(r => r.json())
                         .then(data => {
                             const wData = data.wilayah[WILAYAH_KEY];
@@ -1151,7 +1151,7 @@
                         <div style="margin-top: 32px; padding-top: 24px; border-top: 1px dashed #eaeaea;">
                             <h5 style="color: #1a1a2e; font-size: 14px; font-weight: 700; margin-bottom: 8px;"><i class="bi bi-info-circle-fill" style="color: #e37f2a; margin-right: 6px;"></i>Penjelasan</h5>
                             <p style="color: #666; font-size: 13px; line-height: 1.6; margin: 0;">
-                                Pertambahan jumlah penduduk Kabupaten Lingga mencerminkan daya tarik kota sebagai pusat perindustrian dan investasi. Data ini menjadi acuan dalam perencanaan infrastruktur dan pelayanan publik ke depan.
+                                Pertambahan jumlah penduduk Kota Batam mencerminkan daya tarik kota sebagai pusat perindustrian dan investasi. Data ini menjadi acuan dalam perencanaan infrastruktur dan pelayanan publik ke depan.
                             </p>
                         </div>
                     </div>
@@ -1176,7 +1176,7 @@
                         <div style="margin-top: 32px; padding-top: 24px; border-top: 1px dashed #eaeaea;">
                             <h5 style="color: #1a1a2e; font-size: 14px; font-weight: 700; margin-bottom: 8px;"><i class="bi bi-info-circle-fill" style="color: #e37f2a; margin-right: 6px;"></i>Penjelasan</h5>
                             <p style="color: #666; font-size: 13px; line-height: 1.6; margin: 0;">
-                                PDRB per Kapita menunjukkan rata-rata pendapatan penduduk. Peningkatan nilai ini mengindikasikan kesejahteraan ekonomi masyarakat Lingga yang semakin membaik seiring dengan pertumbuhan industri dan pariwisata.
+                                PDRB per Kapita menunjukkan rata-rata pendapatan penduduk. Peningkatan nilai ini mengindikasikan kesejahteraan ekonomi masyarakat Batam yang semakin membaik seiring dengan pertumbuhan industri dan pariwisata.
                             </p>
                         </div>
                     </div>
@@ -1185,10 +1185,10 @@
 
             <script>
             (function() {
-                const WILAYAH_KEY = 'lingga'; // DO NOT REMOVE THIS LINE
+                const WILAYAH_KEY = 'batam'; // DO NOT REMOVE THIS LINE
                 
                 // Fetch Penduduk
-                fetch('assets/data/penduduk.json')
+                fetch('../assets/data/penduduk.json')
                     .then(res => res.json())
                     .then(data => {
                         const pend = data[WILAYAH_KEY];
@@ -1200,7 +1200,7 @@
                     }).catch(console.error);
 
                 // Fetch PDRB
-                fetch('assets/data/pdrb.json')
+                fetch('../assets/data/pdrb.json')
                     .then(res => res.json())
                     .then(data => {
                         const years = [2020, 2021, 2022, 2023, 2024];
@@ -1296,7 +1296,7 @@
                             <div class="eko-chart-header" style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
                                 <div>
                                     <h4 class="eko-chart-title" style="font-size: 16px;">Grafik Inflasi Bulanan</h4>
-                                    <span class="eko-chart-subtitle" id="inflasi-chart-subtitle">Kabupaten Lingga (Persen)</span>
+                                    <span class="eko-chart-subtitle" id="inflasi-chart-subtitle">Kota Batam (Persen)</span>
                                 </div>
                                 <select id="inflasi-year-select" class="form-select form-select-sm" style="width: auto; background-color: #ffffff; border: 1px solid #dee2e6; color: #333; font-weight: 600; cursor: pointer; border-radius: 6px; padding: 4px 28px 4px 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
                                     <option value="2026" selected>2026</option>
@@ -1322,10 +1322,10 @@
             </div>
         </div>
 
-        <script src="assets/data/inflasi.js"></script>
+        <script src="../assets/data/inflasi.js"></script>
         <script>
         (function() {
-            const WILAYAH_KEY = 'lingga';
+            const WILAYAH_KEY = 'batam';
             const yearSelect = document.getElementById('inflasi-year-select');
 
             function updateInflasi() {

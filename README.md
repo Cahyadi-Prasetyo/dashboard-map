@@ -24,8 +24,7 @@ dashboard-map/
 │   └── js/                      # Script JavaScript
 │
 ├── Dashboard_KEPRI/             # Sumber file asli (referensi)
-└── backup/
-    └── second/                  # Backup versi HTML sebelumnya
+└── backup/                      # Backup versi HTML sebelumnya
 ```
 
 > **Catatan**: Folder `assets/data/` berisi file JS dan JSON dari projek versi lama. Data tersebut digunakan sebagai **acuan/referensi** saja. Pada versi saat ini, semua data indikator langsung ditempelkan (hardcoded) di dalam file HTML masing-masing halaman.
@@ -109,7 +108,65 @@ Dashboard mencakup **1 provinsi** dan **7 kabupaten/kota** di Kepulauan Riau:
 - **Sumber**: Badan Pusat Statistik (BPS) Provinsi Kepulauan Riau
 - **Pendekatan**: Data langsung ditempelkan di file HTML (tidak menggunakan fetch dari file JSON/JS)
 - **Periode**: Data terkini hingga 2025
-- **Folder `assets/data/`**: Berisi data acuan dari projek versi lama, disimpan sebagai referensi
+- **Penting**: Hindari penggunaan tabel untuk menampilkan data ekonomi maupun indikator lainnya. Gunakan card, grafik, atau format visual lain yang lebih sesuai untuk presentasi
+
+### Data Acuan (Projek Lama)
+
+Folder `assets/data/` berisi file referensi dari versi sebelumnya. Data ini **tidak di-load secara dinamis**, tetapi disimpan sebagai acuan saat mengisi data ke dalam HTML:
+
+- **ekonomi.js** — Pertumbuhan Ekonomi (%, 2020–2024) per kab/kota, termasuk data triwulanan Kota Batam
+- **ipm.js** — Indeks Pembangunan Manusia (2020–2025) per kab/kota, termasuk metadata komponen IPM Kota Batam
+- **ipg.js** — Indeks Pembangunan Gender per kab/kota
+- **kemiskinan.js** — Angka Kemiskinan per kab/kota
+- **tpt.js** — Tingkat Pengangguran Terbuka per kab/kota
+- **aps.js** — Angka Partisipasi Sekolah per kab/kota
+- **gini.js** — Gini Ratio per kab/kota
+- **inflasi.js** — Data inflasi per kab/kota
+- **pdrb.json** — PDRB per Kapita
+- **penduduk.json** — Data jumlah penduduk
+- **indicators.json** — Konfigurasi indikator
+
+---
+
+## 🌿 Strategi Branching (Git)
+
+Projek ini menggunakan strategi branching agar kolaborasi antar anggota tim tidak saling bentrok. Setiap anggota mengerjakan halaman kabupaten/kota di branch masing-masing.
+
+### Branch Utama
+
+- **`main`** — Branch bersih / production-ready. Hanya diisi ketika **semua halaman sudah selesai dan siap dipresentasikan**. Tidak boleh push langsung ke sini.
+- **`develop`** *(default)* — Branch utama pengembangan. Semua perubahan dari branch kab/kota akan di-**merge** ke sini. Branch ini adalah tempat menggabungkan dan menguji semua halaman sebelum dipindahkan ke `main`.
+
+### Branch Kabupaten/Kota
+
+Setiap kabupaten/kota memiliki branch tersendiri. Anggota tim mengerjakan halamannya di branch yang sesuai, lalu merge ke `develop` ketika selesai.
+
+- `feature/karimun` — Kab. Karimun (2101)
+- `feature/bintan` — Kab. Bintan (2102)
+- `feature/natuna` — Kab. Natuna (2103)
+- `feature/lingga` — Kab. Lingga (2104)
+- `feature/anambas` — Kab. Kepulauan Anambas (2105)
+- `feature/batam` — Kota Batam (2171)
+- `feature/tanjungpinang` — Kota Tanjung Pinang (2172)
+
+### Alur Kerja
+
+```
+feature/karimun ──┐
+feature/bintan ───┤
+feature/natuna ───┤
+feature/lingga ───┼──▶ develop ──▶ main
+feature/anambas ──┤
+feature/batam ────┤
+feature/tanjungpinang ─┘
+```
+
+1. Pastikan berada di branch `develop`: `git checkout develop`
+2. Buat branch kab/kota: `git checkout -b feature/karimun`
+3. Kerjakan perubahan, lalu commit
+4. Push ke remote: `git push origin feature/karimun`
+5. Buat Pull Request ke `develop` untuk review
+6. Setelah semua siap → merge `develop` ke `main`
 
 ---
 
