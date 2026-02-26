@@ -1126,7 +1126,7 @@
                         </div>
                         
                         <div class="eko-paired-highlight" style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 24px;">
-                            <span class="eko-paired-highlight-val" style="color: #e37f2a; font-size: 40px; font-weight: 800; line-height: 1; letter-spacing: -1px;">1.196.396</span>
+                            <span class="eko-paired-highlight-val" id="penduduk-val-main" style="color: #e37f2a; font-size: 40px; font-weight: 800; line-height: 1; letter-spacing: -1px;">1.196.396</span>
                             <span class="eko-paired-highlight-desc" style="color: #888; font-size: 14px; font-weight: 600;">Tahun 2020</span>
                         </div>
                         
@@ -1137,11 +1137,11 @@
                             </div>
                             <div style="display: grid; grid-template-columns: 1fr 1fr; text-align: center;">
                                 <div style="padding: 16px; border-right: 1px solid #eaeaea; display: flex; flex-direction: column; gap: 8px;">
-                                    <span style="color: #1a1a2e; font-size: 15px; font-weight: 800;">944.285</span>
+                                    <span id="penduduk-val-2010" style="color: #1a1a2e; font-size: 15px; font-weight: 800;">944.285</span>
                                     <span style="color: #888; font-size: 12px; font-weight: 600;">2010</span>
                                 </div>
                                 <div style="padding: 16px; display: flex; flex-direction: column; gap: 8px;">
-                                    <span style="color: #e37f2a; font-size: 18px; font-weight: 800;">1.196.396</span>
+                                    <span id="penduduk-val-2020" style="color: #e37f2a; font-size: 18px; font-weight: 800;">1.196.396</span>
                                     <span style="color: #888; font-size: 12px; font-weight: 600;">2020</span>
                                 </div>
                             </div>
@@ -1166,7 +1166,7 @@
                     </div>
                     
                     <div class="eko-paired-highlight" style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 24px;">
-                        <span class="eko-paired-highlight-val" style="color: #27ae60; font-size: 40px; font-weight: 800; line-height: 1; letter-spacing: -1px;">182.507</span>
+                        <span id="pdrb-val-main" class="eko-paired-highlight-val" style="color: #27ae60; font-size: 40px; font-weight: 800; line-height: 1; letter-spacing: -1px;">182.507</span>
                         <span class="eko-paired-highlight-desc" style="color: #888; font-size: 14px; font-weight: 600;">Tahun 2024</span>
                     </div>
                     
@@ -1185,9 +1185,30 @@
 
             <script>
             (function() {
-                const years = [2020, 2021, 2022, 2023, 2024];
-                const vals = [135402, 142243, 157633, 171968, 182507];
-                setTimeout(() => {
+                const WILAYAH_KEY = 'batam'; // DO NOT REMOVE THIS LINE
+                
+                // Fetch Penduduk
+                fetch('assets/data/penduduk.json')
+                    .then(res => res.json())
+                    .then(data => {
+                        const pend = data[WILAYAH_KEY];
+                        if (pend) {
+                            if(document.getElementById('penduduk-val-main')) document.getElementById('penduduk-val-main').textContent = pend['2020'].toLocaleString('id-ID');
+                            if(document.getElementById('penduduk-val-2020')) document.getElementById('penduduk-val-2020').textContent = pend['2020'].toLocaleString('id-ID');
+                            if(document.getElementById('penduduk-val-2010')) document.getElementById('penduduk-val-2010').textContent = pend['2010'].toLocaleString('id-ID');
+                        }
+                    }).catch(console.error);
+
+                // Fetch PDRB
+                fetch('assets/data/pdrb.json')
+                    .then(res => res.json())
+                    .then(data => {
+                        const years = [2020, 2021, 2022, 2023, 2024];
+                        const vals = data[WILAYAH_KEY];
+                        
+                        if(document.getElementById('pdrb-val-main')) document.getElementById('pdrb-val-main').textContent = vals[vals.length - 1].toLocaleString('id-ID');
+
+                        setTimeout(() => {
                     const ctx = document.getElementById('pdrbHistogramContainer');
                     if (!ctx) return;
                     const minVal = 120000;
@@ -1245,6 +1266,7 @@
                     });
                     ctx.appendChild(barsArea);
                 }, 100);
+                }).catch(console.error);
             })();
             </script>
 
