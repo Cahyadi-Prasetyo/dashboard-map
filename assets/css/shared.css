@@ -274,7 +274,7 @@
             margin: 0 auto;
         }
 
-        .indikator-wrapper {
+        .detail-wrapper {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 40px;
@@ -285,11 +285,11 @@
             box-sizing: border-box;
         }
 
-        .indikator-wrapper.solo {
+        .detail-wrapper.solo {
             grid-template-columns: 1fr;
         }
 
-        .indikator-card {
+        .detail-card {
             background: #ffffff;
             border-radius: 18px;
             padding: 24px;
@@ -297,39 +297,39 @@
             border-top: 6px solid var(--primary);
         }
 
-        .indikator-top {
+        .detail-top {
             display: grid;
             grid-template-columns: 140px 1fr;
             gap: 20px;
             align-items: center;
         }
 
-        .indikator-top img {
+        .detail-top img {
             width: 140px;
             height: 140px;
             object-fit: cover;
             border-radius: 10px;
         }
 
-        .indikator-chart canvas {
+        .detail-chart canvas {
             height: 260px !important;
         }
 
-        .indikator-card:hover {
+        .detail-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
         }
 
 
         /* JUDUL */
-        .indikator-card h3 {
+        .detail-card h3 {
             font-size: 24px;
             font-weight: 600;
             margin-bottom: 30px;
             color: var(--accent);
         }
 
-        .indikator-card h3::after {
+        .detail-card h3::after {
             content: "";
             display: block;
             width: 50px;
@@ -340,14 +340,14 @@
         }
 
         /* SECTION GAMBAR + PENJELASAN */
-        .indikator-top {
+        .detail-top {
             display: grid;
             grid-template-columns: minmax(280px, 360px) 1fr;
             gap: 24px;
             align-items: center;
         }
 
-        .indikator-top img {
+        .detail-top img {
             width: 100%;
             height: 220px;
             object-fit: contain;
@@ -355,14 +355,14 @@
             margin-left: 5px;
         }
 
-        .indikator-desc {
+        .detail-desc {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
 
         /* container */
-        .indikator-info {
+        .detail-info {
             background: #f8fafc;
             border-radius: 10px;
             padding: 12px 14px;
@@ -370,26 +370,26 @@
             transition: 0.2s;
         }
 
-        .indikator-info:hover {
+        .detail-info:hover {
             background: #f1f5f9;
         }
 
         /* header */
-        .indikator-info-header {
+        .detail-info-header {
             display: flex;
             align-items: center;
             gap: 8px;
             margin-bottom: 4px;
         }
 
-        .indikator-info-header span {
+        .detail-info-header span {
             font-size: 13px;
             font-weight: 600;
             color: #0f172a;
         }
 
         /* icon */
-        .indikator-info-icon {
+        .detail-info-icon {
             width: 22px;
             height: 22px;
             border-radius: 6px;
@@ -403,7 +403,7 @@
         }
 
         /* text */
-        .indikator-info-text {
+        .detail-info-text {
             font-size: 13px;
             line-height: 1.6;
             color: #475569;
@@ -411,12 +411,12 @@
         }
 
         /* GRAFIK */
-        .indikator-chart {
+        .detail-chart {
             margin-top: 25px;
             margin-bottom: 25px;
         }
 
-        .indikator-insight {
+        .detail-insight {
             background: var(--primary-soft);
             padding: 20px 25px;
             border-radius: 12px;
@@ -427,7 +427,7 @@
             margin-top: auto;
         }
 
-        .indikator-card {
+        .detail-card {
             background: white;
             padding: 5px;
             border-radius: 16px;
@@ -439,7 +439,7 @@
             height: 100%;
         }
 
-        .indikator-card:hover {
+        .detail-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
         }
@@ -1670,12 +1670,12 @@
                 /* ============================= */
                 /* TRIWULANAN GRID (no-table)    */
                 /* ============================= */
-                .indikator-triwulanan {
+                .detail-triwulanan {
                     padding: 20px 24px;
                     margin-top: 8px;
                 }
 
-                .indikator-triwulanan h4 {
+                .detail-triwulanan h4 {
                     font-size: 15px;
                     font-weight: 700;
                     color: #1a1a2e;
@@ -1842,36 +1842,36 @@
                     }
 
                     /* Scale the main content wrappers */
-                    .indikator-wrapper {
+                    .detail-wrapper {
                         gap: 60px;
                         padding: 40px;
                     }
 
                     /* Scale cards and contents */
-                    .indikator-card {
+                    .detail-card {
                         padding: 40px;
                         border-radius: 24px;
                     }
 
-                    .indikator-card h3 {
+                    .detail-card h3 {
                         font-size: 36px;
                     }
 
-                    .indikator-top img {
+                    .detail-top img {
                         width: 220px;
                         height: 220px;
                     }
 
-                    .indikator-info-header span {
+                    .detail-info-header span {
                         font-size: 24px;
                     }
 
-                    .indikator-info-text {
+                    .detail-info-text {
                         font-size: 20px;
                     }
 
                     /* Enlarge the charts */
-                    .indikator-chart {
+                    .detail-chart {
                         height: 500px;
                         margin: 40px 0;
                     }
@@ -1898,3 +1898,73 @@
                         font-size: 22px;
                     }
                 }
+
+/* ===== LANDING PAGE INDICATOR STYLES ===== */
+
+.indikator-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            white-space: normal;
+            max-width: 1100px;
+            /* batasi lebar seperti BPS */
+            width: 100%;
+
+            margin: 0 auto;
+        }
+
+.indikator-card {
+            background: white;
+            padding: 5px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            transition: 0.2s;
+        }
+
+.indikator-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        }
+
+.indikator-icon {
+            width: 80px;
+            height: 80px;
+            margin: auto;
+            margin-top: 10px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+
+.indikator-title {
+            font-weight: 600;
+            margin-top: 10px;
+            color: #000000;
+        }
+
+.indikator-value {
+            font-size: 40px;
+            font-weight: bold;
+            margin: 0;
+            line-height: 1.1;
+            color: #e37f2a;
+        }
+
+.indikator-value span {
+            font-size: 20px;
+            font-weight: normal;
+            display: block;
+            margin-top: -4px;
+        }
+
+.indikator-date {
+            font-size: 15px;
+            font-weight: bold;
+            color: #5c5b5b;
+            margin-top: 10px;
+        }
+
+.indikator-container {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
