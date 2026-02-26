@@ -400,9 +400,10 @@
 
         /* text */
         .indikator-info-text {
-            font-size: 13px;
+            font-size: 14px;
             line-height: 1.6;
             color: #475569;
+            font-weight: bold;
         }
 
         /* GRAFIK */
@@ -415,8 +416,8 @@
             background: var(--primary-soft);
             padding: 20px 25px;
             border-radius: 12px;
-            font-size: 14px;
-            font-weight: 200px;
+            font-size: 15px;
+            font-weight: bold;
             line-height: 1.7;
             border-left: 4px solid var(--primary);
         }
