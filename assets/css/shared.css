@@ -609,7 +609,7 @@
                 }
 
                 .style-22 {
-                    padding-bottom:48px; width: 100% !important; box-sizing:border-box;
+                    padding-bottom:16px; width: 100% !important; box-sizing:border-box;
                 }
 
                 .style-23 {
@@ -1059,7 +1059,7 @@
                 }
 
                 .style-129 {
-                    padding-right:48px; padding-left:48px; max-width:1320px; --bs-gutter-x: 1.5rem; --bs-gutter-y: 0; width: 100%; margin-right: auto; margin-left: auto; box-sizing:border-box;
+                    padding-right:48px; padding-left:48px; padding-top:16px; padding-bottom:0px; max-width:1320px; --bs-gutter-x: 1.5rem; --bs-gutter-y: 0; width: 100%; margin-right: auto; margin-left: auto; box-sizing:border-box;
                 }
 
                 .style-130 {
