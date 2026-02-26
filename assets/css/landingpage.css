@@ -1143,3 +1143,10 @@
                 .style-3 {
                     max-width: 96% !important;
                 }
+
+                .style-13.active {
+                    background-color: #2563eb;
+                    color: white !important;
+                    border-radius: 6px;
+                    padding: 6px 12px;
+                }

@@ -35,29 +35,32 @@ dashboard-map/
 
 Dashboard menampilkan **8 indikator strategis utama** yang mengacu pada indikator kinerja utama pemerintah:
 
-1. **Pertumbuhan Ekonomi** — 5,02% (2024)
-   Persentase perubahan nilai tambah barang dan jasa riil dari tahun ke tahun.
+### Section 1 — Pertumbuhan Ekonomi *(full-width)*
+- **Pertumbuhan Ekonomi** — 5,02% (2024)
+  Persentase perubahan nilai tambah barang dan jasa riil dari tahun ke tahun.
 
-2. **PDRB per Kapita** — 161.424 ribu Rp (2024)
-   Produk Domestik Regional Bruto per kapita.
+### Section 2 — IPM *(full-width)*
+- **Indeks Pembangunan Manusia (IPM)** — 80,53 (2025)
+  Capaian pembangunan manusia berbasis kualitas hidup, pendidikan, dan standar hidup.
+  Dilengkapi 3 komponen: Umur Harapan Hidup, Pengetahuan (Sekolah), Standar Hidup Layak.
 
-3. **Indeks Pembangunan Manusia (IPM)** — 80,53 (2025)
-   Capaian pembangunan manusia berbasis kualitas hidup, pendidikan, dan standar hidup.
+### Section 3 — IPG *(full-width)*
+- **Indeks Pembangunan Gender (IPG)** — 94,2 (2024)
+  Kesetaraan capaian pembangunan manusia antara laki-laki dan perempuan.
 
-4. **Indeks Pembangunan Gender (IPG)** — 94,2 (2024)
-   Kesetaraan capaian pembangunan manusia antara laki-laki dan perempuan.
+### Section 4 — TPT + APS *(dibagi 2 kolom)*
+- **Tingkat Pengangguran Terbuka (TPT)** — 6,45% (Agustus 2025)
+  Persentase pengangguran terhadap angkatan kerja.
+- **Angka Partisipasi Sekolah (APS) SMA/SMK** — 88,24 (2025)
+  Proporsi penduduk usia sekolah yang bersekolah.
 
-5. **Tingkat Pengangguran Terbuka (TPT)** — 6,45% (Agustus 2025)
-   Persentase pengangguran terhadap angkatan kerja.
+### Section 5 — Kemiskinan + Gini Ratio *(dibagi 2 kolom)*
+- **Angka Kemiskinan** — 4,44% (Maret 2025)
+  Persentase penduduk di bawah garis kemiskinan.
+- **Gini Ratio** — 0,385 (September 2025)
+  Ukuran ketimpangan distribusi pendapatan.
 
-6. **Angka Partisipasi Sekolah (APS) SMA/SMK** — 88,24 (2025)
-   Proporsi penduduk usia sekolah yang bersekolah.
-
-7. **Angka Kemiskinan** — 4,44% (Maret 2025)
-   Persentase penduduk di bawah garis kemiskinan.
-
-8. **Gini Ratio** — 0,385 (September 2025)
-   Ukuran ketimpangan distribusi pendapatan.
+> **Catatan Layout**: Section 1, 2, dan 3 ditampilkan **sendiri-sendiri** (full-width). Section 4 dan 5 ditampilkan dalam **2 kolom berdampingan** (paired). Setiap indikator memiliki card highlight, histogram tren, dan deskripsi insight masing-masing.
 
 ---
 
