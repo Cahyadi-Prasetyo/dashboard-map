@@ -1,3 +1,130 @@
-# Dashboard Map
+# 📊 Dashboard Map — Sensus Ekonomi 2026
 
-Dashboard Map Project
+**Dashboard Pemantauan Indikator Strategis Provinsi Kepulauan Riau**
+
+Dashboard ini merupakan website statis yang menyajikan data indikator strategis ekonomi dan pembangunan untuk Provinsi Kepulauan Riau beserta 7 kabupaten/kota-nya. Dibuat untuk keperluan **presentasi di Badan Pusat Statistik (BPS)** dalam rangka Sensus Ekonomi 2026.
+
+---
+
+## 🏗️ Struktur Proyek
+
+```
+dashboard-map/
+├── landingpage.html             # Halaman utama (landing page)
+├── page1.html                   # Halaman dashboard Kabupaten Karimun
+├── README.md
+│
+├── assets/
+│   ├── css/
+│   │   ├── style.css            # Style dasar & responsive
+│   │   ├── landingpage.css      # Style khusus landing page
+│   │   └── page1.css            # Style khusus halaman Karimun
+│   ├── data/                    # ⚠️ Data acuan dari projek lama (tidak dipakai langsung)
+│   ├── img/                     # Gambar & aset visual
+│   └── js/                      # Script JavaScript
+│
+├── Dashboard_KEPRI/             # Sumber file asli (referensi)
+└── backup/
+    └── second/                  # Backup versi HTML sebelumnya
+```
+
+> **Catatan**: Folder `assets/data/` berisi file JS dan JSON dari projek versi lama. Data tersebut digunakan sebagai **acuan/referensi** saja. Pada versi saat ini, semua data indikator langsung ditempelkan (hardcoded) di dalam file HTML masing-masing halaman.
+
+---
+
+## 📈 Indikator Strategis
+
+Dashboard menampilkan **8 indikator strategis utama** yang mengacu pada indikator kinerja utama pemerintah:
+
+1. **Pertumbuhan Ekonomi** — 5,02% (2024)
+   Persentase perubahan nilai tambah barang dan jasa riil dari tahun ke tahun.
+
+2. **PDRB per Kapita** — 161.424 ribu Rp (2024)
+   Produk Domestik Regional Bruto per kapita.
+
+3. **Indeks Pembangunan Manusia (IPM)** — 80,53 (2025)
+   Capaian pembangunan manusia berbasis kualitas hidup, pendidikan, dan standar hidup.
+
+4. **Indeks Pembangunan Gender (IPG)** — 94,2 (2024)
+   Kesetaraan capaian pembangunan manusia antara laki-laki dan perempuan.
+
+5. **Tingkat Pengangguran Terbuka (TPT)** — 6,45% (Agustus 2025)
+   Persentase pengangguran terhadap angkatan kerja.
+
+6. **Angka Partisipasi Sekolah (APS) SMA/SMK** — 88,24 (2025)
+   Proporsi penduduk usia sekolah yang bersekolah.
+
+7. **Angka Kemiskinan** — 4,44% (Maret 2025)
+   Persentase penduduk di bawah garis kemiskinan.
+
+8. **Gini Ratio** — 0,385 (September 2025)
+   Ukuran ketimpangan distribusi pendapatan.
+
+---
+
+## 🗺️ Cakupan Wilayah
+
+Dashboard mencakup **1 provinsi** dan **7 kabupaten/kota** di Kepulauan Riau:
+
+- **Provinsi Kepulauan Riau** — Pusat pertumbuhan ekonomi nasional berbasis industri & maritim
+- **Kota Batam** — Pusat industri manufaktur dan perdagangan internasional
+- **Kota Tanjungpinang** — Pusat pemerintahan dan pariwisata budaya Melayu
+- **Kab. Bintan** — Potensi pariwisata dan kawasan industri
+- **Kab. Karimun** — Potensi pertambangan, pelabuhan, dan industri maritim
+- **Kab. Natuna** — Potensi migas, perikanan, dan wilayah strategis nasional
+- **Kab. Lingga** — Potensi perikanan, kelautan, dan ekonomi berbasis SDA
+- **Kab. Kepulauan Anambas** — Potensi perikanan, migas, dan pariwisata bahari
+
+---
+
+## 🚀 Cara Penggunaan
+
+1. Buka file `landingpage.html` langsung di browser (double-click)
+2. Navigasi antar halaman melalui menu atau link di landing page
+3. **Tidak memerlukan server lokal** — cukup buka langsung sebagai file HTML
+
+### Teknologi
+
+- **HTML5** — Struktur halaman
+- **CSS3** — Styling dan responsive design
+- **JavaScript (Vanilla)** — Interaktivitas dan carousel
+- **Data Statis** — Semua data langsung di-hardcode di dalam file HTML
+
+---
+
+## 🎨 Fitur Visual
+
+- **Hero Carousel** — Slideshow foto 7 kabupaten/kota dengan overlay informasi
+- **Indikator Cards** — 8 kartu indikator strategis dengan ikon
+- **Section Potensi Ekonomi** — Informasi potensi strategis:
+  - 🐟 Ekonomi Maritim
+  - 🏭 Industri dan Investasi Strategis
+  - 🏖️ Pariwisata Internasional
+  - 🌐 Konektivitas dan Perdagangan Internasional
+
+---
+
+## 📂 Catatan Data
+
+- **Sumber**: Badan Pusat Statistik (BPS) Provinsi Kepulauan Riau
+- **Pendekatan**: Data langsung ditempelkan di file HTML (tidak menggunakan fetch dari file JSON/JS)
+- **Periode**: Data terkini hingga 2025
+- **Folder `assets/data/`**: Berisi data acuan dari projek versi lama, disimpan sebagai referensi
+
+---
+
+## 📞 Kontak
+
+**Badan Pusat Statistik Provinsi Kepulauan Riau**
+
+- 📍 Jl. Ahmad Yani No. 21, Tanjungpinang 29124
+- 📞 Telp. (0771) 4500155 / 4500150 (PST)
+- 📠 Fax. (0771) 4500157
+- 📧 Email: bps2100@bps.go.id
+- 📱 WhatsApp: 0877-2000-2100
+
+### Media Sosial
+
+- [Instagram @bpskepri](https://instagram.com/bpskepri)
+- [Facebook — BPS Provinsi Kepulauan Riau](https://www.facebook.com/bpskepri)
+- [YouTube — BPS Provinsi Kepulauan Riau](https://www.youtube.com/channel/UCLJy0XZipF0snyJdx4az2EA)

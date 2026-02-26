@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page — Sensus Ekonomi 2026</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/landingpage.css">
 </head>
 
 <body class="style-0">
@@ -12,7 +12,7 @@
     <nav class="style-2">
         <div class="style-3">
             <a class="style-4" href="#">
-                <img src="logo_bps.png" alt="Logo" height="48" class="style-5" /> </a> <a class="style-6" href="#">
+                <img src="assets/img/logo_bps.png" alt="Logo" height="48" class="style-5" /> </a> <a class="style-6" href="#">
                 <img src="assets/img/logo.png" alt="Logo" height="36" class="style-7" /> </a> <button class="style-8" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="style-9"></span> </button>
             <div class="style-10">
@@ -22,18 +22,8 @@
                             Home
                         </button>
                     </li>
-                    <li class="style-14 nav-dropdown">
-                        <a class="style-15" href="#">Kabupaten / Kota ▾</a>
-                        <ul class="nav-dropdown-menu">
-                            <li><a href="provinsi.html">Provinsi Kepulauan Riau</a></li>
-                            <li><a href="batam.html">Kota Batam</a></li>
-                            <li><a href="tanjungpinang.html">Kota Tanjungpinang</a></li>
-                            <li><a href="bintan.html">Kab. Bintan</a></li>
-                            <li><a href="karimun.html">Kab. Karimun</a></li>
-                            <li><a href="natuna.html">Kab. Natuna</a></li>
-                            <li><a href="lingga.html">Kab. Lingga</a></li>
-                            <li><a href="anambas.html">Kab. Kepulauan Anambas</a></li>
-                        </ul>
+                    <li class="style-14">
+                        <a class="style-15" href="https://sensus.bps.go.id">Another Page</a>
                     </li>
                 </ul>
             </div>
@@ -51,20 +41,54 @@
 
                     <!-- Slide 1 -->
                     <div class="hero-slide">
-                        <img src="tpi.jpeg" class="hero-img">
+                        <img src="assets/img/tpi.jpeg" class="hero-img">
                         <div class="hero-overlay">
-                            <h2>Kota Tanjungpinang</h2>
+                            <h2>Tanjungpinang</h2>
                             <p>Pusat pemerintahan dan pariwisata budaya Melayu</p>
                         </div>
                     </div>
                     <div class="hero-slide active">
-                        <img src="batam.jpeg" class="hero-img">
+                        <img src="assets/img/batam.jpeg" class="hero-img">
                         <div class="hero-overlay">
                             <h2>Batam</h2>
                             <p>Pusat industri manufaktur dan perdagangan internasional.</p>
                         </div>
                     </div>
-
+                    <div class="hero-slide active">
+                        <img src="assets/img/karimun.jpg" class="hero-img">
+                        <div class="hero-overlay">
+                            <h2>Karimun</h2>
+                            <p>Potensi pertambangan, pelabuhan, dan industri maritim.</p>
+                        </div>
+                    </div>
+                    <div class="hero-slide active">
+                        <img src="assets/img/bintan.jpeg" class="hero-img">
+                        <div class="hero-overlay">
+                            <h2>Bintan</h2>
+                            <p>Potensi pariwisata dan kawasan industri.</p>
+                        </div>
+                    </div>
+                    <div class="hero-slide active">
+                        <img src="assets/img/lingga.jpg" class="hero-img">
+                        <div class="hero-overlay">
+                            <h2>Lingga</h2>
+                            <p>Potensi perikanan, kelautan, dan ekonomi berbasis sumber daya alam.</p>
+                        </div>
+                    </div>
+                    <div class="hero-slide active">
+                        <img src="assets/img/anambas.jpeg" class="hero-img">
+                        <div class="hero-overlay">
+                            <h2>Anambas</h2>
+                            <p>Potensi perikanan, migas,dan pariwisata bahari.</p>
+                        </div>
+                    </div>
+                    <div class="hero-slide active">
+                        <img src="assets/img/natuna.jpg" class="hero-img">
+                        <div class="hero-overlay">
+                            <h2>Natuna</h2>
+                            <p>Potensi migas, perikanan, dan wilayah strategis nasional.</p>
+                        </div>
+                    </div>
                     <!-- tombol -->
                     <button class="hero-btn prev" onclick="heroMove(-1)">❮</button>
                     <button class="hero-btn next" onclick="heroMove(1)">❯</button>
@@ -84,7 +108,7 @@
                         Letaknya yang strategis di jalur perdagangan global menjadikan wilayah ini memiliki
                         peran penting dalam mendukung daya saing ekonomi Indonesia.</h6>
                         <div class="style-58">
-                        </div> <img src="aset2.png" alt="dots" height="48" class="style-59" />
+                        </div> <img src="assets/img/aset2.png" alt="dots" height="48" class="style-59" />
                     </div>
                 </div>
             </div>
@@ -108,66 +132,66 @@
                 <div class="indikator-container">
                 <!-- Card 1 -->
                 <div class="indikator-card">
-                    <div class="indikator-icon" style="background-image:url('potensi.png')"></div>
+                    <div class="indikator-icon" style="background-image:url('assets/img/in1.png')"></div>
                     <p class="indikator-title">Pertumbuhan Ekonomi</p>
                     <h3 class="indikator-value">5,02<br><span>persen</span></h3>
                     <p class="indikator-date">2024</p>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="indikator-card">
-                    <div class="indikator-icon" style="mask-image:url('/assets/icons/subject/563.svg')"></div>
-                    <p class="indikator-title">IPM</p>
-                    <h3 class="indikator-value">80,53</h3>
-                    <p class="indikator-date">2025</p>
+                 <div class="indikator-card">
+                    <div class="indikator-icon" style="background-image:url('assets/img/in2.png')"></div>
+                    <p class="indikator-title">Produk Domestik Regional Bruto (PDRB) per Kapita</p>
+                    <h3 class="indikator-value">161.424<br><span>ribu rupiah</span></h3>
+                    <p class="indikator-date">2024</p>
                 </div>
 
                 <!-- Card 3 -->
                 <div class="indikator-card">
-                    <div class="indikator-icon" style="mask-image:url('/assets/icons/subject/561.svg')"></div>
-                    <p class="indikator-title">Kunjungan Wisman</p>
-                    <h3 class="indikator-value">247.024<br><span>Kunjungan</span></h3>
-                    <p class="indikator-date">Desember 2025</p>
+                    <div class="indikator-icon" style="background-image:url('assets/img/IPM.png')"></div>
+                    <p class="indikator-title">Indeks Pembangunan Manusia (IPM)</p>
+                    <h3 class="indikator-value">80,53<br><span>persen</span></h3>
+                    <p class="indikator-date">2025</p>
                 </div>
 
                 <!-- Card 4 -->
                 <div class="indikator-card">
-                    <div class="indikator-icon" style="mask-image:url('/assets/icons/subject/531.svg')"></div>
-                    <p class="indikator-title">Pertumbuhan Ekonomi</p>
-                    <h3 class="indikator-value">7,89<span>%</span></h3>
-                    <p class="indikator-date">Triwulan IV 2025</p>
+                    <div class="indikator-icon" style="background-image:url('assets/img/IPG.png')"></div>
+                    <p class="indikator-title">Indeks Pembangunan Gender (IPG)</p>
+                    <h3 class="indikator-value">94,2<br><span> </span></h3>
+                    <p class="indikator-date">2024</p>
                 </div>
 
                 <!-- Card 5 -->
                 <div class="indikator-card">
-                    <div class="indikator-icon" style="mask-image:url('/assets/icons/subject/536.svg')"></div>
-                    <p class="indikator-title">Inflasi</p>
-                    <h3 class="indikator-value">-0,09<span>%</span></h3>
-                    <p class="indikator-date">Jan 2026</p>
+                    <div class="indikator-icon" style="background-image:url('assets/img/TPT.png')"></div>
+                    <p class="indikator-title">Tingkat Pengangguran Terbuka (TPT)</p>
+                    <h3 class="indikator-value">6,45<br><span>persen</span></h3>
+                    <p class="indikator-date">Agustus 2025</p>
                 </div>
 
                 <!-- Card 6 -->
                 <div class="indikator-card">
-                    <div class="indikator-icon" style="mask-image:url('/assets/icons/subject/520.svg')"></div>
-                    <p class="indikator-title">Pengangguran</p>
-                    <h3 class="indikator-value">6,45<span>%</span></h3>
-                    <p class="indikator-date">Agustus 2025</p>
+                    <div class="indikator-icon" style="background-image:url('assets/img/APS.png')"></div>
+                    <p class="indikator-title">Angka Partisipasi Sekolah (APS) SMA/SMK</p>
+                    <h3 class="indikator-value">88,24<br><span></span></h3>
+                    <p class="indikator-date">2025</p>
                 </div>
 
                 <!-- Card 7 -->
                 <div class="indikator-card">
-                    <div class="indikator-icon" style="mask-image:url('/assets/icons/subject/519.svg')"></div>
-                    <p class="indikator-title">Jumlah Penduduk</p>
-                    <h3 class="indikator-value">2,06 Juta</h3>
-                    <p class="indikator-date">SP2020</p>
+                    <div class="indikator-icon" style="background-image:url('assets/img/poverty.png')"></div>
+                    <p class="indikator-title">Angka Kemiskinan</p>
+                    <h3 class="indikator-value">4,44<br><span>persen</span></h3>
+                    <p class="indikator-date">Maret 2025</p>
                 </div>
 
                 <!-- Card 8 -->
                 <div class="indikator-card">
-                    <div class="indikator-icon" style="mask-image:url('/assets/icons/subject/563.svg')"></div>
-                    <p class="indikator-title">Kemiskinan</p>
-                    <h3 class="indikator-value">4,26<span>%</span></h3>
-                    <p class="indikator-date">Sept 2025</p>
+                    <div class="indikator-icon" style="background-image:url('assets/img/IPM.png')"></div>
+                    <p class="indikator-title">Gini Ratio</p>
+                    <h3 class="indikator-value">0,385<br><span>persen</span></h3>
+                    <p class="indikator-date">September 2025</p>
                 </div>
                 </div>
             </div>
@@ -191,7 +215,7 @@
     <div class="style-137">
         <div class="style-138">
             <div class="style-139">
-                <img src="potensi.png" alt="image - petugas sensus" class="style-140" />
+                <img src="assets/img/potensi.png" alt="image - petugas sensus" class="style-140" />
             </div>
             <div class="style-141">
                 <div class="style-142">
@@ -203,7 +227,7 @@
                         </div>
                         <div class="style-145">
                             <div class="style-146">
-                                <img src="fish.png" alt="icon" class="style-147" />
+                                <img src="assets/img/fish.png" alt="icon" class="style-147" />
                             </div>
                             <div class="style-148">
                                 <p class="style-149">Potensi Ekonomi Maritim</p>
@@ -213,7 +237,7 @@
                         </div>
                         <div class="style-145">
                             <div class="style-146">
-                                <img src="industry.png" alt="icon" class="style-147" />
+                                <img src="assets/img/industry.png" alt="icon" class="style-147" />
                             </div>
                             <div class="style-148">
                                 <p class="style-149">Pusat Industri dan Investasi Strategis</p>
@@ -223,7 +247,7 @@
                         </div>
                         <div class="style-145">
                             <div class="style-146">
-                                <img src="tourist.png" alt="icon" class="style-147" />
+                                <img src="assets/img/tourist.png" alt="icon" class="style-147" />
                             </div>
                             <div class="style-148">
                                 <p class="style-149">Gerbang Pariwisata Internasional</p>
@@ -233,7 +257,7 @@
                         </div>
                         <div class="style-145">
                             <div class="style-146">
-                                <img src="trade.png" alt="icon" class="style-147" />
+                                <img src="assets/img/trade.png" alt="icon" class="style-147" />
                             </div>
                             <div class="style-148">
                                 <p class="style-149">Konektivitas dan Perdagangan Internasional</p>
