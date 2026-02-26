@@ -605,7 +605,7 @@
                 }
 
                 .style-21 {
-                    align-items:flex-start; justify-content:center; height:614.375px; display:flex; box-sizing:border-box;
+                    align-items:flex-start; justify-content:center; height:auto; min-height:300px; display:flex; box-sizing:border-box;
                 }
 
                 .style-22 {
