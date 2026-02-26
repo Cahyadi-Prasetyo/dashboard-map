@@ -916,6 +916,103 @@ dan kualitas pembangunan manusia sebagai dasar perencanaan dan evaluasi kebijaka
             });
         }
 
+    
+    // --- INFLASI ---
+    const ctxInflasi = document.getElementById('chartInflasi');
+    if (ctxInflasi) {
+        new Chart(ctxInflasi, {
+            type: 'bar',
+            data: {
+                labels: ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Ags','Sep','Okt','Nov','Des'],
+                datasets: [{
+                    label: 'Inflasi m-to-m 2025 (Kab. Karimun)',
+                    data: [-0.72, -1.3, 1.43, 1.97, -1.08, -0.71, 0.46, 1.03, 0.99, -0.31, 0.07, 0.92],
+                    backgroundColor: [-0.72, -1.3, 1.43, 1.97, -1.08, -0.71, 0.46, 1.03, 0.99, -0.31, 0.07, 0.92].map(v => v >= 0 ? 'rgba(239,68,68,0.7)' : 'rgba(34,197,94,0.7)'),
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: true, position: 'top' },
+                    title: {
+                        display: true,
+                        text: 'Inflasi Bulanan (m-to-m) Tahun 2025',
+                        font: { size: 16, weight: 'bold', family: 'Inter' },
+                        padding: { bottom: 20 },
+                        align: 'start'
+                    },
+                    datalabels: {
+                        anchor: function(ctx) { return ctx.dataset.data[ctx.dataIndex] >= 0 ? 'end' : 'start'; },
+                        align: function(ctx) { return ctx.dataset.data[ctx.dataIndex] >= 0 ? 'top' : 'bottom'; },
+                        formatter: (v) => v.toFixed(2) + '%',
+                        font: { weight: 'bold', size: 10 },
+                        color: '#1a1a2e'
+                    }
+                },
+                scales: {
+                    y: { display: false },
+                    x: { grid: { display: false }, border: { display: false } }
+                },
+                layout: { padding: { top: 30, bottom: 10 } }
+            }
+        });
+    }
+
+    // --- JUMLAH PENDUDUK ---
+    const ctxPenduduk = document.getElementById('chartPenduduk');
+    if (ctxPenduduk) {
+        new Chart(ctxPenduduk, {
+            type: 'bar',
+            data: {
+                labels: ['SP 2010', 'SP 2020'],
+                datasets: [{
+                    label: 'Jumlah Penduduk (jiwa)',
+                    data: [212561, 253457],
+                    backgroundColor: ['rgba(59,130,246,0.7)', 'rgba(16,185,129,0.7)'],
+                    borderRadius: 8,
+                    barThickness: 60
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Jumlah Penduduk Hasil Sensus Penduduk',
+                        font: { size: 16, weight: 'bold', family: 'Inter' },
+                        padding: { bottom: 20 },
+                        align: 'start'
+                    },
+                    subtitle: {
+                        display: true,
+                        text: 'Pertumbuhan: +19.2% (2010 → 2020)',
+                        font: { size: 13, style: 'italic' },
+                        padding: { bottom: 10 },
+                        align: 'start',
+                        color: '#64748b'
+                    },
+                    datalabels: {
+                        anchor: 'end',
+                        align: 'right',
+                        formatter: (v) => v.toLocaleString('id-ID') + ' jiwa',
+                        font: { weight: 'bold', size: 12 },
+                        color: '#1a1a2e'
+                    }
+                },
+                scales: {
+                    x: { display: false },
+                    y: { grid: { display: false }, border: { display: false } }
+                },
+                layout: { padding: { right: 120 } }
+            }
+        });
+    }
+
     });
     </script>
 
