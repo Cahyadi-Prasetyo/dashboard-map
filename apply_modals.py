@@ -347,13 +347,13 @@ for rk, (filename, rname) in regions_meta.items():
     end_tag = ""
     if "indikator-container" in html_content:
         # replace the indikator-container block
-        html_content = re.sub(r'<div class="indikator-container">.*?</div>\s*</div>\s*</div>\s*<div class="style', 
-                              get_indikator_html(rk, rname) + '\n            </div>\n        </div>\n    <div class="style', 
+        html_content = re.sub(r'<div class="indikator-container">.*?</div>\s*</div>\s*(?=<div class="style|<!-- MODAL)', 
+                              get_indikator_html(rk, rname) + '\n            </div>\n        </div>\n', 
                               html_content, flags=re.DOTALL)
     elif "detail-container" in html_content:
         # replace the detail-container block
-        html_content = re.sub(r'<div class="detail-container">.*?</div>\s*</div>\s*</div>\s*<div class="style', 
-                              get_indikator_html(rk, rname) + '\n            </div>\n        </div>\n    <div class="style', 
+        html_content = re.sub(r'<div class="detail-container">.*?</div>\s*</div>\s*(?=<div class="style|<!-- MODAL)', 
+                              get_indikator_html(rk, rname) + '\n            </div>\n        </div>\n', 
                               html_content, flags=re.DOTALL)
 
     # Clean up old chart scripts inside <body> or at bottom
