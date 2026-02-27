@@ -2,10 +2,90 @@
 Chart.register(ChartDataLabels);
 let modalChartInstance = null;
 
+const indicatorInfo = {
+    ekonomi: {
+        def: 'Indikator ekonomi makro yang menggambarkan seberapa jauh keberhasilan pembangunan suatu daerah dalam periode waktu tertentu',
+        img: 'assets/img/pertumbuhan ekonomi.jpg',
+        insight: (rn) => `Pertumbuhan ekonomi di ${rn} berfluktuasi dan membaik pasca 2020.`
+    },
+    tpt: {
+        def: 'Persentase jumlah pengangguran terhadap jumlah angkatan kerja',
+        img: 'assets/img/TPT.jpg',
+        insight: (rn) => `Tingkat pengangguran terbuka di ${rn} menunjukkan tren penurunan yang positif.`
+    },
+    pdrb: {
+        def: 'Nilai PDRB dibagi jumlah penduduk dalam suatu wilayah pada periode tertentu',
+        img: 'assets/img/PDRB perkapita.jpg',
+        insight: (rn) => `PDRB per kapita ${rn} konsisten meningkat dari tahun ke tahun.`
+    },
+    ipm: {
+        def: 'Indikator yang mengukur kualitas hidup penduduk berdasarkan kesehatan, pendidikan, dan standar hidup layak.',
+        img: 'assets/img/IPM.jpg',
+        insight: (rn) => `Kualitas hidup di ${rn} selalu mengalami peningkatan yang stabil.`
+    },
+    aps: {
+        def: 'Persentase penduduk usia sekolah SMA/SMK yang sedang menempuh pendidikan per 1,000 jumlah penduduk usia pendidikan menengah.',
+        img: 'assets/img/APS.jpg',
+        insight: (rn) => `Angka partisipasi sekolah tingkat menengah di ${rn} semakin membaik.`
+    },
+    ipg: {
+        def: 'Indikator yang mengukur kesetaraan capaian pembangunan manusia antara laki-laki dan perempuan.',
+        img: 'assets/img/IPG.jpeg',
+        insight: (rn) => `Kesetaraan pembangunan gender di ${rn} stabil dan terjaga dengan baik.`
+    },
+    kemiskinan: {
+        def: 'Persentase penduduk yang memiliki pengeluaran per kapita di bawah garis kemiskinan.',
+        img: 'assets/img/kemiskinan.jpg',
+        insight: (rn) => `Angka kemiskinan di ${rn} terus ditekan dan berangsur turun.`
+    },
+    gini: {
+        def: 'Indikator yang menunjukkan tingkat ketimpangan pengeluaran secara menyeluruh',
+        img: 'assets/img/giniratio.jpeg',
+        insight: (rn) => `Ketimpangan pengeluaran di ${rn} relatif stabil dan tergolong moderat.`
+    },
+    inflasi: {
+        def: 'Persentase kenaikan harga barang dan jasa secara umum dan terus-menerus dalam periode tertentu.',
+        img: 'assets/img/aset1.png',
+        insight: (rn) => `Tingkat inflasi di ${rn} cukup dinamis namun tetap terkendali.`
+    },
+    penduduk: {
+        def: 'Total orang yang tinggal dan menetap di suatu wilayah pada waktu tertentu.',
+        img: 'assets/img/kepri2.png',
+        insight: (rn) => `Jumlah penduduk di ${rn} bertambah secara proporsional berdasar sensus terbaru.`
+    },
+    wisman: {
+        def: 'Jumlah kunjungan wisatawan asing ke suatu wilayah dalam periode tertentu.',
+        img: 'assets/img/wisman.png',
+        insight: (rn) => `Kunjungan wisman di ${rn} meningkat tajam menandakan pemulihan pariwisata.`
+    },
+    ekspor: {
+        def: 'Nilai atau volume barang dan jasa yang dijual ke luar negeri dalam periode tertentu.',
+        img: 'assets/img/import (1).png',
+        insight: (rn) => `Aktivitas ekspor ${rn} menunjukkan tren pertumbuhan yang solid.`
+    },
+    impor: {
+        def: 'Nilai atau volume barang dan jasa yang dibeli dari luar negeri dalam periode tertentu.',
+        img: 'assets/img/export (2).png',
+        insight: (rn) => `Nilai impor di ${rn} meningkat sejalan dengan kebutuhan suplai industri.`
+    }
+};
+
 function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan Riau') {
     const overlay = document.getElementById('modalOverlay');
     const title = document.getElementById('modalTitle');
     const ctx = document.getElementById('modalChart');
+
+    const imgEl = document.getElementById('modalImg');
+    const defEl = document.getElementById('modalDef');
+    const insEl = document.getElementById('modalInsight');
+
+    const info = indicatorInfo[type];
+    if (info && imgEl && defEl && insEl) {
+        imgEl.src = info.img || 'assets/img/potensi.png';
+        defEl.textContent = info.def || '-';
+        insEl.textContent = typeof info.insight === 'function' ? info.insight(regionName) : '-';
+    }
+
     if (modalChartInstance) { modalChartInstance.destroy(); modalChartInstance = null; }
 
     const gradientFill = ctx.getContext('2d').createLinearGradient(0, 0, 0, 300);
