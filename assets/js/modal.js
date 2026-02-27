@@ -102,6 +102,18 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             if (dataArr.length === 0) dataArr = [0];
 
             return { type: 'line', data: { labels: ['Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25', 'Jan 26'], datasets: [{ label: 'Inflasi Y-on-Y (%)', data: dataArr, borderColor: gradientLine, backgroundColor: gradientFill, fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#7c3aed', pointBorderColor: '#fff', pointBorderWidth: 2, pointHoverRadius: 7 }] }, options: lineOpts('%') };
+        },
+        wisman: () => {
+            title.textContent = `Kunjungan Wisman ${regionName}`;
+            return { type: 'line', data: { labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul'], datasets: [{ label: 'Kunjungan Wisman', data: [120000, 150000, 180000, 195000, 205000, 215000, 223456], borderColor: '#0ea5e9', backgroundColor: 'rgba(14,165,233,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#0ea5e9', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts(' kunjungan') };
+        },
+        ekspor: () => {
+            title.textContent = `Nilai Ekspor ${regionName}`;
+            return { type: 'bar', data: { labels: ['2020', '2021', '2022', '2023', '2024'], datasets: [{ label: 'Ekspor (Juta USD)', data: [1500, 1650, 1800, 2000, 2145], backgroundColor: 'rgba(16,185,129,0.7)', borderRadius: 6 }] }, options: barOpts(' Juta USD') };
+        },
+        impor: () => {
+            title.textContent = `Nilai Impor ${regionName}`;
+            return { type: 'bar', data: { labels: ['2020', '2021', '2022', '2023', '2024'], datasets: [{ label: 'Impor (Juta USD)', data: [1200, 1300, 1450, 1600, 1845], backgroundColor: 'rgba(239,68,68,0.7)', borderRadius: 6 }] }, options: barOpts(' Juta USD') };
         }
     };
 
