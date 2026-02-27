@@ -41,9 +41,6 @@
                     <li class="style-12">
                         <a class="style-13" href="tanjungpinang.html">Tanjungpinang</a>
                     </li>
-                    <li class="style-12">
-                        <a class="style-13" href="gallery.html">Gallery</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -81,112 +78,409 @@ dan kualitas pembangunan manusia sebagai dasar perencanaan dan evaluasi kebijaka
         </div>
         <div class="style-136"></div>
     </div>
-    <!-- Cards Container -->
-    <div class="style-69">
+    <!-- WRAPPER UNTUK INDIKATOR 1 & 2 (Baris Pertama) -->
+    <div class="detail-wrapper">
 
-                <div class="indikator-container">
-                <!-- Card 1 -->
-                <div class="indikator-card" onclick="openModal('ekonomi', 'karimun', 'Kabupaten Karimun')">
-                    <div class="indikator-icon" style="background-image:url('assets/img/in1.png')"></div>
-                    <p class="indikator-title">Pertumbuhan Ekonomi</p>
-                    <h3 class="indikator-value" id="val-ekonomi-karimun">-<br><span>persen</span></h3>
-                    <p class="indikator-date">2024</p>
-                </div>
+        <!-- INDIKATOR 1: PERTUMBUHAN EKONOMI -->
+        <div class="detail-card" style="cursor:pointer;" onclick="openModal('ekonomi', 'karimun', 'Kabupaten Karimun')">
 
-                <!-- Card 2 -->
-                 <div class="indikator-card" onclick="openModal('pdrb', 'karimun', 'Kabupaten Karimun')">
-                    <div class="indikator-icon" style="background-image:url('assets/img/in2.png')"></div>
-                    <p class="indikator-title">PDRB per Kapita</p>
-                    <h3 class="indikator-value" id="val-pdrb-karimun">-<br><span>ribu rupiah</span></h3>
-                    <p class="indikator-date">2024</p>
-                </div>
+            <!-- JUDUL -->
+            <h3>Pertumbuhan Ekonomi</h3>
 
-                <!-- Card 3 -->
-                <div class="indikator-card" onclick="openModal('ipm', 'karimun', 'Kabupaten Karimun')">
-                    <div class="indikator-icon" style="background-image:url('assets/img/healthy.png')"></div>
-                    <p class="indikator-title">IPM</p>
-                    <h3 class="indikator-value" id="val-ipm-karimun">-<br><span>persen</span></h3>
-                    <p class="indikator-date">2025</p>
-                </div>
+            <!-- GAMBAR + METODE -->
+            <div class="detail-top">
+                <img src="assets/img/pertumbuhan ekonomi.jpg" alt="Pertumbuhan Ekonomi">
+                <div class="detail-desc">
 
-                <!-- Card 4 -->
-                <div class="indikator-card" onclick="openModal('ipg', 'karimun', 'Kabupaten Karimun')">
-                    <div class="indikator-icon" style="background-image:url('assets/img/IPG.png')"></div>
-                    <p class="indikator-title">IPG</p>
-                    <h3 class="indikator-value" id="val-ipg-karimun">-<br><span> </span></h3>
-                    <p class="indikator-date">2024</p>
-                </div>
+                    <div class="detail-info">
+                        <div class="detail-info-header">
+                            <div></div>
+                            <span>Definisi</span>
+                        </div>
+                        <div class="detail-info-text">
+                            Perkembangan produksi barang dan jasa suatu wilayah terhadap tahun sebelumnya berdasarkan PDRB konstan.
+                        </div>
+                    </div>
 
-                <!-- Card 5 -->
-                <div class="indikator-card" onclick="openModal('tpt', 'karimun', 'Kabupaten Karimun')">
-                    <div class="indikator-icon" style="background-image:url('assets/img/TPT.png')"></div>
-                    <p class="indikator-title">TPT</p>
-                    <h3 class="indikator-value" id="val-tpt-karimun">-<br><span>persen</span></h3>
-                    <p class="indikator-date">Agustus 2025</p>
-                </div>
+                    <div class="detail-info">
+                        <div class="detail-info-header">
+                            <div></div>
+                            <span>Metode Perhitungan</span>
+                        </div>
+                        <div class="detail-info-text">
+                            Persentase perubahan PDRB Atas Dasar Harga Konstan (ADHK) dibandingkan dengan periode sebelumnya.
+                        </div>
+                    </div>
 
-                <!-- Card 6 -->
-                <div class="indikator-card" onclick="openModal('aps', 'karimun', 'Kabupaten Karimun')">
-                    <div class="indikator-icon" style="background-image:url('assets/img/APS.png')"></div>
-                    <p class="indikator-title">APS SMA/SMK</p>
-                    <h3 class="indikator-value" id="val-aps-karimun">-<br><span></span></h3>
-                    <p class="indikator-date">2025</p>
-                </div>
-
-                <!-- Card 7 -->
-                <div class="indikator-card" onclick="openModal('kemiskinan', 'karimun', 'Kabupaten Karimun')">
-                    <div class="indikator-icon" style="background-image:url('assets/img/poverty.png')"></div>
-                    <p class="indikator-title">Kemiskinan</p>
-                    <h3 class="indikator-value" id="val-kemiskinan-karimun">-<br><span>persen</span></h3>
-                    <p class="indikator-date">Maret 2025</p>
-                </div>
-
-                <!-- Card 8 -->
-                <div class="indikator-card" onclick="openModal('gini', 'karimun', 'Kabupaten Karimun')">
-                    <div class="indikator-icon" style="background-image:url('assets/img/IPM.png')"></div>
-                    <p class="indikator-title">Gini Ratio</p>
-                    <h3 class="indikator-value" id="val-gini-karimun">-<br><span>persen</span></h3>
-                    <p class="indikator-date">September 2025</p>
-                </div>
-
-                <div class="indikator-card" onclick="openModal('penduduk', 'karimun', 'Kabupaten Karimun')">
-                    <div class="indikator-icon" style="background-image:url('assets/img/output-onlinepngtools.png'); filter: invert(1);"></div>
-                    <p class="indikator-title">Penduduk</p>
-                    <h3 class="indikator-value" id="val-penduduk-karimun">-<br><span>jiwa</span></h3>
-                    <p class="indikator-date">Hasil SP2020</p>
-                </div>
-
-                <div class="indikator-card" onclick="openModal('inflasi', 'karimun', 'Kabupaten Karimun')">
-                    <div class="indikator-icon" style="background-image:url('assets/img/indonesian-rupiah.png'); filter: invert(1);"></div>
-                    <p class="indikator-title">Inflasi</p>
-                    <h3 class="indikator-value" id="val-inflasi-karimun">-<br><span>persen</span></h3>
-                    <p class="indikator-date">Januari 2026</p>
-                </div>
-
-                <div class="indikator-card" onclick="openModal('wisman', 'karimun', 'Kabupaten Karimun')">
-                    <div class="indikator-icon" style="background-image:url('assets/img/wisman.png'); filter: invert(1);"></div>
-                    <p class="indikator-title">Wisman</p>
-                    <h3 class="indikator-value" id="val-wisman-karimun">-<br><span>kunjungan</span></h3>
-                    <p class="indikator-date">Juli 2025</p>
-                </div>
-
-                <div class="indikator-card" onclick="openModal('ekspor', 'karimun', 'Kabupaten Karimun')">
-                    <div class="indikator-icon" style="background-image:url('assets/img/import-export.png'); filter: invert(1);"></div>
-                    <p class="indikator-title">Ekspor</p>
-                    <h3 class="indikator-value" id="val-ekspor-karimun">-<br><span>juta USD</span></h3>
-                    <p class="indikator-date">Juli 2025</p>
-                </div>
-
-                <div class="indikator-card" onclick="openModal('impor', 'karimun', 'Kabupaten Karimun')">
-                    <div class="indikator-icon" style="background-image:url('assets/img/import-export.png'); filter: invert(1);"></div>
-                    <p class="indikator-title">Impor</p>
-                    <h3 class="indikator-value" id="val-impor-karimun">-<br><span>juta USD</span></h3>
-                    <p class="indikator-date">Juli 2025</p>
-                </div>
                 </div>
             </div>
 
-    
+            <!-- GRAFIK -->
+            <div class="detail-chart">
+                <canvas id="chartEkonomi"></canvas>
+            </div>
+
+            <!-- INTERPRETASI -->
+            <div class="detail-insight">
+                <strong>Insight</strong><br>
+                Pertumbuhan ekonomi Kabupaten Karimun menunjukkan pemulihan yang kuat pasca pandemi.
+                Setelah mengalami kontraksi -3,59% pada tahun 2020, ekonomi Karimun terus meningkat
+                dan mencapai pertumbuhan tertinggi sebesar 6,45% pada tahun 2024,
+                didorong oleh sektor pertambangan, pelabuhan, dan industri maritim.
+            </div>
+
+        </div>
+
+        <!-- INDIKATOR 2: PDRB PER KAPITA -->
+        <div class="detail-card" style="cursor:pointer;" onclick="openModal('pdrb', 'karimun', 'Kabupaten Karimun')">
+
+            <!-- JUDUL -->
+            <h3>PDRB dan PDRB Per Kapita</h3>
+
+            <!-- GAMBAR + METODE -->
+            <div class="detail-top">
+                <img src="assets/img/PDRB perkapita.jpg" alt="PDRB Per Kapita">
+                <div class="detail-desc">
+
+                    <div class="detail-info">
+                        <div class="detail-info-header">
+                            <div></div>
+                            <span>Definisi</span>
+                        </div>
+                        <div class="detail-info-text">
+                            Nilai PDRB dibagi jumlah penduduk dalam suatu wilayah pada periode tertentu.
+                        </div>
+                    </div>
+
+                    <div class="detail-info">
+                        <div class="detail-info-header">
+                            <div></div>
+                            <span>Metode Perhitungan</span>
+                        </div>
+                        <div class="detail-info-text">
+                            -
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- PDRB Pie Chart -->
+            <div class="detail-chart" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: #f8fafc; border-radius: 12px; padding: 20px;">
+                <h4 style="font-size: 16px; font-weight: 700; color: #1e293b; margin-bottom: 20px; text-align: center;">Perkembangan PDRB per Kapita 2020-2024<br><span style="font-size: 14px; font-weight: 500; color: #64748b;">(Ribu Rupiah)</span></h4>
+                <div style="height: 300px; width: 100%; position: relative;">
+                    <canvas id="chartPdrbPie"></canvas>
+                </div>
+            </div>
+
+            <!-- INTERPRETASI -->
+            <div class="detail-insight">
+                <strong>Insight</strong><br>
+                Capaian PDRB per Kapita tumbuh dari 52.641 Ribu Rupiah pada tahun 2020 menjadi 69.608 Ribu Rupiah pada tahun 2024 (+6,6% YoY dari 2023). Peningkatan ini secara langsung menandakan naiknya rata-rata ekspektasi pendapatan penduduk dan perbaikan ekonomi secara komprehensif di Kabupaten Karimun.
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- WRAPPER UNTUK INDIKATOR 3 & 4 (Baris Kedua) -->
+    <div class="detail-wrapper">
+
+        <!-- INDIKATOR 3: INDEKS PEMBANGUNAN MANUSIA (IPM) -->
+        <div class="detail-card" style="cursor:pointer;" onclick="openModal('ipm', 'karimun', 'Kabupaten Karimun')">
+
+            <!-- JUDUL -->
+            <h3>Indeks Pembangunan Manusia (IPM)</h3>
+
+            <!-- GAMBAR + METODE -->
+            <div class="detail-top">
+                <img src="assets/img/IPM.jpg" alt="Indeks Pembangunan Manusia">
+                <div class="detail-desc">
+
+                    <div class="detail-info">
+                        <div class="detail-info-header">
+                            <div></div>
+                            <span>Definisi</span>
+                        </div>
+                        <div class="detail-info-text">
+                            Ukuran ringkas capaian pembangunan bangsa dari aspek kesehatan, pendidikan, dan standar hidup layak.
+                        </div>
+                    </div>
+
+                    <div class="detail-info">
+                        <div class="detail-info-header">
+                            <div></div>
+                            <span>Metode Perhitungan</span>
+                        </div>
+                        <div class="detail-info-text">
+                            Dihitung menggunakan rata-rata geometrik dari indeks kesehatan,
+                            indeks pendidikan, dan indeks pengeluaran.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- GRAFIK -->
+            <div class="detail-chart">
+                <canvas id="chartIpm"></canvas>
+            </div>
+
+            <!-- KOMPONEN IPM (3 Sub-komponen sesuai README) -->
+            <div class="detail-triwulanan">
+                <h4>Komponen Pembentuk IPM 2025</h4>
+                <div class="komponen-ipm-grid">
+                    <!-- Umur Harapan Hidup -->
+                    <div class="komponen-ipm-card" style="background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; padding: 16px; border-radius: 8px;">
+                        <span class="komponen-ipm-title" style="display:block; font-size:13px; font-weight:700; color:#10b981; margin-bottom:4px; text-transform:uppercase;">Kesehatan</span>
+                        <span class="komponen-ipm-val" style="display:block; font-size:24px; font-weight:800; color:#1a1a2e; margin-bottom:4px;">70,12 <small style="font-size:14px; font-weight:600; color:#666;">Tahun</small></span>
+                        <span class="komponen-ipm-sub" style="display:block; font-size:12px; color:#555;">Umur Harapan Hidup Saat Lahir (UHH)</span>
+                    </div>
+                    <!-- Pendidikan -->
+                    <div class="komponen-ipm-card" style="background: rgba(59, 130, 246, 0.1); border-left: 4px solid #3b82f6; padding: 16px; border-radius: 8px;">
+                        <span class="komponen-ipm-title" style="display:block; font-size:13px; font-weight:700; color:#3b82f6; margin-bottom:4px; text-transform:uppercase;">Pendidikan</span>
+                        <div style="display: flex; gap: 24px;">
+                            <div>
+                                <span class="komponen-ipm-val" style="display:block; font-size:20px; font-weight:800; color:#1a1a2e; margin-bottom:2px;">12,94 <small style="font-size:12px; font-weight:600; color:#666;">Thn</small></span>
+                                <span class="komponen-ipm-sub" style="display:block; font-size:11px; color:#555;">Harapan Lama Sekolah</span>
+                            </div>
+                            <div>
+                                <span class="komponen-ipm-val" style="display:block; font-size:20px; font-weight:800; color:#1a1a2e; margin-bottom:2px;">8,50 <small style="font-size:12px; font-weight:600; color:#666;">Thn</small></span>
+                                <span class="komponen-ipm-sub" style="display:block; font-size:11px; color:#555;">Rata-rata Lama Sekolah</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Standar Hidup Layak -->
+                    <div class="komponen-ipm-card" style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #f59e0b; padding: 16px; border-radius: 8px;">
+                        <span class="komponen-ipm-title" style="display:block; font-size:13px; font-weight:700; color:#f59e0b; margin-bottom:4px; text-transform:uppercase;">Standar Hidup Layak</span>
+                        <span class="komponen-ipm-val" style="display:block; font-size:24px; font-weight:800; color:#1a1a2e; margin-bottom:4px;">11,21 <small style="font-size:14px; font-weight:600; color:#666;">Juta Rp</small></span>
+                        <span class="komponen-ipm-sub" style="display:block; font-size:12px; color:#555;">Pengeluaran Riil per Kapita per Tahun</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INTERPRETASI -->
+            <div class="detail-insight">
+                <strong>Insight</strong><br>
+                Capaian IPM Kabupaten Karimun terus mengalami peningkatan.
+                Pada tahun 2025, IPM Karimun tercatat sebesar 76,08 poin, meningkat konsisten dari angka 72,85 pada tahun 2020.
+                Peningkatan ini didorong oleh membaiknya komponen umur harapan hidup, level pendidikan, serta pengeluaran per kapita masyarakat.
+            </div>
+
+        </div>
+
+        <!-- INDIKATOR 4: INDEKS PEMBERDAYAAN GENDER (IPG) -->
+        <div class="detail-card" style="cursor:pointer;" onclick="openModal('ipg', 'karimun', 'Kabupaten Karimun')">
+
+            <!-- JUDUL -->
+            <h3>Indeks Pemberdayaan Gender (IPG)</h3>
+
+            <!-- GAMBAR + METODE -->
+            <div class="detail-top">
+                <img src="assets/img/IPG.jpeg" alt="Indeks Pemberdayaan Gender">
+                <div class="detail-desc">
+
+                    <div class="detail-info">
+                        <div class="detail-info-header">
+                            <div></div>
+                            <span>Definisi</span>
+                        </div>
+                        <div class="detail-info-text">
+                            Ukuran tingkat peran aktif perempuan dalam kegiatan ekonomi dan dalam pengambilan keputusan politik.
+                        </div>
+                    </div>
+
+                    <div class="detail-info">
+                        <div class="detail-info-header">
+                            <div></div>
+                            <span>Metode Perhitungan</span>
+                        </div>
+                        <div class="detail-info-text">
+                            Dihitung berdasarkan keterwakilan perempuan di parlemen, perempuan sebagai pejabat/profesional, serta sumbangan pendapatan perempuan dibandingkan laki-laki.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- GRAFIK -->
+            <div class="detail-chart">
+                <canvas id="chartIpg"></canvas>
+            </div>
+
+            <!-- INTERPRETASI -->
+            <div class="detail-insight">
+                <strong>Insight</strong><br>
+                IPG Kabupaten Karimun tercatat sebesar 91,61 pada tahun 2024, mengalami sedikit peningkatan dari tahun sebelumnya. Hal ini menunjukkan perbaikan partisipasi perempuan dalam kegiatan ekonomi dan politik yang terus berjalan, meski masih terdapat ruang untuk memberdayakan perempuan secara lebih optimal dalam peran pengambil keputusan.
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ROW 3 -->
+    <div class="detail-wrapper" style="margin-top: 30px;">
+        <!-- INDIKATOR 5: TINGKAT PENGANGGURAN TERBUKA (TPT) -->
+        <div class="detail-card" style="cursor:pointer;" onclick="openModal('tpt', 'karimun', 'Kabupaten Karimun')">
+            <h3>Tingkat Pengangguran Terbuka (TPT)</h3>
+            <div class="detail-top">
+                <img src="assets/img/TPT.jpg" alt="TPT" onerror="this.src='assets/img/Angka.png'">
+                <div class="detail-desc">
+                    <div class="detail-info">
+                        <div class="detail-info-header">
+                            <div></div>
+                            <span>Definisi</span>
+                        </div>
+                        <div class="detail-info-text">
+                            Persentase jumlah pengangguran terhadap jumlah angkatan kerja yang mencari pekerjaan namun belum mendapatkannya.
+                        </div>
+                    </div>
+                    <div class="detail-info">
+                        <div class="detail-info-header">
+                            <div></div>
+                            <span>Metode Perhitungan</span>
+                        </div>
+                        <div class="detail-info-text">
+                            (Jumlah Pengangguran / Jumlah Angkatan Kerja) × 100%
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="detail-chart">
+                <canvas id="chartTpt"></canvas>
+            </div>
+            <div class="detail-insight">
+                <strong>Insight</strong><br>
+                Tingkat Pengangguran Terbuka (TPT) Kabupaten Karimun berfluktuasi dari 8,36% di tahun 2020, sempat turun menjadi 5,52% pada 2024, namun kembali naik tipis ke 6,31% di 2025. Penurunan tingkat pengangguran secara historis pasca resesi pandemi menandakan berjalannya penyerapan tenaga kerja.
+            </div>
+        </div>
+
+        <!-- INDIKATOR 6: ANGKA PARTISIPASI SEKOLAH (APS) -->
+        <div class="detail-card" style="cursor:pointer;" onclick="openModal('aps', 'karimun', 'Kabupaten Karimun')">
+            <h3>Angka Partisipasi Sekolah (APS)</h3>
+            <div class="detail-top">
+                <img src="assets/img/APS.jpg" alt="APS">
+                <div class="detail-desc">
+                    <div class="detail-info">
+                        <div class="detail-info-header">
+                            <div></div>
+                            <span>Definisi</span>
+                        </div>
+                        <div class="detail-info-text">
+                            Proporsi penduduk usia 16-18 tahun yang saat ini sedang bersekolah pada tingkat pendidikan sesuai usianya.
+                        </div>
+                    </div>
+                    <div class="detail-info">
+                        <div class="detail-info-header">
+                            <div></div>
+                            <span>Metode Perhitungan</span>
+                        </div>
+                        <div class="detail-info-text">
+                            (Jumlah siswa usia 16-18 tahun yang bersekolah / Jumlah penduduk usia 16-18 tahun) × 100%
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="detail-chart">
+                <canvas id="chartAps"></canvas>
+            </div>
+            <div class="detail-insight">
+                <strong>Insight</strong><br>
+                Angka Partisipasi Sekolah (APS) usia 16-18 tahun di Karimun relatif stabil di kisaran 77% selama periode 2020-2023. Meski terjadi sedikit penurunan pada tahun 2023 (76,92%), angka ini menegaskan bahwa sebagian besar anak usia SMA sederajat di Kabupaten Karimun tetap mendapat akses fasilitas pendidikan.
+            </div>
+        </div>
+    </div>
+
+    <!-- ROW 4 -->
+    <div class="detail-wrapper" style="margin-top: 30px;">
+        <!-- INDIKATOR 7: KEMISKINAN -->
+        <div class="detail-card" style="cursor:pointer;" onclick="openModal('kemiskinan', 'karimun', 'Kabupaten Karimun')">
+            <h3>Persentase Penduduk Miskin</h3>
+            <div class="detail-top">
+                <img src="assets/img/kemiskinan.jpeg" alt="Kemiskinan" onerror="this.src='assets/img/potensi.png'">
+                <div class="detail-desc">
+                    <div class="detail-info">
+                        <div class="detail-info-header">
+                            <div></div>
+                            <span>Definisi</span>
+                        </div>
+                        <div class="detail-info-text">
+                            Persentase penduduk daerah yang memiliki rata-rata pengeluaran bulanan di bawah standardisasi Garis Kemiskinan.
+                        </div>
+                    </div>
+                    <div class="detail-info">
+                        <div class="detail-info-header">
+                            <div></div>
+                            <span>Metode Perhitungan</span>
+                        </div>
+                        <div class="detail-info-text">
+                            (Jumlah Penduduk Miskin / Total Penduduk) × 100%
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="detail-chart">
+                <canvas id="chartKemiskinan"></canvas>
+            </div>
+            <div class="detail-insight">
+                <strong>Insight</strong><br>
+                Persentase penduduk miskin di Kabupaten Karimun terus mengalami tren penurunan dari 6,83% di tahun 2020 menjadi 5,16% pada tahun 2025. Penurunan konsisten ini menandakan efektivitas berkelanjutan dari program pengentasan kemiskinan serta pemulihan ekonomi di wilayah tersebut.
+            </div>
+        </div>
+
+        <!-- INDIKATOR 8: GINI RASIO -->
+        <div class="detail-card" style="cursor:pointer;" onclick="openModal('gini', 'karimun', 'Kabupaten Karimun')">
+            <h3>Rasio Gini</h3>
+            <div class="detail-top">
+                <img src="assets/img/giniratio.jpeg" alt="Gini Rasio" onerror="this.src='assets/img/potensi.png'">
+                <div class="detail-desc">
+                    <div class="detail-info">
+                        <div class="detail-info-header">
+                            <div></div>
+                            <span>Definisi</span>
+                        </div>
+                        <div class="detail-info-text">
+                            Skala ukuran rentang 0-1 untuk menakar tingkat ketimpangan dan kesenjangan distribusi pengeluaran penduduk.
+                        </div>
+                    </div>
+                    <div class="detail-info">
+                        <div class="detail-info-header">
+                            <div></div>
+                            <span>Metode Perhitungan</span>
+                        </div>
+                        <div class="detail-info-text">
+                            Dihitung menggunakan kurva Lorenz (luas daerah antara kurva Lorenz dengan garis pemerataan diagonal).
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="detail-chart">
+                <canvas id="chartGini"></canvas>
+            </div>
+            <div class="detail-insight">
+                <strong>Insight</strong><br>
+                Rasio Gini di Kabupaten Karimun selama periode 2020-2024 tergolong rendah, dengan nilai 0,286 pada tahun 2024. Ketimpangan di Karimun secara umum lebih baik dibandingkan rata-rata provinsi, menandakan distribusi pengeluaran antarkelompok masyarakat yang relatif semakin merata.
+            </div>
+        </div>
+    </div>
+
+        <!-- ROW 5 -->
+    <div class="detail-wrapper" style="margin-top: 30px;">
+        <!-- INDIKATOR 9: INFLASI -->
+        <div class="detail-card" style="cursor:pointer;" onclick="openModal('inflasi', 'karimun', 'Kabupaten Karimun')">
+            <h3>Inflasi Kepulauan Riau</h3>
+            <div class="detail-top">
+                <img src="assets/img/potensi.png" alt="Inflasi">
+                <div class="detail-desc">
+                    <div class="detail-info">
+                        <div class="detail-info-header"><div></div><span>Definisi</span></div>
+                        <div class="detail-info-text">Indikator yang mengukur perubahan rata-rata harga sekelompok barang dan jasa yang dikonsumsi masyarakat.</div>
+                    </div>
+                    <div class="detail-info">
+                        <div class="detail-info-header"><div></div><span>Metode Perhitungan</span></div>
+                        <div class="detail-info-text">Dihitung dari persentase perubahan Indeks Harga Konsumen (IHK) berjalan terhadap IHK periode sebelumnya.</div>
+                    </div>
+                </div>
             </div>
             <div class="detail-chart"><canvas id="chartInflasi"></canvas></div>
             <div class="detail-insight"><strong>Insight</strong><br>Data inflasi akan segera dialokasikan untuk memonitor stabilitas tingkat harga barang kebutuhan pokok dan daya beli di wilayah Riau.</div>
@@ -478,4 +772,3 @@ setInterval(() => {
 
 </body>
 </html>
-

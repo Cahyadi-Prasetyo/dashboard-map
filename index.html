@@ -44,9 +44,6 @@
                     <li class="style-12">
                         <a class="style-13" href="tanjungpinang.html">Tanjungpinang</a>
                     </li>
-                    <li class="style-12">
-                        <a class="style-13" href="gallery.html">Gallery</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -183,12 +180,11 @@
         <div class="style-69">
             
                 <div class="indikator-container">
-                <!-- Card 1 -->
                 <div class="indikator-card" onclick="openModal('ekonomi')">
                     <div class="indikator-icon" style="background-image:url('assets/img/in1.png')"></div>
-                    <p class="indikator-title">Pertumbuhan Ekonomi</p>
-                    <h3 class="indikator-value">5,02<br><span>persen</span></h3>
-                    <p class="indikator-date">2024</p>
+                    <p class="indikator-title">Pertumbuhan Ekonomi (y-on-y)</p>
+                    <h3 class="indikator-value">7,89<br><span>persen</span></h3>
+                    <p class="indikator-date">Triwulan IV 2024</p>
                 </div>
 
                 <!-- Card 2 -->
@@ -219,8 +215,8 @@
                 <div class="indikator-card" onclick="openModal('tpt')">
                     <div class="indikator-icon" style="background-image:url('assets/img/TPT.png')"></div>
                     <p class="indikator-title">TPT</p>
-                    <h3 class="indikator-value">6,45<br><span>persen</span></h3>
-                    <p class="indikator-date">Agustus 2025</p>
+                    <h3 class="indikator-value">6,35<br><span>persen</span></h3>
+                    <p class="indikator-date">November 2025</p>
                 </div>
 
                 <!-- Card 6 -->
@@ -256,33 +252,32 @@
 
                 <div class="indikator-card" onclick="openModal('inflasi')">
                     <div class="indikator-icon" style="background-image:url('assets/img/indonesian-rupiah.png'); filter: invert(1);"></div>
-                    <p class="indikator-title">Inflasi</p>
-                    <h3 class="indikator-value">-0,09<br><span>persen</span></h3>
+                    <p class="indikator-title">Inflasi (Y-on-Y)</p>
+                    <h3 class="indikator-value">2,94<br><span>persen</span></h3>
                     <p class="indikator-date">Januari 2026</p>
                 </div>
 
                 <div class="indikator-card" onclick="openModal('wisman')">
                     <div class="indikator-icon" style="background-image:url('assets/img/wisman.png'); filter: invert(1);"></div>
                     <p class="indikator-title">Wisman</p>
-                    <h3 class="indikator-value">223.456<br><span>kunjungan</span></h3>
-                    <p class="indikator-date">Juli 2025</p>
+                    <h3 class="indikator-value">247,024<br><span>ribu kunjungan</span></h3>
+                    <p class="indikator-date">Desember 2025</p>
                 </div>
 
                 <div class="indikator-card" onclick="openModal('ekspor')">
-                    <div class="indikator-icon" style="background-image:url('assets/img/import-export.png'); filter: invert(1);"></div>
+                    <div class="indikator-icon" style="background-image:url('assets/img/import\ \(1\).png'); filter: invert(1);"></div>
                     <p class="indikator-title">Ekspor</p>
-                    <h3 class="indikator-value">2.145<br><span>juta USD</span></h3>
-                    <p class="indikator-date">Juli 2025</p>
+                    <h3 class="indikator-value">2.071,02<br><span>juta USD</span></h3>
+                    <p class="indikator-date">Desember 2025</p>
                 </div>
 
                 <div class="indikator-card" onclick="openModal('impor')">
-                    <div class="indikator-icon" style="background-image:url('assets/img/import-export.png'); filter: invert(1);"></div>
+                    <div class="indikator-icon" style="background-image:url('assets/img/export\ \(2\).png'); filter: invert(1);"></div>
                     <p class="indikator-title">Impor</p>
-                    <h3 class="indikator-value">1.845<br><span>juta USD</span></h3>
-                    <p class="indikator-date">Juli 2025</p>
+                    <h3 class="indikator-value">1.908,61<br><span>juta USD</span></h3>
+                    <p class="indikator-date">Desember 2025</p>
                 </div>
                 </div>
-            </div>
             
         </div>
     </div>
@@ -407,18 +402,13 @@
             </div>
             
             <div class="modal-body-split">
-                <!-- Kiri: Gambar, Definisi, Metode -->
+                <!-- Kiri: Gambar, Definisi -->
                 <div class="modal-left">
                     <img id="modalImg" src="" alt="Indikator" class="modal-img" onerror="this.src='assets/img/potensi.png'">
                     
                     <div class="modal-info-box">
                         <div class="modal-info-title">Definisi</div>
                         <div class="modal-info-text" id="modalDef">-</div>
-                    </div>
-                    
-                    <div class="modal-info-box">
-                        <div class="modal-info-title">Metode Perhitungan</div>
-                        <div class="modal-info-text" id="modalMetode">-</div>
                     </div>
                 </div>
 
@@ -433,7 +423,6 @@
             </div>
         </div>
     </div>
-    </div>
 
     <!-- Data scripts -->
     <script src="assets/data/ekonomi.js"></script>
@@ -446,9 +435,6 @@
     <script src="assets/data/inflasi.js"></script>
     <script src="assets/data/pdrb.js"></script>
     <script src="assets/data/penduduk.js"></script>
-        <script src="assets/data/wisman.js"></script>
-    <script src="assets/data/ekspor.js"></script>
-    <script src="assets/data/impor.js"></script>
     <script src="assets/js/modal.js"></script>
 
 <script>
@@ -522,4 +508,3 @@ setInterval(() => {
 </script>
 </body>
 </html>
-
