@@ -1913,6 +1913,7 @@
                 }
 
                 .indikator-card {
+                    box-sizing: border-box;
                     width: calc(20% - 16px);
                     /* 5 items per row, 20px gap */
                     background: white;
