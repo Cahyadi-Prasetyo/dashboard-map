@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard — Kabupaten Lingga</title>
     <link rel="stylesheet" href="assets/css/shared.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 </head>
 
 <body class="style-0">
@@ -162,7 +164,11 @@ dan kualitas pembangunan manusia sebagai dasar perencanaan dan evaluasi kebijaka
                 </div>
             </div>
 
-<!-- MODAL -->
+
+
+
+
+    <!-- MODAL -->
     <div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
         <div class="modal-box">
             <div class="modal-header">
@@ -182,166 +188,9 @@ dan kualitas pembangunan manusia sebagai dasar perencanaan dan evaluasi kebijaka
     <script src="assets/data/kemiskinan.js"></script>
     <script src="assets/data/gini.js"></script>
     <script src="assets/data/inflasi.js"></script>
+    <script src="assets/data/pdrb.js"></script>
+    <script src="assets/data/penduduk.js"></script>
+    <script src="assets/js/modal.js"></script>
 
-<script>
-Chart.register(ChartDataLabels);
-let modalChartInstance = null;
-
-function openModal(type) {
-    const overlay = document.getElementById('modalOverlay');
-    const title = document.getElementById('modalTitle');
-    const ctx = document.getElementById('modalChart');
-    if (modalChartInstance) { modalChartInstance.destroy(); modalChartInstance = null; }
-
-    const charts = {
-        ekonomi: () => {
-            title.textContent = 'Pertumbuhan Ekonomi Lingga';
-            const d = dataEkonomi.wilayah.lingga;
-            return { type:'bar', data:{ labels: dataEkonomi.tahun, datasets:[{ label:'Pertumbuhan Ekonomi (%)', data: d.tahunan, backgroundColor:'rgba(59,130,246,0.7)', borderRadius:6 }] }, options: barOpts('%') };
-        },
-        pdrb: () => {
-            title.textContent = 'PDRB per Kapita Lingga';
-            return { type:'bar', data:{ labels:[2020,2021,2022,2023,2024], datasets:[{ label:'PDRB per Kapita (Ribu Rp)', data:[107291,113542,131919,142345,161424], backgroundColor:'rgba(16,185,129,0.7)', borderRadius:6 }] }, options: barOpts('Rb') };
-        },
-        ipm: () => {
-            title.textContent = 'Indeks Pembangunan Manusia (IPM) Lingga';
-            const d = dataIpm.wilayah.lingga;
-            return { type:'line', data:{ labels: dataIpm.tahun, datasets:[{ label:'IPM', data: d.tahunan, borderColor:'#7c3aed', backgroundColor:'rgba(124,58,237,0.1)', fill:true, tension:0.3, borderWidth:3, pointRadius:5, pointBackgroundColor:'#7c3aed', pointBorderColor:'#fff', pointBorderWidth:2 }] }, options: lineOpts('') };
-        },
-        ipg: () => {
-            title.textContent = 'Indeks Pembangunan Gender (IPG) Lingga';
-            const d = dataIpg.wilayah.lingga;
-            return { type:'line', data:{ labels: dataIpg.tahun, datasets:[{ label:'IPG', data: d.tahunan, borderColor:'#ec4899', backgroundColor:'rgba(236,72,153,0.1)', fill:true, tension:0.3, borderWidth:3, pointRadius:5, pointBackgroundColor:'#ec4899', pointBorderColor:'#fff', pointBorderWidth:2 }] }, options: lineOpts('') };
-        },
-        tpt: () => {
-            title.textContent = 'Tingkat Pengangguran Terbuka (TPT) Lingga';
-            const d = dataTpt.wilayah.lingga;
-            return { type:'bar', data:{ labels: dataTpt.tahun, datasets:[{ label:'TPT (%)', data: d.tahunan, backgroundColor:'rgba(239,68,68,0.7)', borderRadius:6 }] }, options: barOpts('%') };
-        },
-        aps: () => {
-            title.textContent = 'Angka Partisipasi Sekolah (APS) SMA/SMK Lingga';
-            const d = dataAps.wilayah.lingga;
-            return { type:'line', data:{ labels: dataAps.tahun, datasets:[{ label:'APS', data: d.tahunan, borderColor:'#0d9488', backgroundColor:'rgba(13,148,136,0.1)', fill:true, tension:0.3, borderWidth:3, pointRadius:5, pointBackgroundColor:'#0d9488', pointBorderColor:'#fff', pointBorderWidth:2 }] }, options: lineOpts('') };
-        },
-        kemiskinan: () => {
-            title.textContent = 'Angka Kemiskinan Lingga';
-            const d = dataKemiskinan.wilayah.lingga;
-            return { type:'bar', data:{ labels: dataKemiskinan.tahun, datasets:[{ label:'Kemiskinan (%)', data: d.tahunan, backgroundColor:'rgba(245,158,11,0.7)', borderRadius:6 }] }, options: barOpts('%') };
-        },
-        gini: () => {
-            title.textContent = 'Gini Ratio Lingga';
-            const d = dataGini.wilayah.lingga;
-            return { type:'line', data:{ labels: dataGini.tahun, datasets:[{ label:'Gini Ratio', data: d.tahunan, borderColor:'#f59e0b', backgroundColor:'rgba(245,158,11,0.1)', fill:true, tension:0.3, borderWidth:3, pointRadius:5, pointBackgroundColor:'#f59e0b', pointBorderColor:'#fff', pointBorderWidth:2 }] }, options: lineOpts('') };
-        },
-        penduduk: () => {
-            title.textContent = 'Jumlah Penduduk Lingga (Sensus Penduduk)';
-            return { type:'bar', data:{ labels:['SP 2010','SP 2020'], datasets:[{ label:'Jumlah Penduduk (jiwa)', data:[1679163,2064564], backgroundColor:['rgba(59,130,246,0.7)','rgba(16,185,129,0.7)'], borderRadius:8, barThickness:60 }] }, options:{ responsive:true, maintainAspectRatio:false, indexAxis:'y', plugins:{ legend:{display:false}, datalabels:{ anchor:'end', align:'right', formatter:(v)=>v.toLocaleString('id-ID')+' jiwa', font:{weight:'bold',size:12}, color:'#1e293b' } }, scales:{ x:{display:false}, y:{grid:{display:false},border:{display:false}} }, layout:{padding:{right:120}} } };
-        },
-        inflasi: () => {
-            title.textContent = 'Tingkat Inflasi Y-on-Y Lingga, Januari 2026';
-            const d = dataInflasi.wilayah.lingga.tahunan['2025'];
-            const jan26 = dataInflasi.wilayah.lingga.tahunan['2026'][0];
-            return { type:'line', data:{ labels:['Feb 25','Mar 25','Apr 25','Mei 25','Jun 25','Jul 25','Ags 25','Sep 25','Okt 25','Nov 25','Des 25','Jan 26'], datasets:[{ label:'Inflasi Y-on-Y (%)', data:[...d.slice(1), jan26], borderColor:'#7c3aed', backgroundColor:'rgba(124,58,237,0.1)', fill:true, tension:0.3, borderWidth:3, pointRadius:5, pointBackgroundColor:'#7c3aed', pointBorderColor:'#fff', pointBorderWidth:2 }] }, options: lineOpts('%') };
-        }
-    };
-
-    if (charts[type]) {
-        const cfg = charts[type]();
-        modalChartInstance = new Chart(ctx, cfg);
-        overlay.classList.add('active');
-    }
-}
-
-function closeModal() {
-    document.getElementById('modalOverlay').classList.remove('active');
-    if (modalChartInstance) { modalChartInstance.destroy(); modalChartInstance = null; }
-}
-
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-function barOpts(suffix) {
-    return {
-        responsive:true, maintainAspectRatio:false,
-        plugins:{ legend:{display:false}, datalabels:{ anchor:'end', align:'top', formatter:(v)=>v.toLocaleString('id-ID')+suffix, font:{weight:'bold',size:11}, color:'#1e293b' } },
-        scales:{ y:{display:false}, x:{grid:{display:false},border:{display:false}} },
-        layout:{padding:{top:30}}
-    };
-}
-function lineOpts(suffix) {
-    return {
-        responsive:true, maintainAspectRatio:false,
-        plugins:{ legend:{display:false}, datalabels:{ align:'top', offset:6, formatter:(v)=>v.toLocaleString('id-ID')+suffix, font:{weight:'bold',size:11}, color:'#1e293b' } },
-        scales:{ y:{display:false}, x:{grid:{display:false},border:{display:false}} },
-        layout:{padding:{top:30}}
-    };
-}
-
-
-let heroIndex = 0;
-
-const heroSlides = document.querySelectorAll(".hero-slide");
-const heroDotsContainer = document.getElementById("heroDots");
-
-/* create dots */
-heroSlides.forEach((_, i) => {
-
-    const dot = document.createElement("span");
-
-    dot.classList.add("hero-dot");
-
-    dot.onclick = () => {
-
-        heroIndex = i;
-        showHeroSlide(heroIndex);
-
-    };
-
-    heroDotsContainer.appendChild(dot);
-
-});
-
-const heroDots = document.querySelectorAll(".hero-dot");
-
-function showHeroSlide(index){
-
-    heroSlides.forEach(slide =>
-        slide.classList.remove("active"));
-
-    heroDots.forEach(dot =>
-        dot.classList.remove("active"));
-
-    heroSlides[index].classList.add("active");
-
-    heroDots[index].classList.add("active");
-
-}
-
-function heroMove(step){
-
-    heroIndex += step;
-
-    if(heroIndex >= heroSlides.length)
-        heroIndex = 0;
-
-    if(heroIndex < 0)
-        heroIndex = heroSlides.length - 1;
-
-    showHeroSlide(heroIndex);
-
-}
-
-/* initialize */
-showHeroSlide(heroIndex);
-
-/* auto slide */
-setInterval(() => {
-
-    heroMove(1);
-
-},5000);
-
-
-
-</script>
 </body>
 </html>
