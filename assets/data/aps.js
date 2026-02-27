@@ -17,7 +17,8 @@ const dataAps = {
         84.4,
         84.54,
         84.97
-      ]
+      ],
+      "tingkat_pendidikan_2025": [99.71, 98.60, 88.24, 26.61]
     },
     "batam": {
       "nama": "Batam",

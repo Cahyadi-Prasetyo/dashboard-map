@@ -45,7 +45,7 @@ const indicatorInfo = {
     },
     inflasi: {
         def: 'Persentase kenaikan harga barang dan jasa secara umum dan terus-menerus dalam periode tertentu.',
-        img: 'assets/img/aset1.png',
+        img: 'assets/img/inflasi.jpeg',
         insight: (rn) => `Tingkat inflasi di ${rn} cukup dinamis namun tetap terkendali.`
     },
     penduduk: {
@@ -55,7 +55,7 @@ const indicatorInfo = {
     },
     wisman: {
         def: 'Jumlah kunjungan wisatawan asing ke suatu wilayah dalam periode tertentu.',
-        img: 'assets/img/wisman.png',
+        img: 'assets/img/bintan.jpeg',
         insight: (rn) => `Kunjungan wisman di ${rn} meningkat tajam menandakan pemulihan pariwisata.`
     },
     ekspor: {
@@ -139,8 +139,28 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             return { type: 'bar', data: { labels: dataTpt.tahun, datasets: [{ label: 'TPT (%)', data: dataArr, backgroundColor: 'rgba(239,68,68,0.7)', borderRadius: 6 }] }, options: barOpts('%') };
         },
         aps: () => {
-            title.textContent = `Angka Partisipasi Sekolah (APS) SMA/SMK ${regionName}`;
             const d = dataAps.wilayah[regionKey];
+
+            // Khusus Provinsi Kepri, tampilkan Bar Chart data APS SD, SMP, SMA, PT Tahun 2025
+            if (regionKey === 'kepulauan_riau' && d.tingkat_pendidikan_2025) {
+                title.textContent = `Angka Partisipasi Sekolah (APS) ${regionName} Tahun 2025`;
+                return {
+                    type: 'bar',
+                    data: {
+                        labels: ['SD', 'SMP', 'SMA/SMK', 'PT'],
+                        datasets: [{
+                            label: 'APS (%)',
+                            data: d.tingkat_pendidikan_2025,
+                            backgroundColor: ['rgba(59,130,246,0.7)', 'rgba(16,185,129,0.7)', 'rgba(245,158,11,0.7)', 'rgba(239,68,68,0.7)'],
+                            borderRadius: 6
+                        }]
+                    },
+                    options: barOpts('%')
+                };
+            }
+
+            // Untuk Kabupaten/Kota lainnya, tetap gunakan Line Chart tren tahunan SMA/SMK
+            title.textContent = `Angka Partisipasi Sekolah (APS) SMA/SMK ${regionName}`;
             let dataArr = [];
             if (d && d.tahunan) { dataArr = d.tahunan; }
             return { type: 'line', data: { labels: dataAps.tahun, datasets: [{ label: 'APS', data: dataArr, borderColor: '#0d9488', backgroundColor: 'rgba(13,148,136,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#0d9488', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts('') };
