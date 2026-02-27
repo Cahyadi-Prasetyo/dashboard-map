@@ -55,17 +55,17 @@ const indicatorInfo = {
     },
     wisman: {
         def: 'Jumlah kunjungan wisatawan asing ke suatu wilayah dalam periode tertentu.',
-        img: 'assets/img/bintan.jpeg',
+        img: 'assets/img/wisata.jpeg',
         insight: (rn) => `Kunjungan wisman di ${rn} meningkat tajam menandakan pemulihan pariwisata.`
     },
     ekspor: {
         def: 'Nilai atau volume barang dan jasa yang dijual ke luar negeri dalam periode tertentu.',
-        img: 'assets/img/import (1).png',
+        img: 'assets/img/ekspor.png',
         insight: (rn) => `Aktivitas ekspor ${rn} menunjukkan tren pertumbuhan yang solid.`
     },
     impor: {
         def: 'Nilai atau volume barang dan jasa yang dibeli dari luar negeri dalam periode tertentu.',
-        img: 'assets/img/export (2).png',
+        img: 'assets/img/impor.png',
         insight: (rn) => `Nilai impor di ${rn} meningkat sejalan dengan kebutuhan suplai industri.`
     }
 };
@@ -139,31 +139,42 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             return { type: 'bar', data: { labels: dataTpt.tahun, datasets: [{ label: 'TPT (%)', data: dataArr, backgroundColor: 'rgba(239,68,68,0.7)', borderRadius: 6 }] }, options: barOpts('%') };
         },
         aps: () => {
+            title.textContent = `Angka Partisipasi Sekolah (APS) SMA/SMK ${regionName}`;
             const d = dataAps.wilayah[regionKey];
+            let dataArr = [];
+            let labelsArr = dataAps.tahun;
 
-            // Khusus Provinsi Kepri, tampilkan Bar Chart data APS SD, SMP, SMA, PT Tahun 2025
-            if (regionKey === 'kepulauan_riau' && d.tingkat_pendidikan_2025) {
-                title.textContent = `Angka Partisipasi Sekolah (APS) ${regionName} Tahun 2025`;
-                return {
-                    type: 'bar',
-                    data: {
-                        labels: ['SD', 'SMP', 'SMA/SMK', 'PT'],
-                        datasets: [{
-                            label: 'APS (%)',
-                            data: d.tingkat_pendidikan_2025,
-                            backgroundColor: ['rgba(59,130,246,0.7)', 'rgba(16,185,129,0.7)', 'rgba(245,158,11,0.7)', 'rgba(239,68,68,0.7)'],
-                            borderRadius: 6
-                        }]
-                    },
-                    options: barOpts('%')
-                };
+            if (d && d.tahunan) {
+                dataArr = [...d.tahunan];
             }
 
-            // Untuk Kabupaten/Kota lainnya, tetap gunakan Line Chart tren tahunan SMA/SMK
-            title.textContent = `Angka Partisipasi Sekolah (APS) SMA/SMK ${regionName}`;
-            let dataArr = [];
-            if (d && d.tahunan) { dataArr = d.tahunan; }
-            return { type: 'line', data: { labels: dataAps.tahun, datasets: [{ label: 'APS', data: dataArr, borderColor: '#0d9488', backgroundColor: 'rgba(13,148,136,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#0d9488', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts('') };
+            // Inject 2025 data (16-18) specifically for Provinsi Kepri
+            if (regionKey === 'kepulauan_riau') {
+                labelsArr = [...dataAps.tahun, 2024, 2025];
+                dataArr.push(null, 88.24); // span over 2024
+            }
+
+            return {
+                type: 'line',
+                data: {
+                    labels: labelsArr,
+                    datasets: [{
+                        label: 'APS',
+                        data: dataArr,
+                        borderColor: '#0d9488',
+                        backgroundColor: 'rgba(13,148,136,0.1)',
+                        fill: true,
+                        tension: 0.3,
+                        borderWidth: 3,
+                        pointRadius: 5,
+                        pointBackgroundColor: '#0d9488',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        spanGaps: true
+                    }]
+                },
+                options: lineOpts('')
+            };
         },
         kemiskinan: () => {
             title.textContent = `Angka Kemiskinan ${regionName}`;
