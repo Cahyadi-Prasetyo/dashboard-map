@@ -196,14 +196,14 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             };
         },
         kemiskinan: () => {
-            title.textContent = `Angka Kemiskinan ${regionName}`;
+            title.textContent = `Angka Kemiskinan ${regionName} (%)`;
             const d = dataKemiskinan.wilayah[regionKey];
             let dataArr = [];
             if (d && d.tahunan) { dataArr = d.tahunan; }
-            return { type: 'bar', data: { labels: dataKemiskinan.tahun, datasets: [{ label: 'Kemiskinan (%)', data: dataArr, backgroundColor: 'rgba(245,158,11,0.7)', borderRadius: 6 }] }, options: barOpts('%') };
+            return { type: 'bar', data: { labels: dataKemiskinan.tahun, datasets: [{ label: 'Kemiskinan', data: dataArr, backgroundColor: 'rgba(245,158,11,0.7)', borderRadius: 6 }] }, options: barOpts('') };
         },
         gini: () => {
-            title.textContent = `Gini Ratio ${regionName}`;
+            title.textContent = `Gini Ratio ${regionName} (Indeks)`;
             const d = dataGini.wilayah[regionKey];
             let dataArr = [];
             if (d && d.tahunan) { dataArr = d.tahunan; }

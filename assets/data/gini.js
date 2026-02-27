@@ -11,7 +11,7 @@ const dataGini = {
         2025
     ],
     "wilayah": {
-        "kepri": {
+        "kepulauan_riau": {
             "nama": "Provinsi Kepulauan Riau",
             "tahunan": [
                 0.339,
@@ -66,7 +66,7 @@ const dataGini = {
                 null
             ]
         },
-        "anambas": {
+        "kepulauan_anambas": {
             "nama": "Kabupaten Kepulauan Anambas",
             "tahunan": [
                 0.296,
