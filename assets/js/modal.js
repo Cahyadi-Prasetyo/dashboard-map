@@ -65,7 +65,7 @@ const indicatorInfo = {
     },
     impor: {
         def: 'Nilai atau volume barang dan jasa yang dibeli dari luar negeri dalam periode tertentu.',
-        img: 'assets/img/impor.png',
+        img: 'assets/img/impor.jpeg',
         insight: (rn) => `Nilai impor di ${rn} meningkat sejalan dengan kebutuhan suplai industri.`
     }
 };
@@ -112,10 +112,29 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             return { type: 'bar', data: { labels: labelsArr, datasets: [{ label: 'Pertumbuhan Ekonomi (%)', data: dataArr, backgroundColor: 'rgba(59,130,246,0.7)', borderRadius: 6 }] }, options: barOpts('%') };
         },
         pdrb: () => {
-            title.textContent = `PDRB per Kapita ${regionName}`;
+            title.textContent = `PDRB per Kapita ${regionName} (Ribu Rupiah)`;
             let dataArr = [];
             if (dataPdrb[regionKey]) { dataArr = dataPdrb[regionKey]; }
-            return { type: 'bar', data: { labels: [2020, 2021, 2022, 2023, 2024], datasets: [{ label: 'PDRB per Kapita (Ribu Rp)', data: dataArr, backgroundColor: 'rgba(16,185,129,0.7)', borderRadius: 6 }] }, options: barOpts('Rb') };
+            return {
+                type: 'line',
+                data: {
+                    labels: [2020, 2021, 2022, 2023, 2024],
+                    datasets: [{
+                        label: 'PDRB per Kapita',
+                        data: dataArr,
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16,185,129,0.1)',
+                        fill: true,
+                        tension: 0.3,
+                        borderWidth: 3,
+                        pointRadius: 5,
+                        pointBackgroundColor: '#10b981',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2
+                    }]
+                },
+                options: lineOpts('')
+            };
         },
         ipm: () => {
             title.textContent = `Indeks Pembangunan Manusia (IPM) ${regionName}`;
@@ -139,7 +158,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             return { type: 'bar', data: { labels: dataTpt.tahun, datasets: [{ label: 'TPT (%)', data: dataArr, backgroundColor: 'rgba(239,68,68,0.7)', borderRadius: 6 }] }, options: barOpts('%') };
         },
         aps: () => {
-            title.textContent = `Angka Partisipasi Sekolah (APS) SMA/SMK ${regionName}`;
+            title.textContent = `Angka Partisipasi Sekolah (APS) SMA/SMK ${regionName} (%)`;
             const d = dataAps.wilayah[regionKey];
             let dataArr = [];
             let labelsArr = dataAps.tahun;
