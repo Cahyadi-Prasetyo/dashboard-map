@@ -7,7 +7,8 @@ const dataAps = {
     2020,
     2021,
     2022,
-    2023
+    2023,
+    2024
   ],
   "wilayah": {
     "kepulauan_riau": {
@@ -16,8 +17,10 @@ const dataAps = {
         84.62,
         84.4,
         84.54,
-        84.97
-      ]
+        84.97,
+        85.56
+      ],
+      "tingkat_pendidikan_2025": [99.71, 98.60, 88.24, 26.61]
     },
     "batam": {
       "nama": "Batam",

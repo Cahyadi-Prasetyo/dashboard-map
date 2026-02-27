@@ -11,7 +11,7 @@ const dataKemiskinan = {
         2025
     ],
     "wilayah": {
-        "kepri": {
+        "kepulauan_riau": {
             "nama": "Provinsi Kepulauan Riau",
             "tahunan": [
                 5.92,
@@ -66,7 +66,7 @@ const dataKemiskinan = {
                 9.12
             ]
         },
-        "anambas": {
+        "kepulauan_anambas": {
             "nama": "Kabupaten Kepulauan Anambas",
             "tahunan": [
                 6.56,
