@@ -215,12 +215,12 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             return { type: 'line', data: { labels: ['Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25', 'Jan 26'], datasets: [{ label: 'Inflasi Y-on-Y (%)', data: dataArr, borderColor: gradientLine, backgroundColor: gradientFill, fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#7c3aed', pointBorderColor: '#fff', pointBorderWidth: 2, pointHoverRadius: 7 }] }, options: lineOpts('%') };
         },
         wisman: () => {
-            title.textContent = `Kunjungan Wisman ${regionName}`;
+            title.textContent = `Kunjungan Wisman ${regionName} (Kunjungan)`;
             let dataArr = [0, 0, 0, 0, 0, 0, 0];
             if (regionKey === 'kepulauan_riau') {
                 dataArr = [120000, 150000, 180000, 195000, 205000, 215000, 223456];
             }
-            return { type: 'line', data: { labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul'], datasets: [{ label: 'Kunjungan Wisman', data: dataArr, borderColor: '#0ea5e9', backgroundColor: 'rgba(14,165,233,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#0ea5e9', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts(' kunjungan') };
+            return { type: 'line', data: { labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul'], datasets: [{ label: 'Kunjungan Wisman', data: dataArr, borderColor: '#0ea5e9', backgroundColor: 'rgba(14,165,233,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#0ea5e9', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts('') };
         },
         ekspor: () => {
             title.textContent = `Nilai Ekspor ${regionName} (Juta USD)`;
