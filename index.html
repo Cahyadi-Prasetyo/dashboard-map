@@ -6,6 +6,8 @@
     <title>Dashboard — Kepulauan Riau</title>
     <link rel="stylesheet" href="assets/css/shared.css">
     <link rel="stylesheet" href="assets/css/landingpage.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 </head>
 
 <body class="style-0">
@@ -55,6 +57,17 @@
             <div class="style-18">
 
                 <div class="hero-carousel">
+
+                    <!-- Slide 0: Kepri -->
+                    <div class="hero-slide">
+                        <a href="index.html">
+                        <img src="assets/img/bg-kepri.jpeg" class="hero-img">
+                        <div class="hero-overlay">
+                            <h2>Kepulauan Riau</h2>
+                            <p>Negeri Segantang Lada.</p>
+                        </div>
+                        </a>
+                    </div>
 
                     <!-- Slide 1: Karimun (2101) -->
                     <div class="hero-slide">
@@ -168,7 +181,7 @@
             
                 <div class="indikator-container">
                 <!-- Card 1 -->
-                <div class="indikator-card">
+                <div class="indikator-card" onclick="openModal('ekonomi')">
                     <div class="indikator-icon" style="background-image:url('assets/img/in1.png')"></div>
                     <p class="indikator-title">Pertumbuhan Ekonomi</p>
                     <h3 class="indikator-value">5,02<br><span>persen</span></h3>
@@ -176,69 +189,69 @@
                 </div>
 
                 <!-- Card 2 -->
-                 <div class="indikator-card">
+                 <div class="indikator-card" onclick="openModal('pdrb')">
                     <div class="indikator-icon" style="background-image:url('assets/img/in2.png')"></div>
-                    <p class="indikator-title">Produk Domestik Regional Bruto (PDRB) per Kapita</p>
+                    <p class="indikator-title">PDRB per Kapita</p>
                     <h3 class="indikator-value">161.424<br><span>ribu rupiah</span></h3>
                     <p class="indikator-date">2024</p>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="indikator-card">
+                <div class="indikator-card" onclick="openModal('ipm')">
                     <div class="indikator-icon" style="background-image:url('assets/img/IPM.png')"></div>
-                    <p class="indikator-title">Indeks Pembangunan Manusia (IPM)</p>
+                    <p class="indikator-title">IPM</p>
                     <h3 class="indikator-value">80,53<br><span>persen</span></h3>
                     <p class="indikator-date">2025</p>
                 </div>
 
                 <!-- Card 4 -->
-                <div class="indikator-card">
+                <div class="indikator-card" onclick="openModal('ipg')">
                     <div class="indikator-icon" style="background-image:url('assets/img/IPG.png')"></div>
-                    <p class="indikator-title">Indeks Pembangunan Gender (IPG)</p>
+                    <p class="indikator-title">IPG</p>
                     <h3 class="indikator-value">94,2<br><span> </span></h3>
                     <p class="indikator-date">2024</p>
                 </div>
 
                 <!-- Card 5 -->
-                <div class="indikator-card">
+                <div class="indikator-card" onclick="openModal('tpt')">
                     <div class="indikator-icon" style="background-image:url('assets/img/TPT.png')"></div>
-                    <p class="indikator-title">Tingkat Pengangguran Terbuka (TPT)</p>
+                    <p class="indikator-title">TPT</p>
                     <h3 class="indikator-value">6,45<br><span>persen</span></h3>
                     <p class="indikator-date">Agustus 2025</p>
                 </div>
 
                 <!-- Card 6 -->
-                <div class="indikator-card">
+                <div class="indikator-card" onclick="openModal('aps')">
                     <div class="indikator-icon" style="background-image:url('assets/img/APS.png')"></div>
-                    <p class="indikator-title">Angka Partisipasi Sekolah (APS) SMA/SMK</p>
+                    <p class="indikator-title">APS SMA/SMK</p>
                     <h3 class="indikator-value">88,24<br><span></span></h3>
                     <p class="indikator-date">2025</p>
                 </div>
 
                 <!-- Card 7 -->
-                <div class="indikator-card">
+                <div class="indikator-card" onclick="openModal('kemiskinan')">
                     <div class="indikator-icon" style="background-image:url('assets/img/poverty.png')"></div>
-                    <p class="indikator-title">Angka Kemiskinan</p>
+                    <p class="indikator-title">Kemiskinan</p>
                     <h3 class="indikator-value">4,44<br><span>persen</span></h3>
                     <p class="indikator-date">Maret 2025</p>
                 </div>
 
                 <!-- Card 8 -->
-                <div class="indikator-card">
+                <div class="indikator-card" onclick="openModal('gini')">
                     <div class="indikator-icon" style="background-image:url('assets/img/IPM.png')"></div>
                     <p class="indikator-title">Gini Ratio</p>
                     <h3 class="indikator-value">0,385<br><span>persen</span></h3>
                     <p class="indikator-date">September 2025</p>
                 </div>
 
-                <div class="indikator-card">
+                <div class="indikator-card" onclick="openModal('penduduk')">
                     <div class="indikator-icon" style="background-image:url('assets/img/output-onlinepngtools.png'); filter: invert(1);"></div>
-                    <p class="indikator-title">Jumlah Penduduk</p>
+                    <p class="indikator-title">Penduduk</p>
                     <h3 class="indikator-value">2.064.564<br><span>jiwa</span></h3>
                     <p class="indikator-date">Hasil SP2020</p>
                 </div>
 
-                <div class="indikator-card">
+                <div class="indikator-card" onclick="openModal('inflasi')">
                     <div class="indikator-icon" style="background-image:url('assets/img/indonesian-rupiah.png'); filter: invert(1);"></div>
                     <p class="indikator-title">Inflasi</p>
                     <h3 class="indikator-value">-0,09<br><span>persen</span></h3>
@@ -359,6 +372,31 @@
     </footer>
     
 
+
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 id="modalTitle">-</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-chart"><canvas id="modalChart"></canvas></div>
+        </div>
+    </div>
+
+    <!-- Data scripts -->
+    <script src="assets/data/ekonomi.js"></script>
+    <script src="assets/data/ipm.js"></script>
+    <script src="assets/data/ipg.js"></script>
+    <script src="assets/data/tpt.js"></script>
+    <script src="assets/data/aps.js"></script>
+    <script src="assets/data/kemiskinan.js"></script>
+    <script src="assets/data/gini.js"></script>
+    <script src="assets/data/inflasi.js"></script>
+    <script src="assets/data/pdrb.js"></script>
+    <script src="assets/data/penduduk.js"></script>
+    <script src="assets/js/modal.js"></script>
 
 <script>
 
