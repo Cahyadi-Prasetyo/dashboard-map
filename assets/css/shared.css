@@ -1913,8 +1913,8 @@
                 }
 
                 .indikator-card {
-                    width: calc(25% - 25px);
-                    /* explicitly use width to avoid growing/shrinking issues */
+                    width: calc(20% - 20px);
+                    /* 5 items per row, 25px gap */
                     background: white;
                     padding: 5px;
                     border-radius: 16px;
