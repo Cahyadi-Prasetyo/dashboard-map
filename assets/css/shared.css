@@ -1913,7 +1913,8 @@
                 }
 
                 .indikator-card {
-                    flex: 0 1 calc(25% - 25px);
+                    width: calc(25% - 25px);
+                    /* explicitly use width to avoid growing/shrinking issues */
                     background: white;
                     padding: 5px;
                     border-radius: 16px;
@@ -1967,19 +1968,19 @@
 
                 @media (max-width: 900px) {
                     .indikator-card {
-                        flex: 0 1 calc(33.333% - 25px);
+                        width: calc(33.333% - 25px);
                     }
                 }
 
                 @media (max-width: 768px) {
                     .indikator-card {
-                        flex: 0 1 calc(50% - 25px);
+                        width: calc(50% - 25px);
                     }
                 }
 
                 @media (max-width: 480px) {
                     .indikator-card {
-                        flex: 0 1 100%;
+                        width: 100%;
                     }
                 }
 
