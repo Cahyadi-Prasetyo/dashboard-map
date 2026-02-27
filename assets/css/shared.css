@@ -1899,115 +1899,225 @@
                     }
                 }
 
-/* ===== LANDING PAGE INDICATOR STYLES ===== */
+                /* ===== LANDING PAGE INDICATOR STYLES ===== */
 
-.indikator-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-            white-space: normal;
-            max-width: 1100px;
-            /* batasi lebar seperti BPS */
-            width: 100%;
+                .indikator-container {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 25px;
+                    white-space: normal;
+                    max-width: 1100px;
+                    /* batasi lebar seperti BPS */
+                    width: 100%;
 
-            margin: 0 auto;
-        }
+                    margin: 0 auto;
+                }
 
-.indikator-card {
-            background: white;
-            padding: 5px;
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-            transition: 0.2s;
-        }
+                .indikator-card {
+                    background: white;
+                    padding: 5px;
+                    border-radius: 16px;
+                    text-align: center;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+                    transition: 0.2s;
+                }
 
-.indikator-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-        }
+                .indikator-card:hover {
+                    transform: translateY(-4px);
+                    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+                }
 
-.indikator-icon {
-            width: 80px;
-            height: 80px;
-            margin: auto;
-            margin-top: 10px;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-        }
+                .indikator-icon {
+                    width: 80px;
+                    height: 80px;
+                    margin: auto;
+                    margin-top: 10px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
+                }
 
-.indikator-title {
-            font-weight: 600;
-            margin-top: 10px;
-            color: #000000;
-        }
+                .indikator-title {
+                    font-weight: 600;
+                    margin-top: 10px;
+                    color: #000000;
+                }
 
-.indikator-value {
-            font-size: 40px;
-            font-weight: bold;
-            margin: 0;
-            line-height: 1.1;
-            color: #e37f2a;
-        }
+                .indikator-value {
+                    font-size: 40px;
+                    font-weight: bold;
+                    margin: 0;
+                    line-height: 1.1;
+                    color: #e37f2a;
+                }
 
-.indikator-value span {
-            font-size: 20px;
-            font-weight: normal;
-            display: block;
-            margin-top: -4px;
-        }
+                .indikator-value span {
+                    font-size: 20px;
+                    font-weight: normal;
+                    display: block;
+                    margin-top: -4px;
+                }
 
-.indikator-date {
-            font-size: 15px;
-            font-weight: bold;
-            color: #5c5b5b;
-            margin-top: 10px;
-        }
+                .indikator-date {
+                    font-size: 15px;
+                    font-weight: bold;
+                    color: #5c5b5b;
+                    margin-top: 10px;
+                }
 
-.indikator-container {
-                        grid-template-columns: repeat(2, 1fr);
+                .indikator-container {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+
+                /* Compact indicator cards & Modal Styles */
+                .indikator-card {
+                    padding: 14px 10px !important;
+                    cursor: pointer;
+                    transition: transform 0.2s, box-shadow 0.2s;
+                }
+
+                .indikator-card:hover {
+                    transform: translateY(-4px);
+                    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+                }
+
+                .indikator-icon {
+                    width: 48px !important; height: 48px !important; margin-top: 4px !important;
+                }
+
+                .indikator-title {
+                    font-size: 11px !important; margin: 4px 0 2px !important;
+                }
+
+                .indikator-value {
+                    font-size: 18px !important;
+                }
+
+                .indikator-value span {
+                    font-size: 10px !important;
+                }
+
+                .indikator-date {
+                    font-size: 10px !important; margin: 2px 0 0 !important;
+                }
+
+                /* Rich Modal */
+                .modal-overlay {
+                    display: none; position: fixed; inset: 0; z-index: 9999;
+                    background: rgba(0, 0, 0, 0.5); align-items: center; justify-content: center;
+                    backdrop-filter: blur(4px);
+                }
+
+                .modal-overlay.active {
+                    display: flex;
+                }
+
+                .modal-box {
+                    background: #fff; border-radius: 16px; width: 95%; max-width: 900px;
+                    max-height: 90vh; overflow-y: auto; padding: 32px;
+                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+                    animation: modalIn 0.25s ease;
+                    display: flex; flex-direction: column;
+                }
+
+                @keyframes modalIn {
+                    from {
+                        opacity: 0; transform: translateY(20px);
                     }
 
+                    to {
+                        opacity: 1; transform: translateY(0);
+                    }
+                }
 
-/* Compact indicator cards & Modal Styles */
-.indikator-card {
-    padding: 14px 10px !important;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-.indikator-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-}
-.indikator-icon { width: 48px !important; height: 48px !important; margin-top: 4px !important; }
-.indikator-title { font-size: 11px !important; margin: 4px 0 2px !important; }
-.indikator-value { font-size: 18px !important; }
-.indikator-value span { font-size: 10px !important; }
-.indikator-date { font-size: 10px !important; margin: 2px 0 0 !important; }
+                .modal-header {
+                    display: flex; justify-content: space-between; align-items: center;
+                    margin-bottom: 24px; border-bottom: 2px solid #f1f5f9; padding-bottom: 16px;
+                }
 
-/* Modal */
-.modal-overlay {
-    display: none; position: fixed; inset: 0; z-index: 9999;
-    background: rgba(0,0,0,0.5); align-items: center; justify-content: center;
-    backdrop-filter: blur(4px);
-}
-.modal-overlay.active { display: flex; }
-.modal-box {
-    background: #fff; border-radius: 16px; width: 90%; max-width: 720px;
-    max-height: 85vh; overflow-y: auto; padding: 32px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    animation: modalIn 0.25s ease;
-}
-@keyframes modalIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-.modal-header {
-    display: flex; justify-content: space-between; align-items: center;
-    margin-bottom: 20px; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px;
-}
-.modal-header h3 { margin: 0; font-size: 18px; color: #1e293b; font-weight: 700; }
-.modal-close {
-    background: none; border: none; font-size: 28px; cursor: pointer;
-    color: #94a3b8; line-height: 1; padding: 0 4px;
-}
-.modal-close:hover { color: #ef4444; }
-.modal-chart { position: relative; height: 320px; }
+                .modal-header h3 {
+                    margin: 0; font-size: 24px; color: var(--primary); font-weight: 700;
+                }
+
+                .modal-close {
+                    background: none; border: none; font-size: 32px; cursor: pointer;
+                    color: #94a3b8; line-height: 1; padding: 0 8px; transition: 0.2s;
+                }
+
+                .modal-close:hover {
+                    color: #ef4444;
+                }
+
+                /* Modal Body */
+                .modal-body-split {
+                    display: grid;
+                    grid-template-columns: 35% 1fr;
+                    gap: 24px;
+                }
+
+                /* Kiri: Gambar, Definisi, Metode */
+                .modal-img {
+                    width: 100%;
+                    height: 180px;
+                    object-fit: cover;
+                    border-radius: 12px;
+                    margin-bottom: 16px;
+                }
+
+                .modal-info-box {
+                    background: #f8fafc;
+                    border: 1px solid #e2e8f0;
+                    border-radius: 10px;
+                    padding: 12px 16px;
+                    margin-bottom: 12px;
+                }
+
+                .modal-info-box:last-child {
+                    margin-bottom: 0;
+                }
+
+                .modal-info-title {
+                    font-size: 13px; font-weight: 700; color: #0f172a; margin-bottom: 6px;
+                }
+
+                .modal-info-text {
+                    font-size: 13px; line-height: 1.6; color: #475569; font-weight: 500;
+                }
+
+                /* Kanan: Grafik, Insight */
+                .modal-right {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                }
+
+                .modal-chart {
+                    position: relative;
+                    height: 300px;
+                    width: 100%;
+                    background: #ffffff;
+                    border: 1px solid #e2e8f0;
+                    border-radius: 12px;
+                    padding: 10px;
+                }
+
+                .modal-insight {
+                    background: var(--primary-soft);
+                    padding: 16px 20px;
+                    border-radius: 12px;
+                    font-size: 14px;
+                    line-height: 1.7;
+                    color: #1e293b;
+                    border-left: 4px solid var(--primary);
+                }
+
+                .modal-insight strong {
+                    font-size: 15px; color: var(--primary); display: block; margin-bottom: 6px;
+                }
+
+                @media (max-width: 768px) {
+                    .modal-body-split {
+                        grid-template-columns: 1fr;
+                    }
+                }
