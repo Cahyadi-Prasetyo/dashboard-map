@@ -291,7 +291,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             return { type: 'bar', data: { labels: ['SP 2010', 'SP 2020'], datasets: [{ label: 'Jumlah Penduduk (jiwa)', data: dataArr, backgroundColor: ['rgba(59,130,246,0.7)', 'rgba(16,185,129,0.7)'], borderRadius: 8, barThickness: 60 }] }, options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'right', formatter: (v) => v.toLocaleString('id-ID') + ' jiwa', font: { weight: 'bold', size: 12 }, color: '#1e293b' } }, scales: { x: { display: false }, y: { grid: { display: false }, border: { display: false } } }, layout: { padding: { right: 120 } } } };
         },
         inflasi: () => {
-            title.textContent = `Tingkat Inflasi Year-on-Year (Y-on-Y) ${regionName} (2022=100), Januari 2025–Januari 2026`;
+            title.textContent = `Tingkat Inflasi Year-on-Year (Y-on-Y) `;
 
             let dataArr = [];
             let labelsArr = ['Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25', 'Jan 26'];
@@ -307,7 +307,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             return { type: 'line', data: { labels: labelsArr, datasets: [{ label: 'Inflasi Y-on-Y (%)', data: dataArr, borderColor: gradientLine, backgroundColor: gradientFill, fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#7c3aed', pointBorderColor: '#fff', pointBorderWidth: 2, pointHoverRadius: 7 }] }, options: lineOpts('%') };
         },
         wisman: () => {
-            title.textContent = `Jumlah Kunjungan Wisatawan Mancanegara ${regionName}, Desember 2024–Desember 2025 (ribu kunjungan)`;
+            title.textContent = `Jumlah Kunjungan Wisatawan ${regionName} (ribu kunjungan)`;
             let labelsArr = ['Des 24', 'Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25'];
             let barData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
@@ -359,7 +359,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             };
         },
         ekspor: () => {
-            title.textContent = `Nilai Ekspor ${regionName}, Desember 2024–Desember 2025 (Juta USD)`;
+            title.textContent = `Nilai Ekspor ${regionName} (Juta USD)`;
             let labelsArr = ["Des'24", "Jan'25", "Feb'25", "Mar'25", "Apr'25", "Mei'25", "Jun'25", "Jul'25", "Ags'25", "Sep'25", "Okt'25", "Nov'25", "Des'25"];
             let dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
