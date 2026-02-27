@@ -397,13 +397,39 @@
 
     <!-- MODAL -->
     <div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
-        <div class="modal-box">
+        <div class="modal-box" onclick="event.stopPropagation()">
             <div class="modal-header">
                 <h3 id="modalTitle">-</h3>
                 <button class="modal-close" onclick="closeModal()">&times;</button>
             </div>
-            <div class="modal-chart"><canvas id="modalChart"></canvas></div>
+            
+            <div class="modal-body-split">
+                <!-- Kiri: Gambar, Definisi, Metode -->
+                <div class="modal-left">
+                    <img id="modalImg" src="" alt="Indikator" class="modal-img" onerror="this.src='assets/img/potensi.png'">
+                    
+                    <div class="modal-info-box">
+                        <div class="modal-info-title">Definisi</div>
+                        <div class="modal-info-text" id="modalDef">-</div>
+                    </div>
+                    
+                    <div class="modal-info-box">
+                        <div class="modal-info-title">Metode Perhitungan</div>
+                        <div class="modal-info-text" id="modalMetode">-</div>
+                    </div>
+                </div>
+
+                <!-- Kanan: Grafik, Insight -->
+                <div class="modal-right">
+                    <div class="modal-chart"><canvas id="modalChart"></canvas></div>
+                    <div class="modal-insight">
+                        <strong>Insight</strong>
+                        <span id="modalInsight">-</span>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
     </div>
 
     <!-- Data scripts -->
@@ -417,6 +443,9 @@
     <script src="assets/data/inflasi.js"></script>
     <script src="assets/data/pdrb.js"></script>
     <script src="assets/data/penduduk.js"></script>
+        <script src="assets/data/wisman.js"></script>
+    <script src="assets/data/ekspor.js"></script>
+    <script src="assets/data/impor.js"></script>
     <script src="assets/js/modal.js"></script>
 
 <script>
