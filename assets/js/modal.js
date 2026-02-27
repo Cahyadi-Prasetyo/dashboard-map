@@ -11,7 +11,7 @@ const indicatorInfo = {
     tpt: {
         def: 'Persentase jumlah pengangguran terhadap jumlah angkatan kerja',
         img: 'assets/img/TPT.jpg',
-        insight: (rn) => `Tingkat pengangguran terbuka di ${rn} menunjukkan tren penurunan yang positif.`
+        insight: (rn) => `TPT menunjukkan tren menurun dari 2021 hingga 2025, mencerminkan perbaikan kondisi ketenagakerjaan di ${rn}.`
     },
     pdrb: {
         def: 'Nilai PDRB dibagi jumlah penduduk dalam suatu wilayah pada periode tertentu',
@@ -21,7 +21,7 @@ const indicatorInfo = {
     ipm: {
         def: 'Indikator yang mengukur kualitas hidup penduduk berdasarkan kesehatan, pendidikan, dan standar hidup layak.',
         img: 'assets/img/IPM.jpg',
-        insight: (rn) => `Kualitas hidup di ${rn} selalu mengalami peningkatan yang stabil.`
+        insight: (rn) => `IPM di ${rn} meningkat secara konsisten dari tahun ke tahun yang menunjukkan perbaikan berkelanjutan dalam kualitas hidup masyarakat.`
     },
     aps: {
         def: 'Persentase penduduk usia sekolah SMA/SMK yang sedang menempuh pendidikan per 1,000 jumlah penduduk usia pendidikan menengah.',
@@ -31,7 +31,7 @@ const indicatorInfo = {
     ipg: {
         def: 'Indikator yang mengukur kesetaraan capaian pembangunan manusia antara laki-laki dan perempuan.',
         img: 'assets/img/IPG.jpeg',
-        insight: (rn) => `Kesetaraan pembangunan gender di ${rn} stabil dan terjaga dengan baik.`
+        insight: (rn) => `IPG di ${rn} menunjukkan tren meningkat dari yang menunjukkan kesetaraan capaian pembangunan antara laki-laki dan perempuan semakin membaik`
     },
     kemiskinan: {
         def: 'Persentase penduduk yang memiliki pengeluaran per kapita di bawah garis kemiskinan.',
@@ -97,7 +97,13 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
 
     const charts = {
         ekonomi: () => {
-            title.textContent = `Pertumbuhan Ekonomi (y-on-y) ${regionName}`;
+            title.textContent = `Pertumbuhan Ekonomi ${regionName} 2020–2024`;
+            // Set insight text for Pertumbuhan Ekonomi
+            if (regionKey === 'kepulauan_riau') {
+                insEl.textContent = "Perekonomian Kepulauan Riau triwulan IV-2025 dibanding periode yang sama tahun sebelumnya tumbuh sebesar 7,89 persen.";
+            } else {
+                insEl.textContent = "Pertumbuhan Ekonomi menunjukkan laju perekonomian di wilayah ini.";
+            }
             let dataArr = [];
             let labelsArr = dataEkonomi.tahun;
 
@@ -109,7 +115,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
                 if (d && d.tahunan) { dataArr = d.tahunan; }
             }
 
-            return { type: 'bar', data: { labels: labelsArr, datasets: [{ label: 'Pertumbuhan Ekonomi (%)', data: dataArr, backgroundColor: 'rgba(59,130,246,0.7)', borderRadius: 6 }] }, options: barOpts('%') };
+            return { type: 'bar', data: { labels: labelsArr, datasets: [{ label: 'Pertumbuhan Ekonomi (%)', data: dataArr, backgroundColor: 'rgba(59,130,246,0.7)', borderRadius: 6 }] }, options: barOptsDecimal('%') };
         },
         pdrb: () => {
             title.textContent = `PDRB per Kapita ${regionName} (Ribu Rupiah)`;
@@ -133,7 +139,12 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
                         pointBorderWidth: 2
                     }]
                 },
-                options: lineOpts('')
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { display: false }, datalabels: { align: 'top', offset: 6, formatter: (v) => v.toLocaleString('id-ID'), font: { weight: 'bold', size: 11 }, color: '#1e293b' } },
+                    scales: { y: { display: false }, x: { grid: { display: false }, border: { display: false }, ticks: { font: { size: 11 } } } },
+                    layout: { padding: { top: 30, bottom: 10, left: 40, right: 20 } }
+                }
             };
         },
         ipm: () => {
@@ -152,6 +163,70 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
         },
         tpt: () => {
             title.textContent = `Tingkat Pengangguran Terbuka (TPT) ${regionName}`;
+            if (regionKey === 'kepulauan_riau') {
+                const labels = ['Feb 2021', 'Ags 2021', 'Feb 2022', 'Ags 2022', 'Feb 2023', 'Ags 2023', 'Feb 2024', 'Ags 2024', 'Feb 2025', 'Ags 2025', 'Nov 2025'];
+                const barData = [116.75, 119.60, 84.79, 103.72, 84.23, 74.33, 74.78, 71.57, 75.21, 72.56, 71.84];
+                const lineData = [10.12, 9.91, 8.02, 8.23, 7.61, 6.80, 6.94, 6.39, 6.89, 6.45, 6.35];
+
+                return {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [
+                            {
+                                type: 'line',
+                                label: 'TPT (%)',
+                                data: lineData,
+                                borderColor: '#1e293b',
+                                backgroundColor: '#1e293b',
+                                borderWidth: 3,
+                                pointBackgroundColor: '#fff',
+                                pointBorderColor: '#1e293b',
+                                pointBorderWidth: 3,
+                                pointRadius: 5,
+                                yAxisID: 'y',
+                                datalabels: {
+                                    align: 'bottom',
+                                    anchor: 'start',
+                                    offset: 2,
+                                    formatter: (v) => v.toLocaleString('id-ID', { minimumFractionDigits: 2 }),
+                                    color: '#1e293b',
+                                    font: { weight: 'bold', size: 12 }
+                                }
+                            },
+                            {
+                                type: 'bar',
+                                label: 'Pengangguran (Ribu Orang)',
+                                data: barData,
+                                backgroundColor: 'rgba(245, 158, 11, 0.85)',
+                                borderRadius: 4,
+                                yAxisID: 'y',
+                                datalabels: {
+                                    align: 'top',
+                                    anchor: 'end',
+                                    offset: 2,
+                                    formatter: (v) => v.toLocaleString('id-ID', { minimumFractionDigits: 2 }),
+                                    color: '#1e293b',
+                                    font: { weight: '600', size: 11 }
+                                }
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: true, position: 'bottom' }
+                        },
+                        scales: {
+                            x: { grid: { display: false } },
+                            y: { display: false }
+                        },
+                        layout: { padding: { top: 30, bottom: 20 } }
+                    }
+                };
+            }
+
             const d = dataTpt.wilayah[regionKey];
             let dataArr = [];
             if (d && d.tahunan) { dataArr = d.tahunan; }
@@ -216,46 +291,94 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             return { type: 'bar', data: { labels: ['SP 2010', 'SP 2020'], datasets: [{ label: 'Jumlah Penduduk (jiwa)', data: dataArr, backgroundColor: ['rgba(59,130,246,0.7)', 'rgba(16,185,129,0.7)'], borderRadius: 8, barThickness: 60 }] }, options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'right', formatter: (v) => v.toLocaleString('id-ID') + ' jiwa', font: { weight: 'bold', size: 12 }, color: '#1e293b' } }, scales: { x: { display: false }, y: { grid: { display: false }, border: { display: false } } }, layout: { padding: { right: 120 } } } };
         },
         inflasi: () => {
-            title.textContent = `Tingkat Inflasi Y-on-Y ${regionName}, Januari 2026`;
+            title.textContent = `Tingkat Inflasi Year-on-Year (Y-on-Y) ${regionName} (2022=100), Januari 2025–Januari 2026`;
 
-            // Hardcode Y-on-Y arrays based on user screenshots or available data
             let dataArr = [];
-            if (regionKey === 'karimun') {
-                dataArr = [-0.73, -0.15, 2.30, 0.87, -0.15, 0.40, 1.92, 2.91, 2.58, 2.43, 2.72, 2.77];
-            } else {
-                const d = dataInflasi.wilayah[regionKey]?.tahunan;
-                if (d && d['2025']) {
-                    const jan26 = d['2026']?.[0] || 0;
-                    dataArr = [...d['2025'].slice(1), jan26];
-                }
-            }
-            if (dataArr.length === 0) dataArr = [0];
+            let labelsArr = ['Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25', 'Jan 26'];
 
-            return { type: 'line', data: { labels: ['Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25', 'Jan 26'], datasets: [{ label: 'Inflasi Y-on-Y (%)', data: dataArr, borderColor: gradientLine, backgroundColor: gradientFill, fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#7c3aed', pointBorderColor: '#fff', pointBorderWidth: 2, pointHoverRadius: 7 }] }, options: lineOpts('%') };
+            if (regionKey === 'kepulauan_riau') {
+                dataArr = [2.01, 2.09, 2.01, 2.56, 1.73, 1.32, 1.97, 2.19, 2.70, 3.01, 3.00, 3.47, 2.94];
+            } else if (regionKey === 'karimun') {
+                dataArr = [0, -0.73, -0.15, 2.30, 0.87, -0.15, 0.40, 1.92, 2.91, 2.58, 2.43, 2.70, 2.77];
+            } else {
+                dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            }
+
+            return { type: 'line', data: { labels: labelsArr, datasets: [{ label: 'Inflasi Y-on-Y (%)', data: dataArr, borderColor: gradientLine, backgroundColor: gradientFill, fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#7c3aed', pointBorderColor: '#fff', pointBorderWidth: 2, pointHoverRadius: 7 }] }, options: lineOpts('%') };
         },
         wisman: () => {
-            title.textContent = `Kunjungan Wisman ${regionName} (Kunjungan)`;
-            let dataArr = [0, 0, 0, 0, 0, 0, 0];
+            title.textContent = `Jumlah Kunjungan Wisatawan Mancanegara ${regionName}, Desember 2024–Desember 2025 (ribu kunjungan)`;
+            let labelsArr = ['Des 24', 'Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25'];
+            let barData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
             if (regionKey === 'kepulauan_riau') {
-                dataArr = [120000, 150000, 180000, 195000, 205000, 215000, 223456];
+                barData = [195.63, 153.89, 125.70, 128.89, 126.83, 176.37, 215.72, 158.04, 185.01, 176.28, 175.90, 157.37, 247.024];
             }
-            return { type: 'line', data: { labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul'], datasets: [{ label: 'Kunjungan Wisman', data: dataArr, borderColor: '#0ea5e9', backgroundColor: 'rgba(14,165,233,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#0ea5e9', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts('') };
+
+            return {
+                type: 'bar',
+                data: {
+                    labels: labelsArr,
+                    datasets: [
+                        {
+                            label: 'Kunjungan Wisman (ribu)',
+                            data: barData,
+                            backgroundColor: 'rgba(22, 163, 74, 0.75)',
+                            borderRadius: 4,
+                            datalabels: {
+                                align: 'top',
+                                anchor: 'end',
+                                offset: 2,
+                                formatter: (v) => v.toLocaleString('id-ID', { minimumFractionDigits: 2 }),
+                                color: '#1e293b',
+                                font: { weight: '600', size: 10 }
+                            }
+                        },
+                        {
+                            type: 'line',
+                            label: 'Trend',
+                            data: barData,
+                            borderColor: '#166534',
+                            backgroundColor: '#166534',
+                            borderWidth: 2,
+                            pointRadius: 0,
+                            datalabels: { display: false }
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: true, position: 'bottom' } },
+                    scales: {
+                        x: { grid: { display: false } },
+                        y: { display: false }
+                    },
+                    layout: { padding: { top: 30, bottom: 20 } }
+                }
+            };
         },
         ekspor: () => {
-            title.textContent = `Nilai Ekspor ${regionName} (Juta USD)`;
-            let dataArr = [0, 0, 0, 0, 0];
+            title.textContent = `Nilai Ekspor ${regionName}, Desember 2024–Desember 2025 (Juta USD)`;
+            let labelsArr = ["Des'24", "Jan'25", "Feb'25", "Mar'25", "Apr'25", "Mei'25", "Jun'25", "Jul'25", "Ags'25", "Sep'25", "Okt'25", "Nov'25", "Des'25"];
+            let dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
             if (regionKey === 'kepulauan_riau') {
-                dataArr = [1500, 1650, 1800, 2000, 2145];
+                dataArr = [1839.28, 2177.29, 1796.50, 2052.49, 2003.39, 2386.35, 1902.37, 2001.78, 1883.21, 1935.44, 2134.77, 1850.18, 2071.02];
             }
-            return { type: 'bar', data: { labels: ['2020', '2021', '2022', '2023', '2024'], datasets: [{ label: 'Ekspor', data: dataArr, backgroundColor: 'rgba(16,185,129,0.7)', borderRadius: 6 }] }, options: barOpts('') };
+
+            return { type: 'line', data: { labels: labelsArr, datasets: [{ label: 'Ekspor (Juta USD)', data: dataArr, borderColor: '#58508d', backgroundColor: 'rgba(88,80,141,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#58508d', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts('') };
         },
         impor: () => {
-            title.textContent = `Nilai Impor ${regionName} (Juta USD)`;
-            let dataArr = [0, 0, 0, 0, 0];
+            title.textContent = `Nilai Impor ${regionName}, Desember 2024–Desember 2025 (Juta USD)`;
+            let labelsArr = ["Des'24", "Jan'25", "Feb'25", "Mar'25", "Apr'25", "Mei'25", "Jun'25", "Jul'25", "Ags'25", "Sep'25", "Okt'25", "Nov'25", "Des'25"];
+            let dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
             if (regionKey === 'kepulauan_riau') {
-                dataArr = [1200, 1300, 1450, 1600, 1845];
+                dataArr = [1607.57, 1749.79, 1686.27, 1920.16, 1926.94, 2273.53, 1872.70, 1680.45, 1784.58, 1783.55, 1866.03, 1755.49, 1908.61];
             }
-            return { type: 'bar', data: { labels: ['2020', '2021', '2022', '2023', '2024'], datasets: [{ label: 'Impor', data: dataArr, backgroundColor: 'rgba(239,68,68,0.7)', borderRadius: 6 }] }, options: barOpts('') };
+
+            return { type: 'line', data: { labels: labelsArr, datasets: [{ label: 'Impor (Juta USD)', data: dataArr, borderColor: '#ff6361', backgroundColor: 'rgba(255,99,97,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#ff6361', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts('') };
         }
     };
 
@@ -277,6 +400,14 @@ function barOpts(suffix) {
     return {
         responsive: true, maintainAspectRatio: false,
         plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'top', formatter: (v) => v.toLocaleString('id-ID') + suffix, font: { weight: 'bold', size: 11 }, color: '#1e293b' } },
+        scales: { y: { display: false }, x: { grid: { display: false }, border: { display: false } } },
+        layout: { padding: { top: 30 } }
+    };
+}
+function barOptsDecimal(suffix) {
+    return {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'top', formatter: (v) => v.toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + suffix, font: { weight: 'bold', size: 14 }, color: '#1e293b' } },
         scales: { y: { display: false }, x: { grid: { display: false }, border: { display: false } } },
         layout: { padding: { top: 30 } }
     };

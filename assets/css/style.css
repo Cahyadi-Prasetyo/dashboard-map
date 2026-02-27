@@ -5696,21 +5696,21 @@
     }
 
     .indikator-title {
-        font-weight: 600;
+        font-weight: 800;
         margin-top: 10px;
         color: #0b3d91;
     }
 
     .indikator-value {
-        font-size: 35px;
+        font-size: 48px;
         font-weight: bold;
         margin-top: 5px;
     }
 
     .indikator-value span {
-        font-size: 18px;
+        font-size: 20px;
         padding-top: 2px;
-        font-weight: normal;
+        font-weight: 600;
     }
 
     .indikator-date {
@@ -8358,9 +8358,9 @@
                 scroll-behavior: smooth;
             }
 
-                .style-13.active {
-                    background-color: #2563eb;
-                    color: white !important;
-                    border-radius: 6px;
-                    padding: 6px 12px;
-                }
+            .style-13.active {
+                background-color: #2563eb;
+                color: white !important;
+                border-radius: 6px;
+                padding: 6px 12px;
+            }
