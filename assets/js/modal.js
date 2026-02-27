@@ -223,20 +223,20 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             return { type: 'line', data: { labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul'], datasets: [{ label: 'Kunjungan Wisman', data: dataArr, borderColor: '#0ea5e9', backgroundColor: 'rgba(14,165,233,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#0ea5e9', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts(' kunjungan') };
         },
         ekspor: () => {
-            title.textContent = `Nilai Ekspor ${regionName}`;
+            title.textContent = `Nilai Ekspor ${regionName} (Juta USD)`;
             let dataArr = [0, 0, 0, 0, 0];
             if (regionKey === 'kepulauan_riau') {
                 dataArr = [1500, 1650, 1800, 2000, 2145];
             }
-            return { type: 'bar', data: { labels: ['2020', '2021', '2022', '2023', '2024'], datasets: [{ label: 'Ekspor (Juta USD)', data: dataArr, backgroundColor: 'rgba(16,185,129,0.7)', borderRadius: 6 }] }, options: barOpts(' Juta USD') };
+            return { type: 'bar', data: { labels: ['2020', '2021', '2022', '2023', '2024'], datasets: [{ label: 'Ekspor', data: dataArr, backgroundColor: 'rgba(16,185,129,0.7)', borderRadius: 6 }] }, options: barOpts('') };
         },
         impor: () => {
-            title.textContent = `Nilai Impor ${regionName}`;
+            title.textContent = `Nilai Impor ${regionName} (Juta USD)`;
             let dataArr = [0, 0, 0, 0, 0];
             if (regionKey === 'kepulauan_riau') {
                 dataArr = [1200, 1300, 1450, 1600, 1845];
             }
-            return { type: 'bar', data: { labels: ['2020', '2021', '2022', '2023', '2024'], datasets: [{ label: 'Impor (Juta USD)', data: dataArr, backgroundColor: 'rgba(239,68,68,0.7)', borderRadius: 6 }] }, options: barOpts(' Juta USD') };
+            return { type: 'bar', data: { labels: ['2020', '2021', '2022', '2023', '2024'], datasets: [{ label: 'Impor', data: dataArr, backgroundColor: 'rgba(239,68,68,0.7)', borderRadius: 6 }] }, options: barOpts('') };
         }
     };
 
