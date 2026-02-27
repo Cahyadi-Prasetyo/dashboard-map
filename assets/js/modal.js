@@ -150,8 +150,8 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
 
             // Inject 2025 data (16-18) specifically for Provinsi Kepri
             if (regionKey === 'kepulauan_riau') {
-                labelsArr = [...dataAps.tahun, 2024, 2025];
-                dataArr.push(null, 88.24); // span over 2024
+                labelsArr = [...dataAps.tahun, 2025];
+                dataArr.push(88.24); // append 2025 value
             }
 
             return {
