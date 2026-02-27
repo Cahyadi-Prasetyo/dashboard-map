@@ -6,51 +6,6 @@
     <title>Dashboard — Kepulauan Riau</title>
     <link rel="stylesheet" href="assets/css/shared.css">
     <link rel="stylesheet" href="assets/css/landingpage.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
-    <style>
-        /* Compact indicator cards */
-        .indikator-card {
-            padding: 14px 10px !important;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .indikator-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-        .indikator-icon { width: 48px !important; height: 48px !important; margin-top: 4px !important; }
-        .indikator-title { font-size: 11px !important; margin: 4px 0 2px !important; }
-        .indikator-value { font-size: 18px !important; }
-        .indikator-value span { font-size: 10px !important; }
-        .indikator-date { font-size: 10px !important; margin: 2px 0 0 !important; }
-
-        /* Modal */
-        .modal-overlay {
-            display: none; position: fixed; inset: 0; z-index: 9999;
-            background: rgba(0,0,0,0.5); align-items: center; justify-content: center;
-            backdrop-filter: blur(4px);
-        }
-        .modal-overlay.active { display: flex; }
-        .modal-box {
-            background: #fff; border-radius: 16px; width: 90%; max-width: 720px;
-            max-height: 85vh; overflow-y: auto; padding: 32px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            animation: modalIn 0.25s ease;
-        }
-        @keyframes modalIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-        .modal-header {
-            display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 20px; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px;
-        }
-        .modal-header h3 { margin: 0; font-size: 18px; color: #1e293b; font-weight: 700; }
-        .modal-close {
-            background: none; border: none; font-size: 28px; cursor: pointer;
-            color: #94a3b8; line-height: 1; padding: 0 4px;
-        }
-        .modal-close:hover { color: #ef4444; }
-        .modal-chart { position: relative; height: 320px; }
-    </style>
 </head>
 
 <body class="style-0">
@@ -213,7 +168,7 @@
             
                 <div class="indikator-container">
                 <!-- Card 1 -->
-                <div class="indikator-card" onclick="openModal('ekonomi', 'kepulauan_riau', 'Provinsi Kepulauan Riau')">
+                <div class="indikator-card">
                     <div class="indikator-icon" style="background-image:url('assets/img/in1.png')"></div>
                     <p class="indikator-title">Pertumbuhan Ekonomi</p>
                     <h3 class="indikator-value">5,02<br><span>persen</span></h3>
@@ -221,80 +176,80 @@
                 </div>
 
                 <!-- Card 2 -->
-                 <div class="indikator-card" onclick="openModal('pdrb', 'kepulauan_riau', 'Provinsi Kepulauan Riau')">
+                 <div class="indikator-card">
                     <div class="indikator-icon" style="background-image:url('assets/img/in2.png')"></div>
-                    <p class="indikator-title">PDRB per Kapita</p>
-                    <h3 class="indikator-value">0<br><span>ribu rupiah</span></h3>
+                    <p class="indikator-title">Produk Domestik Regional Bruto (PDRB) per Kapita</p>
+                    <h3 class="indikator-value">161.424<br><span>ribu rupiah</span></h3>
                     <p class="indikator-date">2024</p>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="indikator-card" onclick="openModal('ipm', 'kepulauan_riau', 'Provinsi Kepulauan Riau')">
+                <div class="indikator-card">
                     <div class="indikator-icon" style="background-image:url('assets/img/IPM.png')"></div>
-                    <p class="indikator-title">IPM</p>
+                    <p class="indikator-title">Indeks Pembangunan Manusia (IPM)</p>
                     <h3 class="indikator-value">80,53<br><span>persen</span></h3>
                     <p class="indikator-date">2025</p>
                 </div>
 
                 <!-- Card 4 -->
-                <div class="indikator-card" onclick="openModal('ipg', 'kepulauan_riau', 'Provinsi Kepulauan Riau')">
+                <div class="indikator-card">
                     <div class="indikator-icon" style="background-image:url('assets/img/IPG.png')"></div>
-                    <p class="indikator-title">IPG</p>
+                    <p class="indikator-title">Indeks Pembangunan Gender (IPG)</p>
                     <h3 class="indikator-value">94,2<br><span> </span></h3>
                     <p class="indikator-date">2024</p>
                 </div>
 
                 <!-- Card 5 -->
-                <div class="indikator-card" onclick="openModal('tpt', 'kepulauan_riau', 'Provinsi Kepulauan Riau')">
+                <div class="indikator-card">
                     <div class="indikator-icon" style="background-image:url('assets/img/TPT.png')"></div>
-                    <p class="indikator-title">TPT</p>
+                    <p class="indikator-title">Tingkat Pengangguran Terbuka (TPT)</p>
                     <h3 class="indikator-value">6,45<br><span>persen</span></h3>
                     <p class="indikator-date">Agustus 2025</p>
                 </div>
 
                 <!-- Card 6 -->
-                <div class="indikator-card" onclick="openModal('aps', 'kepulauan_riau', 'Provinsi Kepulauan Riau')">
+                <div class="indikator-card">
                     <div class="indikator-icon" style="background-image:url('assets/img/APS.png')"></div>
-                    <p class="indikator-title">APS SMA/SMK</p>
-                    <h3 class="indikator-value">84,97<br><span></span></h3>
+                    <p class="indikator-title">Angka Partisipasi Sekolah (APS) SMA/SMK</p>
+                    <h3 class="indikator-value">88,24<br><span></span></h3>
                     <p class="indikator-date">2025</p>
                 </div>
 
                 <!-- Card 7 -->
-                <div class="indikator-card" onclick="openModal('kemiskinan', 'kepulauan_riau', 'Provinsi Kepulauan Riau')">
+                <div class="indikator-card">
                     <div class="indikator-icon" style="background-image:url('assets/img/poverty.png')"></div>
-                    <p class="indikator-title">Kemiskinan</p>
-                    <h3 class="indikator-value">0<br><span>persen</span></h3>
+                    <p class="indikator-title">Angka Kemiskinan</p>
+                    <h3 class="indikator-value">4,44<br><span>persen</span></h3>
                     <p class="indikator-date">Maret 2025</p>
                 </div>
 
                 <!-- Card 8 -->
-                <div class="indikator-card" onclick="openModal('gini', 'kepulauan_riau', 'Provinsi Kepulauan Riau')">
+                <div class="indikator-card">
                     <div class="indikator-icon" style="background-image:url('assets/img/IPM.png')"></div>
                     <p class="indikator-title">Gini Ratio</p>
-                    <h3 class="indikator-value">0<br><span>persen</span></h3>
+                    <h3 class="indikator-value">0,385<br><span>persen</span></h3>
                     <p class="indikator-date">September 2025</p>
                 </div>
 
-                <!-- Card 9 -->
-                <div class="indikator-card" onclick="openModal('penduduk', 'kepulauan_riau', 'Provinsi Kepulauan Riau')">
+                <div class="indikator-card">
                     <div class="indikator-icon" style="background-image:url('assets/img/output-onlinepngtools.png'); filter: invert(1);"></div>
-                    <p class="indikator-title">Penduduk</p>
+                    <p class="indikator-title">Jumlah Penduduk</p>
                     <h3 class="indikator-value">2.064.564<br><span>jiwa</span></h3>
                     <p class="indikator-date">Hasil SP2020</p>
                 </div>
 
-                <!-- Card 10 -->
-                <div class="indikator-card" onclick="openModal('inflasi', 'kepulauan_riau', 'Provinsi Kepulauan Riau')">
+                <div class="indikator-card">
                     <div class="indikator-icon" style="background-image:url('assets/img/indonesian-rupiah.png'); filter: invert(1);"></div>
                     <p class="indikator-title">Inflasi</p>
                     <h3 class="indikator-value">-0,09<br><span>persen</span></h3>
                     <p class="indikator-date">Januari 2026</p>
                 </div>
+                </div>
             </div>
-            </div>
+            
         </div>
-<div class="style-129">
+    </div>
+    <div class="style-129">
         <div class="style-130">
             <div class="style-131">
                 <div class="style-132">
@@ -402,40 +357,77 @@
             </div>
         </div>
     </footer>
-
     
 
 
-
-    
-    <script src="assets/data/pdrb.js"></script>
-    <script src="assets/data/penduduk.js"></script>
-    <script src="assets/js/modal.js"></script>
+<script>
 
 
-    <!-- MODAL -->
-    <div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
-        <div class="modal-box">
-            <div class="modal-header">
-                <h3 id="modalTitle">-</h3>
-                <button class="modal-close" onclick="closeModal()">&times;</button>
-            </div>
-            <div class="modal-chart"><canvas id="modalChart"></canvas></div>
-        </div>
-    </div>
+let heroIndex = 0;
 
-    <!-- Data scripts -->
-    <script src="assets/data/ekonomi.js"></script>
-    <script src="assets/data/ipm.js"></script>
-    <script src="assets/data/ipg.js"></script>
-    <script src="assets/data/tpt.js"></script>
-    <script src="assets/data/aps.js"></script>
-    <script src="assets/data/kemiskinan.js"></script>
-    <script src="assets/data/gini.js"></script>
-    <script src="assets/data/inflasi.js"></script>
-    <script src="assets/data/pdrb.js"></script>
-    <script src="assets/data/penduduk.js"></script>
-    <script src="assets/js/modal.js"></script>
+const heroSlides = document.querySelectorAll(".hero-slide");
+const heroDotsContainer = document.getElementById("heroDots");
 
+/* create dots */
+heroSlides.forEach((_, i) => {
+
+    const dot = document.createElement("span");
+
+    dot.classList.add("hero-dot");
+
+    dot.onclick = () => {
+
+        heroIndex = i;
+        showHeroSlide(heroIndex);
+
+    };
+
+    heroDotsContainer.appendChild(dot);
+
+});
+
+const heroDots = document.querySelectorAll(".hero-dot");
+
+function showHeroSlide(index){
+
+    heroSlides.forEach(slide =>
+        slide.classList.remove("active"));
+
+    heroDots.forEach(dot =>
+        dot.classList.remove("active"));
+
+    heroSlides[index].classList.add("active");
+
+    heroDots[index].classList.add("active");
+
+}
+
+function heroMove(step){
+
+    heroIndex += step;
+
+    if(heroIndex >= heroSlides.length)
+        heroIndex = 0;
+
+    if(heroIndex < 0)
+        heroIndex = heroSlides.length - 1;
+
+    showHeroSlide(heroIndex);
+
+}
+
+/* initialize */
+showHeroSlide(heroIndex);
+
+/* auto slide */
+setInterval(() => {
+
+    heroMove(1);
+
+},5000);
+
+
+
+</script>
 </body>
 </html>
