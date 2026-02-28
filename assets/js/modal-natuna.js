@@ -44,9 +44,9 @@ const indicatorInfo = {
         insight: (rn) => `Ketimpangan pengeluaran di ${rn} relatif stabil dan tergolong moderat.`
     },
     inflasi: {
-        def: 'Persentase kenaikan harga barang dan jasa secara umum dan terus-menerus dalam periode tertentu.',
+        def: '-',
         img: 'assets/img/inflasi.jpeg',
-        insight: (rn) => `Tingkat inflasi di ${rn} cukup dinamis namun tetap terkendali.`
+        insight: (rn) => `Data inflasi belum ditemukan`
     },
     penduduk: {
         def: 'Total orang yang tinggal dan menetap di suatu wilayah pada waktu tertentu.',
@@ -54,9 +54,9 @@ const indicatorInfo = {
         insight: (rn) => `Jumlah penduduk di ${rn} bertambah secara proporsional berdasar sensus terbaru.`
     },
     wisman: {
-        def: 'Jumlah kunjungan wisatawan asing ke suatu wilayah dalam periode tertentu.',
+        def: '-',
         img: 'assets/img/wisata.jpeg',
-        insight: (rn) => `Kunjungan wisman di ${rn} meningkat tajam menandakan pemulihan pariwisata.`
+        insight: (rn) => `Data wisman belum ditemukan`
     },
     ekspor: {
         def: '-',
@@ -295,7 +295,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
                     const d = dataInflasi.wilayah['natuna'].tahunan;
                     dataArr = [...d['2025'], d['2026'][0]];
                 } else {
-                    dataArr = [2.54, 2.88, 2.53, 2.81, 2.04, 1.68, 2.30, 2.37, 2.82, 3.19, 3.21, 3.68, 2.74];
+                    dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
                 }
             } else if (regionKey === 'kepulauan_riau') {
                 dataArr = [2.01, 2.09, 2.01, 2.56, 1.73, 1.32, 1.97, 2.19, 2.70, 3.01, 3.00, 3.47, 2.94];
@@ -315,7 +315,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             if (regionKey === 'kepulauan_riau') {
                 barData = [195.63, 153.89, 125.70, 128.89, 126.83, 176.37, 215.72, 158.04, 185.01, 176.28, 175.90, 157.37, 247.024];
             } else if (regionKey === 'natuna') {
-                barData = [159.98, 124.48, 104.68, 100.28, 100.44, 140.83, 167.47, 123.53, 146.90, 141.96, 139.44, 127.67, 195.53];
+                barData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
             }
 
             return {
