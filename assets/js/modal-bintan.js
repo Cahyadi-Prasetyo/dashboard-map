@@ -44,9 +44,9 @@ const indicatorInfo = {
         insight: (rn) => `Ketimpangan pengeluaran di ${rn} relatif stabil dan tergolong moderat.`
     },
     inflasi: {
-        def: 'Persentase kenaikan harga barang dan jasa secara umum dan terus-menerus dalam periode tertentu.',
+        def: '-',
         img: 'assets/img/inflasi.jpeg',
-        insight: (rn) => `Tingkat inflasi di ${rn} cukup dinamis namun tetap terkendali.`
+        insight: (rn) => `Inflasi belum ditemukan`
     },
     penduduk: {
         def: 'Total orang yang tinggal dan menetap di suatu wilayah pada waktu tertentu.',
@@ -56,17 +56,17 @@ const indicatorInfo = {
     wisman: {
         def: 'Jumlah kunjungan wisatawan asing ke suatu wilayah dalam periode tertentu.',
         img: 'assets/img/wisata.jpeg',
-        insight: (rn) => `Kunjungan wisman di ${rn} meningkat tajam menandakan pemulihan pariwisata.`
+        insight: (rn) => `Kunjungan wisman di Bintan mencapai titik tertinggi pada awal pertengahan tahun.`
     },
     ekspor: {
-        def: 'Nilai atau volume barang dan jasa yang dijual ke luar negeri dalam periode tertentu.',
+        def: '-',
         img: 'assets/img/ekspor.png',
-        insight: (rn) => `Aktivitas ekspor ${rn} menunjukkan tren pertumbuhan yang solid.`
+        insight: (rn) => `Ekspor belum ditemukan`
     },
     impor: {
-        def: 'Nilai atau volume barang dan jasa yang dibeli dari luar negeri dalam periode tertentu.',
+        def: '-',
         img: 'assets/img/impor.jpeg',
-        insight: (rn) => `Nilai impor di ${rn} meningkat sejalan dengan kebutuhan suplai industri.`
+        insight: (rn) => `Impor belum ditemukan`
     }
 };
 
@@ -269,6 +269,8 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
                 dataArr = [2.01, 2.09, 2.01, 2.56, 1.73, 1.32, 1.97, 2.19, 2.70, 3.01, 3.00, 3.47, 2.94];
             } else if (regionKey === 'karimun') {
                 dataArr = [0, -0.73, -0.15, 2.30, 0.87, -0.15, 0.40, 1.92, 2.91, 2.58, 2.43, 2.70, 2.77];
+            } else if (regionKey === 'bintan') {
+                dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
             } else {
                 dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
             }
@@ -282,6 +284,8 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
 
             if (regionKey === 'kepulauan_riau') {
                 barData = [195.63, 153.89, 125.70, 128.89, 126.83, 176.37, 215.72, 158.04, 185.01, 176.28, 175.90, 157.37, 247.024];
+            } else if (regionKey === 'bintan') {
+                barData = [22.21, 15.79, 9.82, 17.62, 15.25, 20.28, 32.07, 21.94, 24.93, 20.97, 22.63, 16.87, 35.19];
             }
 
             return {
@@ -334,6 +338,8 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
 
             if (regionKey === 'kepulauan_riau') {
                 dataArr = [1839.28, 2177.29, 1796.50, 2052.49, 2003.39, 2386.35, 1902.37, 2001.78, 1883.21, 1935.44, 2134.77, 1850.18, 2071.02];
+            } else if (regionKey === 'bintan') {
+                dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
             }
 
             return { type: 'line', data: { labels: labelsArr, datasets: [{ label: 'Ekspor (Juta USD)', data: dataArr, borderColor: '#58508d', backgroundColor: 'rgba(88,80,141,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#58508d', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts('') };
@@ -345,6 +351,8 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
 
             if (regionKey === 'kepulauan_riau') {
                 dataArr = [1607.57, 1749.79, 1686.27, 1920.16, 1926.94, 2273.53, 1872.70, 1680.45, 1784.58, 1783.55, 1866.03, 1755.49, 1908.61];
+            } else if (regionKey === 'bintan') {
+                dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
             }
 
             return { type: 'line', data: { labels: labelsArr, datasets: [{ label: 'Impor (Juta USD)', data: dataArr, borderColor: '#ff6361', backgroundColor: 'rgba(255,99,97,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#ff6361', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts('') };
