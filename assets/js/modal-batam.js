@@ -319,15 +319,19 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
         },
         inflasi: () => {
             title.textContent = `Tingkat Inflasi Year-on-Year (Y-on-Y) `;
-            if (regionKey === 'batam') {
-                insEl.textContent = "Data inflasi Kota Batam belum dirilis atau belum tersedia di pembaruan ini.";
-                return { type: 'bar', data: { labels: ['Belum Ada Data'], datasets: [{ label: 'Inflasi Y-on-Y (%)', data: [0], backgroundColor: 'rgba(200,200,200,0.5)' }] }, options: barOptsDecimal('%') };
-            }
 
             let dataArr = [];
             let labelsArr = ['Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25', 'Jan 26'];
 
-            if (regionKey === 'kepulauan_riau') {
+            if (regionKey === 'batam') {
+                insEl.textContent = "Tingkat inflasi (y-on-y) Kota Batam pada bulan Januari 2026 tercatat sebesar 2,74%.";
+                if (typeof dataInflasi !== 'undefined' && dataInflasi.wilayah && dataInflasi.wilayah['batam']) {
+                    const d = dataInflasi.wilayah['batam'].tahunan;
+                    dataArr = [...d['2025'], d['2026'][0]];
+                } else {
+                    dataArr = [2.54, 2.88, 2.53, 2.81, 2.04, 1.68, 2.30, 2.37, 2.82, 3.19, 3.21, 3.68, 2.74];
+                }
+            } else if (regionKey === 'kepulauan_riau') {
                 dataArr = [2.01, 2.09, 2.01, 2.56, 1.73, 1.32, 1.97, 2.19, 2.70, 3.01, 3.00, 3.47, 2.94];
             } else if (regionKey === 'karimun') {
                 dataArr = [0, -0.73, -0.15, 2.30, 0.87, -0.15, 0.40, 1.92, 2.91, 2.58, 2.43, 2.70, 2.77];
