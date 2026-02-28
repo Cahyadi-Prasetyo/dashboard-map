@@ -406,8 +406,8 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             if (regionKey === 'kepulauan_riau') {
                 dataArr = [1839.28, 2177.29, 1796.50, 2052.49, 2003.39, 2386.35, 1902.37, 2001.78, 1883.21, 1935.44, 2134.77, 1850.18, 2071.02];
             } else if (regionKey === 'batam') {
-                insEl.textContent = "Data rincian nilai ekspor bulanan khusus untuk Kota Batam belum tersedia di pembaruan ini.";
-                return { type: 'bar', data: { labels: ['Belum Ada Data'], datasets: [{ label: 'Ekspor (Juta USD)', data: [0], backgroundColor: 'rgba(200,200,200,0.5)' }] }, options: barOptsDecimal('') };
+                insEl.textContent = "Data ekspor belum ditemukan untuk wilayah ini pada periode yang dipilih.";
+                return { type: 'bar', data: { labels: ['Data Belum Ditemukan'], datasets: [{ label: 'Ekspor (Juta USD)', data: [0], backgroundColor: 'rgba(200,200,200,0.5)' }] }, options: barOptsDecimal('') };
             }
 
             return { type: 'line', data: { labels: labelsArr, datasets: [{ label: 'Ekspor (Juta USD)', data: dataArr, borderColor: '#58508d', backgroundColor: 'rgba(88,80,141,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#58508d', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts('') };
@@ -420,8 +420,8 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             if (regionKey === 'kepulauan_riau') {
                 dataArr = [1607.57, 1749.79, 1686.27, 1920.16, 1926.94, 2273.53, 1872.70, 1680.45, 1784.58, 1783.55, 1866.03, 1755.49, 1908.61];
             } else if (regionKey === 'batam') {
-                insEl.textContent = "Data rincian nilai impor bulanan khusus untuk Kota Batam belum tersedia di pembaruan ini.";
-                return { type: 'bar', data: { labels: ['Belum Ada Data'], datasets: [{ label: 'Impor (Juta USD)', data: [0], backgroundColor: 'rgba(200,200,200,0.5)' }] }, options: barOptsDecimal('') };
+                insEl.textContent = "Data impor belum ditemukan untuk wilayah ini pada periode yang dipilih.";
+                return { type: 'bar', data: { labels: ['Data Belum Ditemukan'], datasets: [{ label: 'Impor (Juta USD)', data: [0], backgroundColor: 'rgba(200,200,200,0.5)' }] }, options: barOptsDecimal('') };
             }
 
             return { type: 'line', data: { labels: labelsArr, datasets: [{ label: 'Impor (Juta USD)', data: dataArr, borderColor: '#ff6361', backgroundColor: 'rgba(255,99,97,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#ff6361', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts('') };
