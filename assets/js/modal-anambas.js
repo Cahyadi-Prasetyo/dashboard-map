@@ -291,12 +291,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             let labelsArr = ['Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25', 'Jan 26'];
 
             if (regionKey === 'kepulauan_anambas') {
-                if (typeof dataInflasi !== 'undefined' && dataInflasi.wilayah && dataInflasi.wilayah['kepulauan_anambas']) {
-                    const d = dataInflasi.wilayah['kepulauan_anambas'].tahunan;
-                    dataArr = [...d['2025'], d['2026'][0]];
-                } else {
-                    dataArr = [2.54, 2.88, 2.53, 2.81, 2.04, 1.68, 2.30, 2.37, 2.82, 3.19, 3.21, 3.68, 2.74];
-                }
+                return { type: 'bar', data: { labels: ['Data Belum Ditemukan'], datasets: [{ label: 'Inflasi Y-on-Y (%)', data: [0], backgroundColor: 'rgba(200,200,200,0.5)' }] }, options: barOptsDecimal('') };
             } else if (regionKey === 'kepulauan_riau') {
                 dataArr = [2.01, 2.09, 2.01, 2.56, 1.73, 1.32, 1.97, 2.19, 2.70, 3.01, 3.00, 3.47, 2.94];
             } else if (regionKey === 'karimun') {
@@ -315,7 +310,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             if (regionKey === 'kepulauan_riau') {
                 barData = [195.63, 153.89, 125.70, 128.89, 126.83, 176.37, 215.72, 158.04, 185.01, 176.28, 175.90, 157.37, 247.024];
             } else if (regionKey === 'kepulauan_anambas') {
-                barData = [159.98, 124.48, 104.68, 100.28, 100.44, 140.83, 167.47, 123.53, 146.90, 141.96, 139.44, 127.67, 195.53];
+                return { type: 'bar', data: { labels: ['Data Belum Ditemukan'], datasets: [{ label: 'Kunjungan Wisman', data: [0], backgroundColor: 'rgba(200,200,200,0.5)' }] }, options: barOptsDecimal('') };
             }
 
             return {
