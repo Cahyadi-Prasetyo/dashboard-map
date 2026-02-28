@@ -21,15 +21,15 @@ const dataInflasi = {
     "karimun": {
       "nama": "Kabupaten Karimun",
       "tahunan": {
-        "2025": [-0.72, -1.3, 1.43, 1.97, -1.08, -0.71, 0.46, 1.03, 0.99, -0.31, 0.07, 0.92],
-        "2026": [-0.67, null, null, null, null, null, null, null, null, null, null, null]
+        "2025": [0.71, -0.73, 0.15, 2.30, 0.87, -0.15, 0.40, 1.92, 2.91, 2.58, 2.43, 2.72],
+        "2026": [2.77, null, null, null, null, null, null, null, null, null, null, null]
       }
     },
     "kepulauan_riau": {
       "nama": "Provinsi Kepulauan Riau",
       "tahunan": {
-        "2025": [0.43, -0.14, 0.38, 0.59, -0.44, -0.12, 0.19, 0.18, 0.64, 0.36, 0.23, 1.14],
-        "2026": [-0.09, null, null, null, null, null, null, null, null, null, null, null]
+        "2025": [2.01, 2.09, 2.01, 2.56, 1.73, 1.32, 1.97, 2.19, 2.70, 3.01, 3.00, 3.47],
+        "2026": [2.94, null, null, null, null, null, null, null, null, null, null, null]
       }
     }
   }
