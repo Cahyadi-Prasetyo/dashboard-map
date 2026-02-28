@@ -44,9 +44,9 @@ const indicatorInfo = {
         insight: (rn) => `Ketimpangan pengeluaran di ${rn} relatif stabil dan tergolong moderat.`
     },
     inflasi: {
-        def: 'Persentase kenaikan harga barang dan jasa secara umum dan terus-menerus dalam periode tertentu.',
+        def: '-',
         img: 'assets/img/inflasi.jpeg',
-        insight: (rn) => `Tingkat inflasi di ${rn} cukup dinamis namun tetap terkendali.`
+        insight: (rn) => `Data inflasi belum ditemukan`
     },
     penduduk: {
         def: 'Total orang yang tinggal dan menetap di suatu wilayah pada waktu tertentu.',
@@ -54,9 +54,9 @@ const indicatorInfo = {
         insight: (rn) => `Jumlah penduduk di ${rn} bertambah secara proporsional berdasar sensus terbaru.`
     },
     wisman: {
-        def: 'Jumlah kunjungan wisatawan asing ke suatu wilayah dalam periode tertentu.',
+        def: '-',
         img: 'assets/img/wisata.jpeg',
-        insight: (rn) => `Kunjungan wisman di ${rn} meningkat tajam menandakan pemulihan pariwisata.`
+        insight: (rn) => `Data kunjungan wisman belum ditemukan`
     },
     ekspor: {
         def: '-',
@@ -290,7 +290,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             let dataArr = [];
             let labelsArr = ['Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25', 'Jan 26'];
 
-            if (regionKey === 'kepulauan_anambas') {
+            if (regionKey === 'anambas') {
                 return { type: 'bar', data: { labels: ['Data Belum Ditemukan'], datasets: [{ label: 'Inflasi Y-on-Y (%)', data: [0], backgroundColor: 'rgba(200,200,200,0.5)' }] }, options: barOptsDecimal('') };
             } else if (regionKey === 'kepulauan_riau') {
                 dataArr = [2.01, 2.09, 2.01, 2.56, 1.73, 1.32, 1.97, 2.19, 2.70, 3.01, 3.00, 3.47, 2.94];
