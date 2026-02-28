@@ -98,12 +98,6 @@ function openModal(type, regionKey = 'lingga', regionName = 'Kepulauan Riau') {
     const charts = {
         ekonomi: () => {
             title.textContent = `Pertumbuhan Ekonomi ${regionName} 2020–2024`;
-            // Set insight text for Pertumbuhan Ekonomi
-            if (regionKey === 'kepulauan_riau') {
-                insEl.textContent = "Perekonomian Kepulauan Riau triwulan IV-2025 dibanding periode yang sama tahun sebelumnya tumbuh sebesar 7,89 persen.";
-            } else {
-                insEl.textContent = "Pertumbuhan Ekonomi menunjukkan laju perekonomian di wilayah ini.";
-            }
             let dataArr = [];
             let labelsArr = dataEkonomi.tahun;
 

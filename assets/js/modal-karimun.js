@@ -98,12 +98,6 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
     const charts = {
         ekonomi: () => {
             title.textContent = `Pertumbuhan Ekonomi ${regionName} 2020–2024`;
-            // Set insight text for Pertumbuhan Ekonomi
-            if (regionKey === 'kepulauan_riau') {
-                insEl.textContent = "Perekonomian Kepulauan Riau triwulan IV-2025 dibanding periode yang sama tahun sebelumnya tumbuh sebesar 7,89 persen.";
-            } else {
-                insEl.textContent = "Pertumbuhan Ekonomi menunjukkan laju perekonomian di wilayah ini.";
-            }
             let dataArr = [];
             let labelsArr = dataEkonomi.tahun;
 
@@ -371,7 +365,6 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
                     dataArr = eksporData[regionKey].values;
                     if (eksporData[regionKey].labels) labelsArr = eksporData[regionKey].labels;
                 }
-                if (eksporData[regionKey].insight) insEl.textContent = eksporData[regionKey].insight;
                 if (eksporData[regionKey].def) {
                     const defEl = document.getElementById('modalDef');
                     if (defEl) defEl.textContent = eksporData[regionKey].def;
@@ -393,7 +386,6 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
                     dataArr = imporData[regionKey].values;
                     if (imporData[regionKey].labels) labelsArr = imporData[regionKey].labels;
                 }
-                if (imporData[regionKey].insight) insEl.textContent = imporData[regionKey].insight;
                 if (imporData[regionKey].def) {
                     const defEl = document.getElementById('modalDef');
                     if (defEl) defEl.textContent = imporData[regionKey].def;

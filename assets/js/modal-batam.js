@@ -98,14 +98,6 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
     const charts = {
         ekonomi: () => {
             title.textContent = `Pertumbuhan Ekonomi ${regionName} 2020–2024`;
-            // Set insight text for Pertumbuhan Ekonomi
-            if (regionKey === 'kepulauan_riau') {
-                insEl.textContent = "Perekonomian Kepulauan Riau triwulan IV-2025 dibanding periode yang sama tahun sebelumnya tumbuh sebesar 7,89 persen.";
-            } else if (regionKey === 'batam') {
-                insEl.textContent = "Pertumbuhan Ekonomi Kota Batam tahun 2024 mencapai 6,69 persen, menunjukkan tren pertumbuhan yang stabil.";
-            } else {
-                insEl.textContent = "Pertumbuhan Ekonomi menunjukkan laju perekonomian di wilayah ini.";
-            }
             let dataArr = [];
             let labelsArr = dataEkonomi.tahun;
 
@@ -123,9 +115,6 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             title.textContent = `PDRB per Kapita ${regionName} (Ribu Rupiah)`;
             let dataArr = [];
             if (dataPdrb[regionKey]) { dataArr = dataPdrb[regionKey]; }
-            if (regionKey === 'batam') {
-                insEl.textContent = "PDRB per kapita Batam pada tahun 2024 mencapai 182.507 ribu rupiah, mencerminkan tingginya produktivitas ekonomi.";
-            }
             return {
                 type: 'line',
                 data: {
@@ -157,9 +146,6 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             const d = dataIpm.wilayah[regionKey];
             let dataArr = [];
             if (d && d.tahunan) { dataArr = d.tahunan; }
-            if (regionKey === 'batam') {
-                insEl.textContent = "IPM Kota Batam terus meningkat dan mencapai angka 83,80 pada tahun 2025, tertinggi di Kepulauan Riau.";
-            }
             return { type: 'line', data: { labels: dataIpm.tahun, datasets: [{ label: 'IPM', data: dataArr, borderColor: '#7c3aed', backgroundColor: 'rgba(124,58,237,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#7c3aed', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts('') };
         },
         ipg: () => {
@@ -167,9 +153,6 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             const d = dataIpg.wilayah[regionKey];
             let dataArr = [];
             if (d && d.tahunan) { dataArr = d.tahunan; }
-            if (regionKey === 'batam') {
-                insEl.textContent = "IPG Kota Batam mencapai 95,72 pada tahun 2024, mengindikasikan kesetaraan gender yang sangat baik.";
-            }
             return { type: 'line', data: { labels: dataIpg.tahun, datasets: [{ label: 'IPG', data: dataArr, borderColor: '#ec4899', backgroundColor: 'rgba(236,72,153,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#ec4899', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts('') };
         },
         tpt: () => {
@@ -241,9 +224,6 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             const d = dataTpt.wilayah[regionKey];
             let dataArr = [];
             if (d && d.tahunan) { dataArr = d.tahunan; }
-            if (regionKey === 'batam') {
-                insEl.textContent = "TPT Kota Batam pada Agustus 2025 berada di level 7,57 persen, menunjukkan tren positif penyerapan tenaga kerja.";
-            }
             return { type: 'bar', data: { labels: dataTpt.tahun, datasets: [{ label: 'TPT (%)', data: dataArr, backgroundColor: 'rgba(239,68,68,0.7)', borderRadius: 6 }] }, options: barOpts('%') };
         },
         aps: () => {
@@ -260,10 +240,6 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             if (regionKey === 'kepulauan_riau') {
                 labelsArr = [...dataAps.tahun, 2025];
                 dataArr.push(88.24); // append 2025 value
-            }
-
-            if (regionKey === 'batam') {
-                insEl.textContent = "APS SMA/SMK di Kota Batam berada di 85,85 pada tahun 2023, menunjukkan partisipasi pendidikan menengah yang tinggi.";
             }
 
             return {
@@ -293,9 +269,6 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             const d = dataKemiskinan.wilayah[regionKey];
             let dataArr = [];
             if (d && d.tahunan) { dataArr = d.tahunan; }
-            if (regionKey === 'batam') {
-                insEl.textContent = "Angka kemiskinan di Kota Batam pada Maret 2025 tercatat sebesar 3,81 persen.";
-            }
             return { type: 'bar', data: { labels: dataKemiskinan.tahun, datasets: [{ label: 'Kemiskinan', data: dataArr, backgroundColor: 'rgba(245,158,11,0.7)', borderRadius: 6 }] }, options: barOpts('') };
         },
         gini: () => {
@@ -303,18 +276,12 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             const d = dataGini.wilayah[regionKey];
             let dataArr = [];
             if (d && d.tahunan) { dataArr = d.tahunan; }
-            if (regionKey === 'batam') {
-                insEl.textContent = "Ketimpangan pengeluaran di Kota Batam tercatat sebesar 0,386 pada Maret 2025.";
-            }
             return { type: 'line', data: { labels: dataGini.tahun, datasets: [{ label: 'Gini Ratio', data: dataArr, borderColor: '#f59e0b', backgroundColor: 'rgba(245,158,11,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#f59e0b', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts('') };
         },
         penduduk: () => {
             title.textContent = `Jumlah Penduduk ${regionName} (Sensus Penduduk)`;
             let dataArr = [];
             if (dataPenduduk[regionKey]) { dataArr = dataPenduduk[regionKey]; }
-            if (regionKey === 'batam') {
-                insEl.textContent = "Jumlah penduduk Kota Batam mencapai 1.196.396 jiwa berdasarkan Hasil Sensus Penduduk 2020.";
-            }
             return { type: 'bar', data: { labels: ['SP 2010', 'SP 2020'], datasets: [{ label: 'Jumlah Penduduk (jiwa)', data: dataArr, backgroundColor: ['rgba(59,130,246,0.7)', 'rgba(16,185,129,0.7)'], borderRadius: 8, barThickness: 60 }] }, options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'right', formatter: (v) => v.toLocaleString('id-ID') + ' jiwa', font: { weight: 'bold', size: 12 }, color: '#1e293b' } }, scales: { x: { display: false }, y: { grid: { display: false }, border: { display: false } } }, layout: { padding: { right: 120 } } } };
         },
         inflasi: () => {
@@ -324,7 +291,6 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             let labelsArr = ['Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25', 'Jan 26'];
 
             if (regionKey === 'batam') {
-                insEl.textContent = "Tingkat inflasi (y-on-y) Kota Batam pada bulan Januari 2026 tercatat sebesar 2,74%.";
                 if (typeof dataInflasi !== 'undefined' && dataInflasi.wilayah && dataInflasi.wilayah['batam']) {
                     const d = dataInflasi.wilayah['batam'].tahunan;
                     dataArr = [...d['2025'], d['2026'][0]];
@@ -349,10 +315,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             if (regionKey === 'kepulauan_riau') {
                 barData = [195.63, 153.89, 125.70, 128.89, 126.83, 176.37, 215.72, 158.04, 185.01, 176.28, 175.90, 157.37, 247.024];
             } else if (regionKey === 'batam') {
-                insEl.textContent = "Kunjungan wisman Kota Batam mencapai puncaknya sebanyak 195.525 orang pada Desember 2025.";
                 barData = [159.98, 124.48, 104.68, 100.28, 100.44, 140.83, 167.47, 123.53, 146.90, 141.96, 139.44, 127.67, 195.53];
-            } else {
-                insEl.textContent = "Data kunjungan wisman bulanan belum tersedia untuk wilayah ini.";
             }
 
             return {
@@ -406,7 +369,6 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             if (regionKey === 'kepulauan_riau') {
                 dataArr = [1839.28, 2177.29, 1796.50, 2052.49, 2003.39, 2386.35, 1902.37, 2001.78, 1883.21, 1935.44, 2134.77, 1850.18, 2071.02];
             } else if (regionKey === 'batam') {
-                insEl.textContent = "Data ekspor belum ditemukan untuk wilayah ini pada periode yang dipilih.";
                 return { type: 'bar', data: { labels: ['Data Belum Ditemukan'], datasets: [{ label: 'Ekspor (Juta USD)', data: [0], backgroundColor: 'rgba(200,200,200,0.5)' }] }, options: barOptsDecimal('') };
             }
 
@@ -420,7 +382,6 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             if (regionKey === 'kepulauan_riau') {
                 dataArr = [1607.57, 1749.79, 1686.27, 1920.16, 1926.94, 2273.53, 1872.70, 1680.45, 1784.58, 1783.55, 1866.03, 1755.49, 1908.61];
             } else if (regionKey === 'batam') {
-                insEl.textContent = "Data impor belum ditemukan untuk wilayah ini pada periode yang dipilih.";
                 return { type: 'bar', data: { labels: ['Data Belum Ditemukan'], datasets: [{ label: 'Impor (Juta USD)', data: [0], backgroundColor: 'rgba(200,200,200,0.5)' }] }, options: barOptsDecimal('') };
             }
 

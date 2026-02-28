@@ -98,14 +98,6 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
     const charts = {
         ekonomi: () => {
             title.textContent = `Pertumbuhan Ekonomi ${regionName} 2020–2024`;
-            // Set insight text for Pertumbuhan Ekonomi
-            if (regionKey === 'kepulauan_riau') {
-                insEl.textContent = "Perekonomian Kepulauan Riau triwulan IV-2025 dibanding periode yang sama tahun sebelumnya tumbuh sebesar 7,89 persen.";
-            } else if (regionKey === 'bintan') {
-                insEl.textContent = "Pertumbuhan ekonomi Kabupaten Bintan terus melesat tinggi pasca pandemi, didorong oleh pemulihan sektor pariwisata dan industri pengolahan.";
-            } else {
-                insEl.textContent = "Pertumbuhan Ekonomi menunjukkan laju perekonomian di wilayah ini.";
-            }
             let dataArr = [];
             let labelsArr = dataEkonomi.tahun;
 
@@ -123,10 +115,6 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             title.textContent = `PDRB per Kapita ${regionName} (Ribu Rupiah)`;
             let dataArr = [];
             if (dataPdrb[regionKey]) { dataArr = dataPdrb[regionKey]; }
-
-            if (regionKey === 'bintan') {
-                insEl.textContent = "PDRB per Kapita Bintan terus meningkat dari tahun ke tahun, ini menunjukkan peningkatan kesejahteraan masyarakat secara rata-rata didorong oleh sektor industri dan pariwisata.";
-            }
 
             return {
                 type: 'line',
@@ -155,10 +143,6 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             const d = dataIpm.wilayah[regionKey];
             if (d && d.tahunan) { dataArr = d.tahunan; }
 
-            if (regionKey === 'bintan') {
-                insEl.textContent = "IPM Bintan termasuk kategori 'Tinggi', yang berarti kualitas kesehatan, pendidikan, dan pengeluaran rata-rata masyarakatnya masuk dalam standar hidup yang baik.";
-            }
-
             return {
                 type: 'line',
                 data: { labels: dataIpm.tahun, datasets: [{ label: 'IPM', data: dataArr, borderColor: '#f59e0b', backgroundColor: 'rgba(245,158,11,0.1)', fill: true, tension: 0.4 }] },
@@ -171,10 +155,6 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             const d = dataIpg.wilayah[regionKey];
             if (d && d.tahunan) { dataArr = d.tahunan; }
 
-            if (regionKey === 'bintan') {
-                insEl.textContent = "IPG Bintan menunjukkan tren positif, merepresentasikan kesetaraan capaian pembangunan antara laki-laki dan perempuan yang semakin membaik.";
-            }
-
             return {
                 type: 'bar',
                 data: { labels: dataIpg.tahun, datasets: [{ label: 'IPG', data: dataArr, backgroundColor: 'rgba(236,72,153,0.7)', borderRadius: 4 }] },
@@ -186,10 +166,6 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             let dataArr = [];
             const d = dataTpt.wilayah[regionKey];
             if (d && d.tahunan) { dataArr = d.tahunan; }
-
-            if (regionKey === 'bintan') {
-                insEl.textContent = "Tingkat Pengangguran Terbuka di Bintan mengalami penurunan yang signifikan semenjak masa pemulihan pasca pandemi, menunjukkan penyerapan tenaga kerja yang baik di kawasan industri.";
-            }
 
             return {
                 type: 'line',
@@ -211,10 +187,6 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             if (regionKey === 'kepulauan_riau') {
                 labelsArr = [...dataAps.tahun, 2025];
                 dataArr.push(88.24); // append 2025 value
-            }
-
-            if (regionKey === 'bintan') {
-                insEl.textContent = "Sebagian besar anak usia 16-18 tahun di Bintan sudah bersekolah di tingkat SMA sederajat, menunjukkan kesadaran pendidikan menengah yang baik.";
             }
 
             return {
