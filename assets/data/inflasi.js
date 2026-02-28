@@ -14,8 +14,8 @@ const dataInflasi = {
     "tanjungpinang": {
       "nama": "Kota Tanjungpinang",
       "tahunan": {
-        "2025": [-1.57, -0.45, 1.4, 1.09, -0.42, -0.13, 0.19, 0.26, 0.54, 0.35, 0.23, 1.28],
-        "2026": [-0.06, null, null, null, null, null, null, null, null, null, null, null]
+        "2025": [-0.44, -0.97, 0.07, 1.11, 0.36, 0.07, 0.91, 1.23, 1.82, 2.15, 2.16, 2.75],
+        "2026": [4.32, null, null, null, null, null, null, null, null, null, null, null]
       }
     },
     "karimun": {
