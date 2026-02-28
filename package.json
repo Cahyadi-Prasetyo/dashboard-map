@@ -1,0 +1,21 @@
+{
+  "name": "dashboard-map",
+  "version": "1.0.0",
+  "description": "**Dashboard Pemantauan Indikator Strategis Provinsi Kepulauan Riau**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cahyadi-Prasetyo/dashboard-map.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Cahyadi-Prasetyo/dashboard-map/issues"
+  },
+  "homepage": "https://github.com/Cahyadi-Prasetyo/dashboard-map#readme"
+}
