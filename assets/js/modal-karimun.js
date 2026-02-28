@@ -367,6 +367,10 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
                 dataArr = [1839.28, 2177.29, 1796.50, 2052.49, 2003.39, 2386.35, 1902.37, 2001.78, 1883.21, 1935.44, 2134.77, 1850.18, 2071.02];
             }
             if (typeof eksporData !== 'undefined' && eksporData[regionKey]) {
+                if (eksporData[regionKey].values && eksporData[regionKey].values.length > 0) {
+                    dataArr = eksporData[regionKey].values;
+                    if (eksporData[regionKey].labels) labelsArr = eksporData[regionKey].labels;
+                }
                 if (eksporData[regionKey].insight) insEl.textContent = eksporData[regionKey].insight;
                 if (eksporData[regionKey].def) {
                     const defEl = document.getElementById('modalDef');
@@ -385,6 +389,10 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
                 dataArr = [1607.57, 1749.79, 1686.27, 1920.16, 1926.94, 2273.53, 1872.70, 1680.45, 1784.58, 1783.55, 1866.03, 1755.49, 1908.61];
             }
             if (typeof imporData !== 'undefined' && imporData[regionKey]) {
+                if (imporData[regionKey].values && imporData[regionKey].values.length > 0) {
+                    dataArr = imporData[regionKey].values;
+                    if (imporData[regionKey].labels) labelsArr = imporData[regionKey].labels;
+                }
                 if (imporData[regionKey].insight) insEl.textContent = imporData[regionKey].insight;
                 if (imporData[regionKey].def) {
                     const defEl = document.getElementById('modalDef');
