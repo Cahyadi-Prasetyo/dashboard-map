@@ -44,9 +44,9 @@ const indicatorInfo = {
         insight: (rn) => `Ketimpangan pengeluaran di ${rn} relatif stabil dan tergolong moderat.`
     },
     inflasi: {
-        def: 'Persentase kenaikan harga barang dan jasa secara umum dan terus-menerus dalam periode tertentu.',
+        def: '-',
         img: 'assets/img/inflasi.jpeg',
-        insight: (rn) => `Tingkat inflasi di ${rn} cukup dinamis namun tetap terkendali.`
+        insight: (rn) => `Inflasi belum ditemukan`
     },
     penduduk: {
         def: 'Total orang yang tinggal dan menetap di suatu wilayah pada waktu tertentu.',
@@ -54,19 +54,19 @@ const indicatorInfo = {
         insight: (rn) => `Jumlah penduduk di ${rn} bertambah secara proporsional berdasar sensus terbaru.`
     },
     wisman: {
-        def: 'Jumlah kunjungan wisatawan asing ke suatu wilayah dalam periode tertentu.',
+        def: '-',
         img: 'assets/img/wisata.jpeg',
-        insight: (rn) => `Kunjungan wisman di ${rn} meningkat tajam menandakan pemulihan pariwisata.`
+        insight: (rn) => `Wisman belum ditemukan`
     },
     ekspor: {
-        def: 'Nilai atau volume barang dan jasa yang dijual ke luar negeri dalam periode tertentu.',
+        def: '-',
         img: 'assets/img/ekspor.png',
-        insight: (rn) => `Aktivitas ekspor ${rn} menunjukkan tren pertumbuhan yang solid.`
+        insight: (rn) => `Ekspor belum ditemukan`
     },
     impor: {
-        def: 'Nilai atau volume barang dan jasa yang dibeli dari luar negeri dalam periode tertentu.',
+        def: '-',
         img: 'assets/img/impor.jpeg',
-        insight: (rn) => `Nilai impor di ${rn} meningkat sejalan dengan kebutuhan suplai industri.`
+        insight: (rn) => `Impor belum ditemukan`
     }
 };
 
@@ -298,7 +298,6 @@ function openModal(type, regionKey = 'lingga', regionName = 'Kepulauan Riau') {
 
             if (regionKey === 'lingga') {
                 dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-                insEl.textContent = 'Data belum tersedia';
             } else if (regionKey === 'karimun') {
                 dataArr = [0, -0.73, -0.15, 2.30, 0.87, -0.15, 0.40, 1.92, 2.91, 2.58, 2.43, 2.70, 2.77];
             } else {
