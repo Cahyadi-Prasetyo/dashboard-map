@@ -14,11 +14,11 @@ const dataGini = {
         "kepulauan_riau": {
             "nama": "Provinsi Kepulauan Riau",
             "tahunan": [
+                0.334,
                 0.339,
-                0.343,
-                0.342,
+                0.325,
                 0.340,
-                0.349,
+                0.357,
                 0.385
             ]
         },
@@ -30,7 +30,7 @@ const dataGini = {
                 0.288,
                 0.271,
                 0.286,
-                null
+                0.331
             ]
         },
         "bintan": {
@@ -41,7 +41,7 @@ const dataGini = {
                 0.288,
                 0.279,
                 0.290,
-                null
+                0.300
             ]
         },
         "natuna": {
@@ -52,7 +52,7 @@ const dataGini = {
                 0.291,
                 0.309,
                 0.285,
-                null
+                0.263
             ]
         },
         "lingga": {
@@ -63,7 +63,7 @@ const dataGini = {
                 0.277,
                 0.326,
                 0.309,
-                null
+                0.286
             ]
         },
         "kepulauan_anambas": {
@@ -74,7 +74,7 @@ const dataGini = {
                 0.313,
                 0.328,
                 0.296,
-                null
+                0.309
             ]
         },
         "batam": {
@@ -85,7 +85,7 @@ const dataGini = {
                 0.336,
                 0.338,
                 0.348,
-                null
+                0.386
             ]
         },
         "tanjungpinang": {
@@ -96,7 +96,7 @@ const dataGini = {
                 0.347,
                 0.339,
                 0.347,
-                null
+                0.318
             ]
         }
     }
