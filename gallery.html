@@ -278,7 +278,8 @@
             display: flex !important;
         }
 
-        .video-playing .custom-play-btn {
+        .video-playing .custom-play-btn,
+        .video-playing .reel-overlay {
             display: none;
         }
 
@@ -383,6 +384,7 @@
             display: flex;
             flex-direction: column;
             padding: 20px;
+            pointer-events: none;
         }
 
         .reel-header-text {
@@ -542,60 +544,84 @@
 
                 <div class="reels-grid">
                     <!-- Reel 1 -->
-                    <a href="https://www.instagram.com/reel/DKKFkX2T_qu/" target="_blank" class="reel-card"
-                        style="background-image: url('assets/img/karimun.jpg');">
+                    <div class="reel-card" style="background: #000;">
+                        <video controls preload="metadata" style="width: 100%; height: 100%; object-fit: cover;"
+                            onplay="this.parentElement.classList.add('video-playing')"
+                            onpause="this.parentElement.classList.remove('video-playing')">
+                            <source src="assets/video/reels/reel-1.mp4" type="video/mp4">
+                        </video>
+                        <div class="custom-play-btn" onclick="this.previousElementSibling.play()"
+                            style="pointer-events: auto;"></div>
                         <div class="reel-overlay">
                             <div class="reel-header-text">
-                                <h3 class="reel-title">Lapangan Usaha Cakupan SE2026 (Kategori B)...</h3>
+                                <h3 class="reel-title">Kunjungan Kerja Kepala BPS RI</h3>
                                 <div class="reel-author">
                                     <img src="assets/img/logo_bps.png" alt="BPS Logo">
                                     <span>BPS Statistics</span>
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </div>
 
                     <!-- Reel 2 -->
-                    <a href="https://www.instagram.com/reel/DUP7I5SD1zr/" target="_blank" class="reel-card"
-                        style="background-image: url('assets/img/batam.jpeg');">
+                    <div class="reel-card" style="background: #000;">
+                        <video controls preload="metadata" style="width: 100%; height: 100%; object-fit: cover;"
+                            onplay="this.parentElement.classList.add('video-playing')"
+                            onpause="this.parentElement.classList.remove('video-playing')">
+                            <source src="assets/video/reels/reel-2.mp4" type="video/mp4">
+                        </video>
+                        <div class="custom-play-btn" onclick="this.previousElementSibling.play()"
+                            style="pointer-events: auto;"></div>
                         <div class="reel-overlay">
                             <div class="reel-header-text">
-                                <h3 class="reel-title">#SElasaSEnsus lapangan usaha cakupan Sensus...</h3>
+                                <h3 class="reel-title">Pengukuhan Kepala BPS Kepri</h3>
                                 <div class="reel-author">
                                     <img src="assets/img/logo_bps.png" alt="BPS Logo">
                                     <span>BPS Statistics</span>
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </div>
 
                     <!-- Reel 3 -->
-                    <a href="https://www.instagram.com/reel/DUhbdI9E7il/" target="_blank" class="reel-card"
-                        style="background-image: url('assets/img/bintan.jpeg');">
+                    <div class="reel-card" style="background: #000;">
+                        <video controls preload="metadata" style="width: 100%; height: 100%; object-fit: cover;"
+                            onplay="this.parentElement.classList.add('video-playing')"
+                            onpause="this.parentElement.classList.remove('video-playing')">
+                            <source src="assets/video/reels/reel-3.mp4" type="video/mp4">
+                        </video>
+                        <div class="custom-play-btn" onclick="this.previousElementSibling.play()"
+                            style="pointer-events: auto;"></div>
                         <div class="reel-overlay">
                             <div class="reel-header-text">
-                                <h3 class="reel-title">Lapangan Usaha Cakupan SE2026 (Kategori D)...</h3>
+                                <h3 class="reel-title">Modernisasi dan QA</h3>
                                 <div class="reel-author">
                                     <img src="assets/img/logo_bps.png" alt="BPS Logo">
                                     <span>BPS Statistics</span>
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </div>
 
                     <!-- Reel 4 -->
-                    <a href="https://www.instagram.com/reel/DRw115pD3Ao/" target="_blank" class="reel-card"
-                        style="background-image: url('assets/img/kepri.jpeg');">
+                    <div class="reel-card" style="background: #000;">
+                        <video controls preload="metadata" style="width: 100%; height: 100%; object-fit: cover;"
+                            onplay="this.parentElement.classList.add('video-playing')"
+                            onpause="this.parentElement.classList.remove('video-playing')">
+                            <source src="assets/video/reels/reel-4.mp4" type="video/mp4">
+                        </video>
+                        <div class="custom-play-btn" onclick="this.previousElementSibling.play()"
+                            style="pointer-events: auto;"></div>
                         <div class="reel-overlay">
                             <div class="reel-header-text">
-                                <h3 class="reel-title">Lapangan Usaha Cakupan SE2026 (Kategori E)...</h3>
+                                <h3 class="reel-title">Sinergi Menghasilkan Data</h3>
                                 <div class="reel-author">
                                     <img src="assets/img/logo_bps.png" alt="BPS Logo">
                                     <span>BPS Statistics</span>
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
         </section>
