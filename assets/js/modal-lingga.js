@@ -118,7 +118,7 @@ function openModal(type, regionKey = 'lingga', regionName = 'Kepulauan Riau') {
             return {
                 type: 'line',
                 data: {
-                    labels: [2020, 2021, 2022, 2023, 2024],
+                    labels: [2020, 2021, 2022, 2023, 2024, 2025],
                     datasets: [{
                         label: 'PDRB per Kapita',
                         data: dataArr,
