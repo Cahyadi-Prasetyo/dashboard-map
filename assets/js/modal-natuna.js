@@ -363,26 +363,40 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
         },
         ekspor: () => {
             title.textContent = `Nilai Ekspor ${regionName} (Juta USD)`;
-            let labelsArr = ["Des'24", "Jan'25", "Feb'25", "Mar'25", "Apr'25", "Mei'25", "Jun'25", "Jul'25", "Ags'25", "Sep'25", "Okt'25", "Nov'25", "Des'25"];
-            let dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            let labelsArr = [];
+            let dataArr = [];
 
             if (regionKey === 'kepulauan_riau') {
+                labelsArr = ["Des'24", "Jan'25", "Feb'25", "Mar'25", "Apr'25", "Mei'25", "Jun'25", "Jul'25", "Ags'25", "Sep'25", "Okt'25", "Nov'25", "Des'25"];
                 dataArr = [1839.28, 2177.29, 1796.50, 2052.49, 2003.39, 2386.35, 1902.37, 2001.78, 1883.21, 1935.44, 2134.77, 1850.18, 2071.02];
-            } else if (regionKey === 'natuna') {
-                return { type: 'bar', data: { labels: ['Data Belum Ditemukan'], datasets: [{ label: 'Ekspor (Juta USD)', data: [0], backgroundColor: 'rgba(200,200,200,0.5)' }] }, options: barOptsDecimal('') };
+            } else if (typeof eksporData !== 'undefined' && eksporData[regionKey] && eksporData[regionKey].values && eksporData[regionKey].values.length > 0) {
+                labelsArr = eksporData[regionKey].labels;
+                dataArr = eksporData[regionKey].values;
+            } else {
+                // Data belum tersedia
+                const insEl = document.getElementById('modalInsight');
+                if (insEl) insEl.textContent = 'Data belum tersedia untuk wilayah ini.';
+                return { type: 'bar', data: { labels: ['-'], datasets: [{ label: 'Ekspor (Juta USD)', data: [0], backgroundColor: 'rgba(88,80,141,0.3)', borderRadius: 6 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, datalabels: { display: false } }, scales: { y: { display: false }, x: { grid: { display: false } } } } };
             }
 
             return { type: 'line', data: { labels: labelsArr, datasets: [{ label: 'Ekspor (Juta USD)', data: dataArr, borderColor: '#58508d', backgroundColor: 'rgba(88,80,141,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#58508d', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts('') };
         },
         impor: () => {
-            title.textContent = `Nilai Impor ${regionName}, Desember 2024–Desember 2025 (Juta USD)`;
-            let labelsArr = ["Des'24", "Jan'25", "Feb'25", "Mar'25", "Apr'25", "Mei'25", "Jun'25", "Jul'25", "Ags'25", "Sep'25", "Okt'25", "Nov'25", "Des'25"];
-            let dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            title.textContent = `Nilai Impor ${regionName} (Juta USD)`;
+            let labelsArr = [];
+            let dataArr = [];
 
             if (regionKey === 'kepulauan_riau') {
+                labelsArr = ["Des'24", "Jan'25", "Feb'25", "Mar'25", "Apr'25", "Mei'25", "Jun'25", "Jul'25", "Ags'25", "Sep'25", "Okt'25", "Nov'25", "Des'25"];
                 dataArr = [1607.57, 1749.79, 1686.27, 1920.16, 1926.94, 2273.53, 1872.70, 1680.45, 1784.58, 1783.55, 1866.03, 1755.49, 1908.61];
-            } else if (regionKey === 'natuna') {
-                return { type: 'bar', data: { labels: ['Data Belum Ditemukan'], datasets: [{ label: 'Impor (Juta USD)', data: [0], backgroundColor: 'rgba(200,200,200,0.5)' }] }, options: barOptsDecimal('') };
+            } else if (typeof imporData !== 'undefined' && imporData[regionKey] && imporData[regionKey].values && imporData[regionKey].values.length > 0) {
+                labelsArr = imporData[regionKey].labels;
+                dataArr = imporData[regionKey].values;
+            } else {
+                // Data belum tersedia
+                const insEl = document.getElementById('modalInsight');
+                if (insEl) insEl.textContent = 'Data belum tersedia untuk wilayah ini.';
+                return { type: 'bar', data: { labels: ['-'], datasets: [{ label: 'Impor (Juta USD)', data: [0], backgroundColor: 'rgba(255,99,97,0.3)', borderRadius: 6 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, datalabels: { display: false } }, scales: { y: { display: false }, x: { grid: { display: false } } } } };
             }
 
             return { type: 'line', data: { labels: labelsArr, datasets: [{ label: 'Impor (Juta USD)', data: dataArr, borderColor: '#ff6361', backgroundColor: 'rgba(255,99,97,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#ff6361', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts('') };
