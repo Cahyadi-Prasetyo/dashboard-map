@@ -303,14 +303,14 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             return { type: 'line', data: { labels: labelsArr, datasets: [{ label: 'Inflasi Y-on-Y (%)', data: dataArr, borderColor: gradientLine, backgroundColor: gradientFill, fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#7c3aed', pointBorderColor: '#fff', pointBorderWidth: 2, pointHoverRadius: 7 }] }, options: lineOpts('%') };
         },
         wisman: () => {
-            title.textContent = `Jumlah Kunjungan Wisatawan ${regionName} (ribu kunjungan)`;
-            let labelsArr = ['Des 24', 'Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25'];
-            let barData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            title.textContent = `Jumlah Kunjungan Wisatawan ${regionName}`;
+            let labelsArr = [];
+            let barData = [];
 
-            if (regionKey === 'kepulauan_riau') {
-                barData = [195.63, 153.89, 125.70, 128.89, 126.83, 176.37, 215.72, 158.04, 185.01, 176.28, 175.90, 157.37, 247.024];
-            } else if (regionKey === 'kepulauan_anambas') {
-                return { type: 'bar', data: { labels: ['Data Belum Ditemukan'], datasets: [{ label: 'Kunjungan Wisman', data: [0], backgroundColor: 'rgba(200,200,200,0.5)' }] }, options: barOptsDecimal('') };
+            // Read dynamically from wismanData (wisman.js)
+            if (typeof wismanData !== 'undefined' && wismanData[regionKey]) {
+                labelsArr = wismanData[regionKey].labels || [];
+                barData = wismanData[regionKey].values || [];
             }
 
             return {
@@ -319,7 +319,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
                     labels: labelsArr,
                     datasets: [
                         {
-                            label: 'Kunjungan Wisman (ribu)',
+                            label: 'Kunjungan Wisman',
                             data: barData,
                             backgroundColor: 'rgba(22, 163, 74, 0.75)',
                             borderRadius: 4,
@@ -327,7 +327,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
                                 align: 'top',
                                 anchor: 'end',
                                 offset: 2,
-                                formatter: (v) => v.toLocaleString('id-ID', { minimumFractionDigits: 2 }),
+                                formatter: (v) => v.toLocaleString('id-ID'),
                                 color: '#1e293b',
                                 font: { weight: '600', size: 10 }
                             }
