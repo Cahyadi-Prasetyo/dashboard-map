@@ -7,7 +7,8 @@ const dataAps = {
     2020,
     2021,
     2022,
-    2023
+    2023,
+    2024
   ],
   "wilayah": {
     "kepulauan_riau": {
