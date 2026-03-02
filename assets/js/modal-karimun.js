@@ -59,12 +59,12 @@ const indicatorInfo = {
         insight: (rn) => `Kunjungan wisman di ${rn} meningkat tajam menandakan pemulihan pariwisata.`
     },
     ekspor: {
-        def: 'Nilai atau volume barang dan jasa yang dijual ke luar negeri dalam periode tertentu.',
+        def: '-',
         img: 'assets/img/ekspor.png',
         insight: (rn) => `Aktivitas ekspor ${rn} menunjukkan tren pertumbuhan yang solid.`
     },
     impor: {
-        def: 'Nilai atau volume barang dan jasa yang dibeli dari luar negeri dalam periode tertentu.',
+        def: '-',
         img: 'assets/img/impor.jpeg',
         insight: (rn) => `Nilai impor di ${rn} meningkat sejalan dengan kebutuhan suplai industri.`
     }
