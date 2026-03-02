@@ -65,13 +65,13 @@ Kita akan menggunakan pendekatan _Mobile-First_ atau sistem _grid_ modern dengan
 
 ## 5. Strategi Implementasi / Pelaksanaan
 
-1.  **CSS Media Queries:** Tambahkan kode kueri di berkas `shared.css?v=1.0.0` dan di berkas CSS spesifik halaman untuk menangani perubahan titik layar (_breakpoints_), misalnya dengan menambahkan `@media (max-width: 768px)`.
+1.  **CSS Media Queries:** Tambahkan kode kueri di berkas `shared.css?v=1.0.1` dan di berkas CSS spesifik halaman untuk menangani perubahan titik layar (_breakpoints_), misalnya dengan menambahkan `@media (max-width: 768px)`.
 2.  **Flexbox / CSS Grid:** Maksimalkan kemudahan alat _Flexbox_ dan properti _CSS Grid_ untuk secara otomatis menangani pembungkusan baris baru (`wrapping`) dan perataan (`alignment`).
 3.  **Pengujian (Testing):** Lakukan proses Verifikasi (_Testing_) kerangka _responsive_ dengan menggunakan emulator _Developer Tools_ pada peramban Chrome, dan pada perangkat nyata (seperti ponsel pengguna).
 
 ## Langkah Selanjutnya
 
 1.  Menyepakati dan menyetujui dokumen ini.
-2.  Menerapkan perubahan utama pada berkas CSS utama `shared.css?v=1.0.0`.
+2.  Menerapkan perubahan utama pada berkas CSS utama `shared.css?v=1.0.1`.
 3.  Menerapkan perbaikan di berkas CSS spesifik di masing-masing halaman jika diperlukan.
 4.  Menguji fitur Navigasi dan Kotak _Modal_ di ukuran ponsel (_small screen_).
