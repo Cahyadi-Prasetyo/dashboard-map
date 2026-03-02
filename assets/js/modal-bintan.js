@@ -281,14 +281,14 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             return { type: 'line', data: { labels: labelsArr, datasets: [{ label: 'Inflasi Y-on-Y (%)', data: dataArr, borderColor: gradientLine, backgroundColor: gradientFill, fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#7c3aed', pointBorderColor: '#fff', pointBorderWidth: 2, pointHoverRadius: 7 }] }, options: lineOpts('%') };
         },
         wisman: () => {
-            title.textContent = `Jumlah Kunjungan Wisatawan ${regionName} (ribu kunjungan)`;
-            let labelsArr = ['Des 24', 'Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25'];
-            let barData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            title.textContent = `Jumlah Kunjungan Wisatawan ${regionName}`;
+            let labelsArr = [];
+            let barData = [];
 
-            if (regionKey === 'kepulauan_riau') {
-                barData = [195.63, 153.89, 125.70, 128.89, 126.83, 176.37, 215.72, 158.04, 185.01, 176.28, 175.90, 157.37, 247.024];
-            } else if (regionKey === 'bintan') {
-                barData = [22.21, 15.79, 9.82, 17.62, 15.25, 20.28, 32.07, 21.94, 24.93, 20.97, 22.63, 16.87, 35.19];
+            // Read dynamically from wismanData (wisman.js)
+            if (typeof wismanData !== 'undefined' && wismanData[regionKey]) {
+                labelsArr = wismanData[regionKey].labels || [];
+                barData = wismanData[regionKey].values || [];
             }
 
             return {
@@ -297,7 +297,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
                     labels: labelsArr,
                     datasets: [
                         {
-                            label: 'Kunjungan Wisman (ribu)',
+                            label: 'Kunjungan Wisman',
                             data: barData,
                             backgroundColor: 'rgba(22, 163, 74, 0.75)',
                             borderRadius: 4,
@@ -305,7 +305,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
                                 align: 'top',
                                 anchor: 'end',
                                 offset: 2,
-                                formatter: (v) => v.toLocaleString('id-ID', { minimumFractionDigits: 2 }),
+                                formatter: (v) => v.toLocaleString('id-ID'),
                                 color: '#1e293b',
                                 font: { weight: '600', size: 10 }
                             }
@@ -336,26 +336,40 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
         },
         ekspor: () => {
             title.textContent = `Nilai Ekspor ${regionName} (Juta USD)`;
-            let labelsArr = ["Des'24", "Jan'25", "Feb'25", "Mar'25", "Apr'25", "Mei'25", "Jun'25", "Jul'25", "Ags'25", "Sep'25", "Okt'25", "Nov'25", "Des'25"];
-            let dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            let labelsArr = [];
+            let dataArr = [];
 
             if (regionKey === 'kepulauan_riau') {
+                labelsArr = ["Des'24", "Jan'25", "Feb'25", "Mar'25", "Apr'25", "Mei'25", "Jun'25", "Jul'25", "Ags'25", "Sep'25", "Okt'25", "Nov'25", "Des'25"];
                 dataArr = [1839.28, 2177.29, 1796.50, 2052.49, 2003.39, 2386.35, 1902.37, 2001.78, 1883.21, 1935.44, 2134.77, 1850.18, 2071.02];
-            } else if (regionKey === 'bintan') {
-                dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            } else if (typeof eksporData !== 'undefined' && eksporData[regionKey] && eksporData[regionKey].values && eksporData[regionKey].values.length > 0) {
+                labelsArr = eksporData[regionKey].labels;
+                dataArr = eksporData[regionKey].values;
+            } else {
+                // Data belum tersedia
+                const insEl = document.getElementById('modalInsight');
+                if (insEl) insEl.textContent = 'Data belum tersedia untuk wilayah ini.';
+                return { type: 'bar', data: { labels: ['-'], datasets: [{ label: 'Ekspor (Juta USD)', data: [0], backgroundColor: 'rgba(88,80,141,0.3)', borderRadius: 6 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, datalabels: { display: false } }, scales: { y: { display: false }, x: { grid: { display: false } } } } };
             }
 
             return { type: 'line', data: { labels: labelsArr, datasets: [{ label: 'Ekspor (Juta USD)', data: dataArr, borderColor: '#58508d', backgroundColor: 'rgba(88,80,141,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#58508d', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts('') };
         },
         impor: () => {
-            title.textContent = `Nilai Impor ${regionName}, Desember 2024–Desember 2025 (Juta USD)`;
-            let labelsArr = ["Des'24", "Jan'25", "Feb'25", "Mar'25", "Apr'25", "Mei'25", "Jun'25", "Jul'25", "Ags'25", "Sep'25", "Okt'25", "Nov'25", "Des'25"];
-            let dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            title.textContent = `Nilai Impor ${regionName} (Juta USD)`;
+            let labelsArr = [];
+            let dataArr = [];
 
             if (regionKey === 'kepulauan_riau') {
+                labelsArr = ["Des'24", "Jan'25", "Feb'25", "Mar'25", "Apr'25", "Mei'25", "Jun'25", "Jul'25", "Ags'25", "Sep'25", "Okt'25", "Nov'25", "Des'25"];
                 dataArr = [1607.57, 1749.79, 1686.27, 1920.16, 1926.94, 2273.53, 1872.70, 1680.45, 1784.58, 1783.55, 1866.03, 1755.49, 1908.61];
-            } else if (regionKey === 'bintan') {
-                dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            } else if (typeof imporData !== 'undefined' && imporData[regionKey] && imporData[regionKey].values && imporData[regionKey].values.length > 0) {
+                labelsArr = imporData[regionKey].labels;
+                dataArr = imporData[regionKey].values;
+            } else {
+                // Data belum tersedia
+                const insEl = document.getElementById('modalInsight');
+                if (insEl) insEl.textContent = 'Data belum tersedia untuk wilayah ini.';
+                return { type: 'bar', data: { labels: ['-'], datasets: [{ label: 'Impor (Juta USD)', data: [0], backgroundColor: 'rgba(255,99,97,0.3)', borderRadius: 6 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, datalabels: { display: false } }, scales: { y: { display: false }, x: { grid: { display: false } } } } };
             }
 
             return { type: 'line', data: { labels: labelsArr, datasets: [{ label: 'Impor (Juta USD)', data: dataArr, borderColor: '#ff6361', backgroundColor: 'rgba(255,99,97,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#ff6361', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts('') };
