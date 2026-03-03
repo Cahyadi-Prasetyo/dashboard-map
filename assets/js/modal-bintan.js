@@ -157,37 +157,21 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             };
         },
         tpt: () => {
-            title.textContent = `Tingkat Pengangguran Terbuka (TPT) ${regionName} 2020–2025`;
-            let dataArr = [];
+            title.textContent = `Tingkat Pengangguran Terbuka (TPT) ${regionName}`;
             const d = dataTpt.wilayah[regionKey];
+            let dataArr = [];
             if (d && d.tahunan) { dataArr = d.tahunan; }
-
-            return {
-                type: 'line',
-                data: { labels: dataTpt.tahun, datasets: [{ label: 'TPT (%)', data: dataArr, borderColor: '#ef4444', backgroundColor: 'rgba(239,68,68,0.1)', fill: true, tension: 0.3 }] },
-                options: lineOptsDecimal('%', 2)
-            };
+            return { type: 'bar', data: { labels: dataTpt.tahun, datasets: [{ label: 'TPT (%)', data: dataArr, backgroundColor: 'rgba(239,68,68,0.7)', borderRadius: 6 }] }, options: barOpts('%') };
         },
         aps: () => {
-            title.textContent = `Angka Partisipasi Sekolah (APS) SMA/SMK ${regionName} (2020–2023)`;
-            let dataArr = [];
-            let labelsArr = dataAps.tahun;
+            title.textContent = `Angka Partisipasi Sekolah (APS) SMA/SMK ${regionName} (%)`;
             const d = dataAps.wilayah[regionKey];
-
-            if (d && d.tahunan) {
-                dataArr = [...d.tahunan];
-            }
-
-            // Inject 2025 data (16-18) specifically for Provinsi Kepri
-            if (regionKey === 'kepulauan_riau') {
-                labelsArr = [...dataAps.tahun, 2025];
-                dataArr.push(88.24); // append 2025 value
-            }
-
+            let dataArr = [];
+            if (d && d.tahunan) { dataArr = d.tahunan; }
             return {
                 type: 'line',
                 data: {
-                    labels: labelsArr,
+                    labels: dataAps.tahun,
                     datasets: [{
                         label: 'APS',
                         data: dataArr,
@@ -245,7 +229,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
                         datalabels: {
                             anchor: 'end', align: 'right',
                             formatter: (v) => v.toLocaleString('id-ID') + ' jiwa',
-                            font: { weight: 'bold', size: 16 },
+                            font: { weight: 'bold', size: 18 },
                             color: '#1e293b'
                         }
                     },
@@ -339,7 +323,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
                             offset: 2, 
                             formatter: (v) => v === 0 || v === null ? '' : v.toLocaleString('id-ID'), 
                             color: '#1e293b', 
-                            font: { weight: 'bold', size: 10 } 
+                            font: { weight: 'bold', size: 13 } 
                         } 
                     },
                     scales: {
@@ -417,7 +401,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal()
 function barOpts(suffix) {
     return {
         responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'top', formatter: (v) => v.toLocaleString('id-ID') + suffix, font: { weight: 'bold', size: 16 }, color: '#1e293b' } },
+        plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'top', formatter: (v) => v.toLocaleString('id-ID') + suffix, font: { weight: 'bold', size: 20 }, color: '#1e293b' } },
         scales: { y: { display: false }, x: { grid: { display: false }, border: { display: false } } },
         layout: { padding: { top: 30, right: 30 } }
     };
@@ -425,7 +409,7 @@ function barOpts(suffix) {
 function barOptsDecimal(suffix) {
     return {
         responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'top', formatter: (v) => v.toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + suffix, font: { weight: 'bold', size: 18 }, color: '#1e293b' } },
+        plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'top', formatter: (v) => v.toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + suffix, font: { weight: 'bold', size: 20 }, color: '#1e293b' } },
         scales: { y: { display: false }, x: { grid: { display: false }, border: { display: false } } },
         layout: { padding: { top: 30, right: 30 } }
     };
@@ -433,7 +417,7 @@ function barOptsDecimal(suffix) {
 function lineOpts(suffix) {
     return {
         responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false }, datalabels: { align: 'top', offset: 6, formatter: (v) => v.toLocaleString('id-ID') + suffix, font: { weight: 'bold', size: 16 }, color: '#1e293b' } },
+        plugins: { legend: { display: false }, datalabels: { align: 'top', offset: 6, formatter: (v) => v.toLocaleString('id-ID') + suffix, font: { weight: 'bold', size: 20 }, color: '#1e293b' } },
         scales: { y: { display: false }, x: { grid: { display: false }, border: { display: false }, ticks: { font: { size: 11 } } } },
         layout: { padding: { top: 30, bottom: 10, right: 30 } }
     };
@@ -442,7 +426,7 @@ function lineOpts(suffix) {
 function lineOptsDecimal(suffix, decimals = 2) {
     return {
         responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false }, datalabels: { align: 'top', offset: 6, formatter: (v) => v.toLocaleString('id-ID', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) + suffix, font: { weight: 'bold', size: 16 }, color: '#1e293b' } },
+        plugins: { legend: { display: false }, datalabels: { align: 'top', offset: 6, formatter: (v) => v.toLocaleString('id-ID', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) + suffix, font: { weight: 'bold', size: 20 }, color: '#1e293b' } },
         scales: { y: { display: false }, x: { grid: { display: false }, border: { display: false }, ticks: { font: { size: 11 } } } },
         layout: { padding: { top: 30, bottom: 10, right: 30 } }
     };

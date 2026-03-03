@@ -130,7 +130,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
                 },
                 options: {
                     responsive: true, maintainAspectRatio: false,
-                    plugins: { legend: { display: false }, datalabels: { align: 'top', offset: 6, formatter: (v) => v.toLocaleString('id-ID'), font: { weight: 'bold', size: 16 }, color: '#1e293b' } },
+                    plugins: { legend: { display: false }, datalabels: { align: 'top', offset: 6, formatter: (v) => v.toLocaleString('id-ID'), font: { weight: 'bold', size: 20 }, color: '#1e293b' } },
                     scales: { y: { display: false }, x: { grid: { display: false }, border: { display: false }, ticks: { font: { size: 11 } } } },
                     layout: { padding: { top: 30, bottom: 10, left: 40, right: 20 } }
                 }
@@ -152,70 +152,6 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
         },
         tpt: () => {
             title.textContent = `Tingkat Pengangguran Terbuka (TPT) ${regionName}`;
-            if (regionKey === 'kepulauan_riau') {
-                const labels = ['Feb 2021', 'Ags 2021', 'Feb 2022', 'Ags 2022', 'Feb 2023', 'Ags 2023', 'Feb 2024', 'Ags 2024', 'Feb 2025', 'Ags 2025', 'Nov 2025'];
-                const barData = [116.75, 119.60, 84.79, 103.72, 84.23, 74.33, 74.78, 71.57, 75.21, 72.56, 71.84];
-                const lineData = [10.12, 9.91, 8.02, 8.23, 7.61, 6.80, 6.94, 6.39, 6.89, 6.45, 6.35];
-
-                return {
-                    type: 'bar',
-                    data: {
-                        labels: labels,
-                        datasets: [
-                            {
-                                type: 'line',
-                                label: 'TPT (%)',
-                                data: lineData,
-                                borderColor: '#1e293b',
-                                backgroundColor: '#1e293b',
-                                borderWidth: 3,
-                                pointBackgroundColor: '#fff',
-                                pointBorderColor: '#1e293b',
-                                pointBorderWidth: 3,
-                                pointRadius: 5,
-                                yAxisID: 'y',
-                                datalabels: {
-                                    align: 'bottom',
-                                    anchor: 'start',
-                                    offset: 2,
-                                    formatter: (v) => v.toLocaleString('id-ID', { minimumFractionDigits: 2 }),
-                                    color: '#1e293b',
-                                    font: { weight: 'bold', size: 16 }
-                                }
-                            },
-                            {
-                                type: 'bar',
-                                label: 'Pengangguran (Ribu Orang)',
-                                data: barData,
-                                backgroundColor: 'rgba(245, 158, 11, 0.85)',
-                                borderRadius: 4,
-                                yAxisID: 'y',
-                                datalabels: {
-                                    align: 'top',
-                                    anchor: 'end',
-                                    offset: 2,
-                                    formatter: (v) => v.toLocaleString('id-ID', { minimumFractionDigits: 2 }),
-                                    color: '#1e293b',
-                                    font: { weight: '600', size: 11 }
-                                }
-                            }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: { display: true, position: 'bottom' }
-                        },
-                        scales: {
-                            x: { grid: { display: false } },
-                            y: { display: false }
-                        },
-                        layout: { padding: { top: 40, bottom: 20 } }
-                    }
-                };
-            }
-
             const d = dataTpt.wilayah[regionKey];
             let dataArr = [];
             if (d && d.tahunan) { dataArr = d.tahunan; }
@@ -225,22 +161,11 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             title.textContent = `Angka Partisipasi Sekolah (APS) SMA/SMK ${regionName} (%)`;
             const d = dataAps.wilayah[regionKey];
             let dataArr = [];
-            let labelsArr = dataAps.tahun;
-
-            if (d && d.tahunan) {
-                dataArr = [...d.tahunan];
-            }
-
-            // Inject 2025 data (16-18) specifically for Provinsi Kepri
-            if (regionKey === 'kepulauan_riau') {
-                labelsArr = [...dataAps.tahun, 2025];
-                dataArr.push(88.24); // append 2025 value
-            }
-
+            if (d && d.tahunan) { dataArr = d.tahunan; }
             return {
                 type: 'line',
                 data: {
-                    labels: labelsArr,
+                    labels: dataAps.tahun,
                     datasets: [{
                         label: 'APS',
                         data: dataArr,
@@ -277,7 +202,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             title.textContent = `Jumlah Penduduk ${regionName} (Sensus Penduduk)`;
             let dataArr = [];
             if (dataPenduduk[regionKey]) { dataArr = dataPenduduk[regionKey]; }
-            return { type: 'bar', data: { labels: ['SP 2010', 'SP 2020'], datasets: [{ label: 'Jumlah Penduduk (jiwa)', data: dataArr, backgroundColor: ['rgba(59,130,246,0.7)', 'rgba(16,185,129,0.7)'], borderRadius: 8, barThickness: 60 }] }, options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'right', formatter: (v) => v.toLocaleString('id-ID') + ' jiwa', font: { weight: 'bold', size: 16 }, color: '#1e293b' } }, scales: { x: { display: false }, y: { grid: { display: false }, border: { display: false } } }, layout: { padding: { right: 120 } } } };
+            return { type: 'bar', data: { labels: ['SP 2010', 'SP 2020'], datasets: [{ label: 'Jumlah Penduduk (jiwa)', data: dataArr, backgroundColor: ['rgba(59,130,246,0.7)', 'rgba(16,185,129,0.7)'], borderRadius: 8, barThickness: 60 }] }, options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'right', formatter: (v) => v.toLocaleString('id-ID') + ' jiwa', font: { weight: 'bold', size: 20 }, color: '#1e293b' } }, scales: { x: { display: false }, y: { grid: { display: false }, border: { display: false } } }, layout: { padding: { right: 120 } } } };
         },
         inflasi: () => {
             title.textContent = `Tingkat Inflasi Year-on-Year (Y-on-Y) `;
@@ -361,7 +286,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
                             offset: 2, 
                             formatter: (v) => v === 0 || v === null ? '' : v.toLocaleString('id-ID'), 
                             color: '#1e293b', 
-                            font: { weight: 'bold', size: 10 } 
+                            font: { weight: 'bold', size: 13 } 
                         } 
                     },
                     scales: {
@@ -439,7 +364,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal()
 function barOpts(suffix) {
     return {
         responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'top', formatter: (v) => v.toLocaleString('id-ID') + suffix, font: { weight: 'bold', size: 16 }, color: '#1e293b' } },
+        plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'top', formatter: (v) => v.toLocaleString('id-ID') + suffix, font: { weight: 'bold', size: 20 }, color: '#1e293b' } },
         scales: { y: { display: false }, x: { grid: { display: false }, border: { display: false } } },
         layout: { padding: { top: 30, right: 30 } }
     };
@@ -447,7 +372,7 @@ function barOpts(suffix) {
 function barOptsDecimal(suffix) {
     return {
         responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'top', formatter: (v) => v.toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + suffix, font: { weight: 'bold', size: 18 }, color: '#1e293b' } },
+        plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'top', formatter: (v) => v.toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + suffix, font: { weight: 'bold', size: 20 }, color: '#1e293b' } },
         scales: { y: { display: false }, x: { grid: { display: false }, border: { display: false } } },
         layout: { padding: { top: 30, right: 30 } }
     };
@@ -455,7 +380,7 @@ function barOptsDecimal(suffix) {
 function lineOpts(suffix) {
     return {
         responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false }, datalabels: { align: 'top', offset: 6, formatter: (v) => v.toLocaleString('id-ID') + suffix, font: { weight: 'bold', size: 16 }, color: '#1e293b' } },
+        plugins: { legend: { display: false }, datalabels: { align: 'top', offset: 6, formatter: (v) => v.toLocaleString('id-ID') + suffix, font: { weight: 'bold', size: 20 }, color: '#1e293b' } },
         scales: { y: { display: false }, x: { grid: { display: false }, border: { display: false }, ticks: { font: { size: 11 } } } },
         layout: { padding: { top: 30, bottom: 10, right: 30 } }
     };
