@@ -323,7 +323,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
                                 offset: 2,
                                 formatter: (v) => v.toLocaleString('id-ID'),
                                 color: '#1e293b',
-                                font: { weight: '600', size: 9 }, display: true, clip: false
+                                font: { weight: '600', size: 9 }
                             }
                         },
                         {
@@ -341,7 +341,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: { legend: { display: true, position: 'bottom' } },
+                    plugins: { legend: { display: true, position: 'bottom' }, datalabels: { display: true, clip: false, opacity: 1 } },
                     scales: {
                         x: { grid: { display: false } },
                         y: { display: false }
