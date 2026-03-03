@@ -339,14 +339,7 @@ function openModal(type, regionKey = 'lingga', regionName = 'Kepulauan Riau') {
                             data: dataArr,
                             backgroundColor: 'rgba(22, 163, 74, 0.75)',
                             borderRadius: 4,
-                            datalabels: {
-                                align: 'top',
-                                anchor: 'end',
-                                offset: 2,
-                                formatter: (v) => v.toLocaleString('id-ID'),
-                                color: '#1e293b',
-                                font: { weight: '600', size: 9 }, display: true
-                            }
+                            /* moved to plugins */
                         },
                         {
                             type: 'line',
@@ -363,7 +356,19 @@ function openModal(type, regionKey = 'lingga', regionName = 'Kepulauan Riau') {
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: { legend: { display: true, position: 'bottom' }, datalabels: { display: true, clip: false, opacity: 1 } },
+                    plugins: { 
+                        legend: { display: true, position: 'bottom' }, 
+                        datalabels: { 
+                            display: true, 
+                            clip: false, 
+                            align: 'top', 
+                            anchor: 'end', 
+                            offset: 2, 
+                            formatter: (v) => v === 0 || v === null ? '' : v.toLocaleString('id-ID'), 
+                            color: '#1e293b', 
+                            font: { weight: 'bold', size: 10 } 
+                        } 
+                    },
                     scales: {
                         x: { grid: { display: false } },
                         y: { display: false }
