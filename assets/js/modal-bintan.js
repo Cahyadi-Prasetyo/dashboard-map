@@ -266,17 +266,26 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             title.textContent = `Tingkat Inflasi Year-on-Year (Y-on-Y) `;
 
             let dataArr = [];
-            let labelsArr = ['Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25', 'Jan 26'];
+            // Base labels array spanning Jan 25 to Dec 26. We clip it dynamically below based on actual data length.
+            let labelsArr = ['Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25', 
+                             'Jan 26', 'Feb 26', 'Mar 26', 'Apr 26', 'Mei 26', 'Jun 26', 'Jul 26', 'Ags 26', 'Sep 26', 'Okt 26', 'Nov 26', 'Des 26'];
 
-            if (regionKey === 'kepulauan_riau') {
-                dataArr = [2.01, 2.09, 2.01, 2.56, 1.73, 1.32, 1.97, 2.19, 2.70, 3.01, 3.00, 3.47, 2.94];
-            } else if (regionKey === 'karimun') {
-                dataArr = [0, -0.73, -0.15, 2.30, 0.87, -0.15, 0.40, 1.92, 2.91, 2.58, 2.43, 2.70, 2.77];
-            } else if (regionKey === 'bintan') {
-                dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-            } else {
-                dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            if (typeof dataInflasi !== 'undefined' && dataInflasi.wilayah && dataInflasi.wilayah[regionKey]) {
+                const d = dataInflasi.wilayah[regionKey].tahunan;
+                if (d) {
+                    let arr2025 = d['2025'] ? d['2025'].filter(v => v !== null) : [];
+                    let arr2026 = d['2026'] ? d['2026'].filter(v => v !== null) : [];
+                    dataArr = [...arr2025, ...arr2026];
+                }
             }
+
+            if (dataArr.length === 0) {
+                // Safe Fallback if dataInflasi is totally missing
+                dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            }
+            
+            // Match label length to actual data points
+            labelsArr = labelsArr.slice(0, dataArr.length);
 
             return { type: 'line', data: { labels: labelsArr, datasets: [{ label: 'Inflasi Y-on-Y (%)', data: dataArr, borderColor: gradientLine, backgroundColor: gradientFill, fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#7c3aed', pointBorderColor: '#fff', pointBorderWidth: 2, pointHoverRadius: 7 }] }, options: lineOpts('%') };
         },

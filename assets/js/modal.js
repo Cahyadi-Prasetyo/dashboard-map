@@ -16,17 +16,17 @@ const indicatorInfo = {
     pdrb: {
         def: 'Nilai PDRB dibagi jumlah penduduk dalam suatu wilayah pada periode tertentu',
         img: 'assets/img/PDRB perkapita.jpg',
-        insight: (rn) => `PDRB per kapita ${rn} konsisten meningkat dari tahun ke tahun.`
+        insight: (rn) => `PDRB per kapita ${rn} meningkat dari tahun 2020 ke tahun 2025.`
     },
     ipm: {
         def: 'Indikator yang mengukur kualitas hidup penduduk berdasarkan kesehatan, pendidikan, dan standar hidup layak.',
         img: 'assets/img/IPM.jpg',
-        insight: (rn) => `IPM di ${rn} meningkat secara konsisten dari tahun ke tahun yang menunjukkan perbaikan berkelanjutan dalam kualitas hidup masyarakat.`
+        insight: (rn) => `IPM di ${rn} meningkat dari tahun ke tahun yang menunjukkan perbaikan berkelanjutan dalam kualitas hidup masyarakat.`
     },
     aps: {
         def: 'Persentase penduduk usia sekolah SMA/SMK yang sedang menempuh pendidikan per 1,000 jumlah penduduk usia pendidikan menengah.',
         img: 'assets/img/APS.jpg',
-        insight: (rn) => `Angka partisipasi sekolah tingkat menengah di ${rn} semakin membaik.`
+        insight: (rn) => `Angka partisipasi sekolah (APS) SMA/SMK (16-18 tahun) di ${rn} semakin meningkat.`
     },
     ipg: {
         def: 'Indikator yang mengukur kesetaraan capaian pembangunan manusia antara laki-laki dan perempuan.',
@@ -36,37 +36,37 @@ const indicatorInfo = {
     kemiskinan: {
         def: 'Persentase penduduk yang memiliki pengeluaran per kapita di bawah garis kemiskinan.',
         img: 'assets/img/kemiskinan.jpg',
-        insight: (rn) => `Angka kemiskinan di ${rn} terus ditekan dan berangsur turun.`
+        insight: (rn) => `Angka kemiskinan di ${rn} menunjukkan tren penurunan dari tahun 2022 ke tahun 2025.`
     },
     gini: {
         def: 'Indikator yang menunjukkan tingkat ketimpangan pengeluaran secara menyeluruh',
         img: 'assets/img/giniratio.jpeg',
-        insight: (rn) => `Ketimpangan pengeluaran di ${rn} relatif stabil dan tergolong moderat.`
+        insight: (rn) => `Gini Ratio Kepulauan Riau pada September 2025 sebesar 0,385.`
     },
     inflasi: {
         def: 'Persentase kenaikan harga barang dan jasa secara umum dan terus-menerus dalam periode tertentu.',
         img: 'assets/img/inflasi.jpeg',
-        insight: (rn) => `Tingkat inflasi di ${rn} cukup dinamis namun tetap terkendali.`
+        insight: (rn) => `Pada Februari 2026, inflasi di Kepulauan Riau sebesar 3,54 persen.`
     },
     penduduk: {
         def: 'Total orang yang tinggal dan menetap di suatu wilayah pada waktu tertentu.',
         img: 'assets/img/penduduk.jpeg',
-        insight: (rn) => `Jumlah penduduk di ${rn} bertambah secara proporsional berdasar sensus terbaru.`
+        insight: (rn) => `Jumlah penduduk pada tahun 2020 sebesar 2.064.564 jiwa.`
     },
     wisman: {
         def: 'Jumlah kunjungan wisatawan asing ke suatu wilayah dalam periode tertentu.',
         img: 'assets/img/wisata.jpeg',
-        insight: (rn) => `Kunjungan wisman di ${rn} meningkat tajam menandakan pemulihan pariwisata.`
+        insight: (rn) => `Kunjungan wisman di ${rn} meningkat diakhir tahun 2025`
     },
     ekspor: {
         def: 'Nilai atau volume barang dan jasa yang dijual ke luar negeri dalam periode tertentu.',
         img: 'assets/img/ekspor.png',
-        insight: (rn) => `Aktivitas ekspor ${rn} menunjukkan tren pertumbuhan yang solid.`
+        insight: (rn) => `Nilai ekspor ${rn} pada Januari 2026 mencapai US$2,02 miliar.`
     },
     impor: {
         def: 'Nilai atau volume barang dan jasa yang dibeli dari luar negeri dalam periode tertentu.',
         img: 'assets/img/impor.jpeg',
-        insight: (rn) => `Nilai impor di ${rn} meningkat sejalan dengan kebutuhan suplai industri.`
+        insight: (rn) => `Nilai impor di ${rn} pada Januari 2026 mencapai US$2,07 miliar.`
     }
 };
 
@@ -294,22 +294,26 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             title.textContent = `Tingkat Inflasi Year-on-Year (Y-on-Y) `;
 
             let dataArr = [];
-            let labelsArr = ['Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25', 'Jan 26'];
+            // Base labels array spanning Jan 25 to Dec 26. We clip it dynamically below based on actual data length.
+            let labelsArr = ['Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25', 
+                             'Jan 26', 'Feb 26', 'Mar 26', 'Apr 26', 'Mei 26', 'Jun 26', 'Jul 26', 'Ags 26', 'Sep 26', 'Okt 26', 'Nov 26', 'Des 26'];
 
             if (typeof dataInflasi !== 'undefined' && dataInflasi.wilayah && dataInflasi.wilayah[regionKey]) {
                 const d = dataInflasi.wilayah[regionKey].tahunan;
-                if (d['2025'] && d['2026']) {
-                    dataArr = [...d['2025'], d['2026'][0]];
+                if (d) {
+                    let arr2025 = d['2025'] ? d['2025'].filter(v => v !== null) : [];
+                    let arr2026 = d['2026'] ? d['2026'].filter(v => v !== null) : [];
+                    dataArr = [...arr2025, ...arr2026];
                 }
             }
 
             if (dataArr.length === 0) {
-                if (regionKey === 'kepulauan_riau') {
-                    dataArr = [2.01, 2.09, 2.01, 2.56, 1.73, 1.32, 1.97, 2.19, 2.70, 3.01, 3.00, 3.47, 2.94];
-                } else {
-                    dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-                }
+                // Safe Fallback if dataInflasi is totally missing
+                dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
             }
+            
+            // Match label length to actual data points
+            labelsArr = labelsArr.slice(0, dataArr.length);
 
             return { type: 'line', data: { labels: labelsArr, datasets: [{ label: 'Inflasi Y-on-Y (%)', data: dataArr, borderColor: gradientLine, backgroundColor: gradientFill, fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#7c3aed', pointBorderColor: '#fff', pointBorderWidth: 2, pointHoverRadius: 7 }] }, options: lineOpts('%') };
         },
