@@ -237,7 +237,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
                         x: { display: false },
                         y: { grid: { display: false }, border: { display: false } }
                     },
-                    layout: { padding: { right: 120 } }
+                    layout: { padding: { right: 150 } }
                 }
             };
         },
@@ -402,24 +402,24 @@ function barOpts(suffix) {
     return {
         responsive: true, maintainAspectRatio: false,
         plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'top', formatter: (v) => v.toLocaleString('id-ID') + suffix, font: { weight: 'bold', size: 20 }, color: '#1e293b' } },
-        scales: { y: { display: false }, x: { grid: { display: false }, border: { display: false } } },
-        layout: { padding: { top: 30, right: 30 } }
+        scales: { y: { display: false, grace: '30%' }, x: { grid: { display: false }, border: { display: false } } },
+        layout: { padding: { top: 40, right: 40, left: 20 } }
     };
 }
 function barOptsDecimal(suffix) {
     return {
         responsive: true, maintainAspectRatio: false,
         plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'top', formatter: (v) => v.toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + suffix, font: { weight: 'bold', size: 20 }, color: '#1e293b' } },
-        scales: { y: { display: false }, x: { grid: { display: false }, border: { display: false } } },
-        layout: { padding: { top: 30, right: 30 } }
+        scales: { y: { display: false, grace: '30%' }, x: { grid: { display: false }, border: { display: false } } },
+        layout: { padding: { top: 40, right: 40, left: 20 } }
     };
 }
 function lineOpts(suffix) {
     return {
         responsive: true, maintainAspectRatio: false,
         plugins: { legend: { display: false }, datalabels: { align: 'top', offset: 6, formatter: (v) => v.toLocaleString('id-ID') + suffix, font: { weight: 'bold', size: 20 }, color: '#1e293b' } },
-        scales: { y: { display: false }, x: { grid: { display: false }, border: { display: false }, ticks: { font: { size: 11 } } } },
-        layout: { padding: { top: 30, bottom: 10, right: 30 } }
+        scales: { y: { display: false, grace: '30%' }, x: { grid: { display: false }, border: { display: false }, ticks: { font: { size: 11 } } } },
+        layout: { padding: { top: 40, bottom: 10, right: 40, left: 30 } }
     };
 }
 
@@ -427,7 +427,7 @@ function lineOptsDecimal(suffix, decimals = 2) {
     return {
         responsive: true, maintainAspectRatio: false,
         plugins: { legend: { display: false }, datalabels: { align: 'top', offset: 6, formatter: (v) => v.toLocaleString('id-ID', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) + suffix, font: { weight: 'bold', size: 20 }, color: '#1e293b' } },
-        scales: { y: { display: false }, x: { grid: { display: false }, border: { display: false }, ticks: { font: { size: 11 } } } },
-        layout: { padding: { top: 30, bottom: 10, right: 30 } }
+        scales: { y: { display: false, grace: '30%' }, x: { grid: { display: false }, border: { display: false }, ticks: { font: { size: 11 } } } },
+        layout: { padding: { top: 40, bottom: 10, right: 40, left: 30 } }
     };
 }
