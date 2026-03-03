@@ -97,7 +97,7 @@ function openModal(type, regionKey = 'lingga', regionName = 'Kepulauan Riau') {
 
     const charts = {
         ekonomi: () => {
-            title.textContent = `Pertumbuhan Ekonomi ${regionName} 2020–2024`;
+            title.textContent = `Pertumbuhan Ekonomi ${regionName} (%)`;
             let dataArr = [];
             let labelsArr = dataEkonomi.tahun;
 
