@@ -101,13 +101,8 @@ function openModal(type, regionKey = 'lingga', regionName = 'Kepulauan Riau') {
             let dataArr = [];
             let labelsArr = dataEkonomi.tahun;
 
-            if (dataEkonomi.triwulanan && dataEkonomi.triwulanan[regionKey]) {
-                dataArr = dataEkonomi.triwulanan[regionKey].y_on_y || [];
-                labelsArr = ['Triwulan I', 'Triwulan II', 'Triwulan III', 'Triwulan IV'];
-            } else {
-                const d = dataEkonomi.wilayah[regionKey];
-                if (d && d.tahunan) { dataArr = d.tahunan; }
-            }
+            const d = dataEkonomi.wilayah[regionKey];
+            if (d && d.tahunan) { dataArr = d.tahunan; }
 
             return { type: 'bar', data: { labels: labelsArr, datasets: [{ label: 'Pertumbuhan Ekonomi (%)', data: dataArr, backgroundColor: 'rgba(59,130,246,0.7)', borderRadius: 6 }] }, options: barOptsDecimal('%') };
         },
