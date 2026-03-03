@@ -1,433 +1,857 @@
-
 Chart.register(ChartDataLabels);
 let modalChartInstance = null;
 
 const indicatorInfo = {
-    ekonomi: {
-        def: 'Indikator ekonomi makro yang menggambarkan seberapa jauh keberhasilan pembangunan suatu daerah dalam periode waktu tertentu',
-        img: 'assets/img/pertumbuhan ekonomi.jpg',
-        insight: (rn) => `Pertumbuhan ekonomi di ${rn} berfluktuasi dan membaik pasca 2020.`
-    },
-    tpt: {
-        def: 'Persentase jumlah pengangguran terhadap jumlah angkatan kerja',
-        img: 'assets/img/TPT.jpg',
-        insight: (rn) => `TPT menunjukkan tren menurun dari 2021 hingga 2025, mencerminkan perbaikan kondisi ketenagakerjaan di ${rn}.`
-    },
-    pdrb: {
-        def: 'Nilai PDRB dibagi jumlah penduduk dalam suatu wilayah pada periode tertentu',
-        img: 'assets/img/PDRB perkapita.jpg',
-        insight: (rn) => `PDRB per kapita ${rn} konsisten meningkat dari tahun ke tahun.`
-    },
-    ipm: {
-        def: 'Indikator yang mengukur kualitas hidup penduduk berdasarkan kesehatan, pendidikan, dan standar hidup layak.',
-        img: 'assets/img/IPM.jpg',
-        insight: (rn) => `IPM di ${rn} meningkat secara konsisten dari tahun ke tahun yang menunjukkan perbaikan berkelanjutan dalam kualitas hidup masyarakat.`
-    },
-    aps: {
-        def: 'Persentase penduduk usia sekolah SMA/SMK yang sedang menempuh pendidikan per 1,000 jumlah penduduk usia pendidikan menengah.',
-        img: 'assets/img/APS.jpg',
-        insight: (rn) => `Angka partisipasi sekolah tingkat menengah di ${rn} semakin membaik.`
-    },
-    ipg: {
-        def: 'Indikator yang mengukur kesetaraan capaian pembangunan manusia antara laki-laki dan perempuan.',
-        img: 'assets/img/IPG.jpeg',
-        insight: (rn) => `IPG di ${rn} menunjukkan tren meningkat dari yang menunjukkan kesetaraan capaian pembangunan antara laki-laki dan perempuan semakin membaik`
-    },
-    kemiskinan: {
-        def: 'Persentase penduduk yang memiliki pengeluaran per kapita di bawah garis kemiskinan.',
-        img: 'assets/img/kemiskinan.jpg',
-        insight: (rn) => `Angka kemiskinan di ${rn} terus ditekan dan berangsur turun.`
-    },
-    gini: {
-        def: 'Indikator yang menunjukkan tingkat ketimpangan pengeluaran secara menyeluruh',
-        img: 'assets/img/giniratio.jpeg',
-        insight: (rn) => `Ketimpangan pengeluaran di ${rn} relatif stabil dan tergolong moderat.`
-    },
-    inflasi: {
-        def: '-',
-        img: 'assets/img/inflasi.jpeg',
-        insight: (rn) => `Inflasi belum ditemukan`
-    },
-    penduduk: {
-        def: 'Total orang yang tinggal dan menetap di suatu wilayah pada waktu tertentu.',
-        img: 'assets/img/penduduk.jpeg',
-        insight: (rn) => `Jumlah penduduk di ${rn} bertambah secara proporsional berdasar sensus terbaru.`
-    },
-    wisman: {
-        def: 'Jumlah kunjungan wisatawan asing ke suatu wilayah dalam periode tertentu.',
-        img: 'assets/img/wisata.jpeg',
-        insight: (rn) => `Kunjungan wisman di Bintan mencapai titik tertinggi pada awal pertengahan tahun.`
-    },
-    ekspor: {
-        def: '-',
-        img: 'assets/img/ekspor.png',
-        insight: (rn) => `Ekspor belum ditemukan`
-    },
-    impor: {
-        def: '-',
-        img: 'assets/img/impor.jpeg',
-        insight: (rn) => `Impor belum ditemukan`
-    }
+  ekonomi: {
+    def: "Indikator ekonomi makro yang menggambarkan seberapa jauh keberhasilan pembangunan suatu daerah dalam periode waktu tertentu",
+    img: "assets/img/pertumbuhan ekonomi.jpg",
+    insight: (rn) =>
+      `Pertumbuhan ekonomi di ${rn} pada tahun 2025 sebesar 6,43%.`,
+  },
+  tpt: {
+    def: "Persentase jumlah pengangguran terhadap jumlah angkatan kerja",
+    img: "assets/img/TPT.jpg",
+    insight: (rn) =>
+      `TPT menunjukkan tren menurun dari 2021 hingga 2024 dan naik kembali pada 2025.`,
+  },
+  pdrb: {
+    def: "Nilai PDRB dibagi jumlah penduduk dalam suatu wilayah pada periode tertentu",
+    img: "assets/img/PDRB perkapita.jpg",
+    insight: (rn) =>
+      `PDRB per kapita ${rn} konsisten meningkat dari tahun ke tahun.`,
+  },
+  ipm: {
+    def: "Indikator yang mengukur kualitas hidup penduduk berdasarkan kesehatan, pendidikan, dan standar hidup layak.",
+    img: "assets/img/IPM.jpg",
+    insight: (rn) =>
+      `IPM di ${rn} meningkat secara konsisten dari tahun ke tahun yang menunjukkan perbaikan berkelanjutan dalam kualitas hidup masyarakat.`,
+  },
+  aps: {
+    def: "Persentase penduduk usia sekolah SMA/SMK yang sedang menempuh pendidikan per 1,000 jumlah penduduk usia pendidikan menengah.",
+    img: "assets/img/APS.jpg",
+    insight: (rn) =>
+      `Angka partisipasi sekolah (APS) SMA/SMK (16-18 tahun) di ${rn} meningkat dari tahun ke tahun.`,
+  },
+  ipg: {
+    def: "Indikator yang mengukur kesetaraan capaian pembangunan manusia antara laki-laki dan perempuan.",
+    img: "assets/img/IPG.jpeg",
+    insight: (rn) =>
+      `IPG di ${rn} menunjukkan tren meningkat dari yang menunjukkan kesetaraan capaian pembangunan antara laki-laki dan perempuan semakin membaik`,
+  },
+  kemiskinan: {
+    def: "Persentase penduduk yang memiliki pengeluaran per kapita di bawah garis kemiskinan.",
+    img: "assets/img/kemiskinan.jpg",
+    insight: (rn) =>
+      `Angka kemiskinan di ${rn} menunjukkan tren penurunan dari tahun 2023 hingga 2025.`,
+  },
+  gini: {
+    def: "Indikator yang menunjukkan tingkat ketimpangan pengeluaran secara menyeluruh",
+    img: "assets/img/giniratio.jpeg",
+    insight: (rn) => `Gini ratio di ${rn} pada Maret 2025 sebesar 0,3.`,
+  },
+  inflasi: {
+    def: "-",
+    img: "assets/img/inflasi.jpeg",
+    insight: (rn) => `Inflasi Februari 2026 di ${rn} sebesar 3,13%.`,
+  },
+  penduduk: {
+    def: "Total orang yang tinggal dan menetap di suatu wilayah pada waktu tertentu.",
+    img: "assets/img/penduduk.jpeg",
+    insight: (rn) =>
+      `Jumlah penduduk di ${rn} pada tahun 2020 sebesar 159.518 jiwa.`,
+  },
+  wisman: {
+    def: "Jumlah kunjungan wisatawan asing ke suatu wilayah dalam periode tertentu.",
+    img: "assets/img/wisata.jpeg",
+    insight: (rn) =>
+      `Kunjungan wisman di ${rn} meningkat tajam di akhir tahun 2025.`,
+  },
+  ekspor: {
+    def: "-",
+    img: "assets/img/ekspor.png",
+    insight: (rn) => `Ekspor belum ditemukan`,
+  },
+  impor: {
+    def: "-",
+    img: "assets/img/impor.jpeg",
+    insight: (rn) => `Impor belum ditemukan`,
+  },
 };
 
-function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan Riau') {
-    const overlay = document.getElementById('modalOverlay');
-    const title = document.getElementById('modalTitle');
-    const ctx = document.getElementById('modalChart');
+function openModal(
+  type,
+  regionKey = "kepulauan_riau",
+  regionName = "Kepulauan Riau",
+) {
+  const overlay = document.getElementById("modalOverlay");
+  const title = document.getElementById("modalTitle");
+  const ctx = document.getElementById("modalChart");
 
-    const imgEl = document.getElementById('modalImg');
-    const defEl = document.getElementById('modalDef');
-    const insEl = document.getElementById('modalInsight');
+  const imgEl = document.getElementById("modalImg");
+  const defEl = document.getElementById("modalDef");
+  const insEl = document.getElementById("modalInsight");
 
-    const info = indicatorInfo[type];
-    if (info && imgEl && defEl && insEl) {
-        imgEl.src = info.img || 'assets/img/potensi.png';
-        defEl.textContent = info.def || '-';
-        insEl.textContent = typeof info.insight === 'function' ? info.insight(regionName) : '-';
-    }
+  const info = indicatorInfo[type];
+  if (info && imgEl && defEl && insEl) {
+    imgEl.src = info.img || "assets/img/potensi.png";
+    defEl.textContent = info.def || "-";
+    insEl.textContent =
+      typeof info.insight === "function" ? info.insight(regionName) : "-";
+  }
 
-    if (modalChartInstance) { modalChartInstance.destroy(); modalChartInstance = null; }
+  if (modalChartInstance) {
+    modalChartInstance.destroy();
+    modalChartInstance = null;
+  }
 
-    const gradientFill = ctx.getContext('2d').createLinearGradient(0, 0, 0, 300);
-    gradientFill.addColorStop(0, 'rgba(124, 58, 237, 0.15)');
-    gradientFill.addColorStop(1, 'rgba(13, 148, 136, 0.02)');
-    const gradientLine = ctx.getContext('2d').createLinearGradient(0, 0, ctx.width, 0);
-    gradientLine.addColorStop(0, '#7c3aed');
-    gradientLine.addColorStop(1, '#0d9488');
+  const gradientFill = ctx.getContext("2d").createLinearGradient(0, 0, 0, 300);
+  gradientFill.addColorStop(0, "rgba(124, 58, 237, 0.15)");
+  gradientFill.addColorStop(1, "rgba(13, 148, 136, 0.02)");
+  const gradientLine = ctx
+    .getContext("2d")
+    .createLinearGradient(0, 0, ctx.width, 0);
+  gradientLine.addColorStop(0, "#7c3aed");
+  gradientLine.addColorStop(1, "#0d9488");
 
-    const charts = {
-        ekonomi: () => {
-            title.textContent = `Pertumbuhan Ekonomi ${regionName} (%)`;
-            let dataArr = [];
-            let labelsArr = dataEkonomi.tahun;
+  const charts = {
+    ekonomi: () => {
+      title.textContent = `Pertumbuhan Ekonomi ${regionName} (%)`;
+      let dataArr = [];
+      let labelsArr = dataEkonomi.tahun;
 
-            const d = dataEkonomi.wilayah[regionKey];
-            if (d && d.tahunan) { dataArr = d.tahunan; }
+      const d = dataEkonomi.wilayah[regionKey];
+      if (d && d.tahunan) {
+        dataArr = d.tahunan;
+      }
 
-            return { type: 'bar', data: { labels: labelsArr, datasets: [{ label: 'Pertumbuhan Ekonomi (%)', data: dataArr, backgroundColor: 'rgba(59,130,246,0.7)', borderRadius: 6 }] }, options: barOptsDecimal('%') };
+      return {
+        type: "bar",
+        data: {
+          labels: labelsArr,
+          datasets: [
+            {
+              label: "Pertumbuhan Ekonomi (%)",
+              data: dataArr,
+              backgroundColor: "rgba(59,130,246,0.7)",
+              borderRadius: 6,
+            },
+          ],
         },
-        pdrb: () => {
-            title.textContent = `PDRB per Kapita ${regionName} (Ribu Rupiah)`;
-            let dataArr = [];
-            if (dataPdrb[regionKey]) { dataArr = dataPdrb[regionKey]; }
+        options: barOptsDecimal("%"),
+      };
+    },
+    pdrb: () => {
+      title.textContent = `PDRB per Kapita ${regionName} (Ribu Rupiah)`;
+      let dataArr = [];
+      if (dataPdrb[regionKey]) {
+        dataArr = dataPdrb[regionKey];
+      }
 
-            return {
-                type: 'line',
-                data: {
-                    labels: [2020, 2021, 2022, 2023, 2024, 2025],
-                    datasets: [{
-                        label: 'PDRB per Kapita',
-                        data: dataArr,
-                        borderColor: '#10b981',
-                        backgroundColor: 'rgba(16,185,129,0.1)',
-                        fill: true,
-                        tension: 0.3,
-                        borderWidth: 3,
-                        pointRadius: 5,
-                        pointBackgroundColor: '#10b981',
-                        pointBorderColor: '#fff',
-                        pointBorderWidth: 2
-                    }]
-                },
-                options: lineOpts('Rp')
-            };
+      return {
+        type: "line",
+        data: {
+          labels: [2020, 2021, 2022, 2023, 2024, 2025],
+          datasets: [
+            {
+              label: "PDRB per Kapita",
+              data: dataArr,
+              borderColor: "#10b981",
+              backgroundColor: "rgba(16,185,129,0.1)",
+              fill: true,
+              tension: 0.3,
+              borderWidth: 3,
+              pointRadius: 5,
+              pointBackgroundColor: "#10b981",
+              pointBorderColor: "#fff",
+              pointBorderWidth: 2,
+            },
+          ],
         },
-        ipm: () => {
-            title.textContent = `Indeks Pembangunan Manusia (IPM) ${regionName} 2020–2025`;
-            let dataArr = [];
-            const d = dataIpm.wilayah[regionKey];
-            if (d && d.tahunan) { dataArr = d.tahunan; }
+        options: lineOpts("Rp"),
+      };
+    },
+    ipm: () => {
+      title.textContent = `Indeks Pembangunan Manusia (IPM) ${regionName} 2020–2025`;
+      let dataArr = [];
+      const d = dataIpm.wilayah[regionKey];
+      if (d && d.tahunan) {
+        dataArr = d.tahunan;
+      }
 
-            return {
-                type: 'line',
-                data: { labels: dataIpm.tahun, datasets: [{ label: 'IPM', data: dataArr, borderColor: '#f59e0b', backgroundColor: 'rgba(245,158,11,0.1)', fill: true, tension: 0.4 }] },
-                options: lineOptsDecimal('', 2)
-            };
+      return {
+        type: "line",
+        data: {
+          labels: dataIpm.tahun,
+          datasets: [
+            {
+              label: "IPM",
+              data: dataArr,
+              borderColor: "#f59e0b",
+              backgroundColor: "rgba(245,158,11,0.1)",
+              fill: true,
+              tension: 0.4,
+            },
+          ],
         },
-        ipg: () => {
-            title.textContent = `Indeks Pembangunan Gender (IPG) ${regionName} 2020–2024`;
-            let dataArr = [];
-            const d = dataIpg.wilayah[regionKey];
-            if (d && d.tahunan) { dataArr = d.tahunan; }
+        options: lineOptsDecimal("", 2),
+      };
+    },
+    ipg: () => {
+      title.textContent = `Indeks Pembangunan Gender (IPG) ${regionName} 2020–2024`;
+      let dataArr = [];
+      const d = dataIpg.wilayah[regionKey];
+      if (d && d.tahunan) {
+        dataArr = d.tahunan;
+      }
 
-            return {
-                type: 'bar',
-                data: { labels: dataIpg.tahun, datasets: [{ label: 'IPG', data: dataArr, backgroundColor: 'rgba(236,72,153,0.7)', borderRadius: 4 }] },
-                options: barOptsDecimal('', 2)
-            };
+      return {
+        type: "bar",
+        data: {
+          labels: dataIpg.tahun,
+          datasets: [
+            {
+              label: "IPG",
+              data: dataArr,
+              backgroundColor: "rgba(236,72,153,0.7)",
+              borderRadius: 4,
+            },
+          ],
         },
-        tpt: () => {
-            title.textContent = `Tingkat Pengangguran Terbuka (TPT) ${regionName}`;
-            const d = dataTpt.wilayah[regionKey];
-            let dataArr = [];
-            if (d && d.tahunan) { dataArr = d.tahunan; }
-            return { type: 'bar', data: { labels: dataTpt.tahun, datasets: [{ label: 'TPT (%)', data: dataArr, backgroundColor: 'rgba(239,68,68,0.7)', borderRadius: 6 }] }, options: barOpts('%') };
+        options: barOptsDecimal("", 2),
+      };
+    },
+    tpt: () => {
+      title.textContent = `Tingkat Pengangguran Terbuka (TPT) ${regionName}`;
+      const d = dataTpt.wilayah[regionKey];
+      let dataArr = [];
+      if (d && d.tahunan) {
+        dataArr = d.tahunan;
+      }
+      return {
+        type: "bar",
+        data: {
+          labels: dataTpt.tahun,
+          datasets: [
+            {
+              label: "TPT (%)",
+              data: dataArr,
+              backgroundColor: "rgba(239,68,68,0.7)",
+              borderRadius: 6,
+            },
+          ],
         },
-        aps: () => {
-            title.textContent = `Angka Partisipasi Sekolah (APS) SMA/SMK ${regionName} (%)`;
-            const d = dataAps.wilayah[regionKey];
-            let dataArr = [];
-            if (d && d.tahunan) { dataArr = d.tahunan; }
-            return {
-                type: 'line',
-                data: {
-                    labels: dataAps.tahun,
-                    datasets: [{
-                        label: 'APS',
-                        data: dataArr,
-                        borderColor: '#0d9488',
-                        backgroundColor: 'rgba(13,148,136,0.1)',
-                        fill: true,
-                        tension: 0.3,
-                        borderWidth: 3,
-                        pointRadius: 5,
-                        pointBackgroundColor: '#0d9488',
-                        pointBorderColor: '#fff',
-                        pointBorderWidth: 2,
-                        spanGaps: true
-                    }]
-                },
-                options: lineOpts('')
-            };
+        options: barOpts("%"),
+      };
+    },
+    aps: () => {
+      title.textContent = `Angka Partisipasi Sekolah (APS) SMA/SMK ${regionName} (%)`;
+      const d = dataAps.wilayah[regionKey];
+      let dataArr = [];
+      if (d && d.tahunan) {
+        dataArr = d.tahunan;
+      }
+      return {
+        type: "line",
+        data: {
+          labels: dataAps.tahun,
+          datasets: [
+            {
+              label: "APS",
+              data: dataArr,
+              borderColor: "#0d9488",
+              backgroundColor: "rgba(13,148,136,0.1)",
+              fill: true,
+              tension: 0.3,
+              borderWidth: 3,
+              pointRadius: 5,
+              pointBackgroundColor: "#0d9488",
+              pointBorderColor: "#fff",
+              pointBorderWidth: 2,
+              spanGaps: true,
+            },
+          ],
         },
-        kemiskinan: () => {
-            title.textContent = `Angka Kemiskinan ${regionName} (%)`;
-            const d = dataKemiskinan.wilayah[regionKey];
-            let dataArr = [];
-            if (d && d.tahunan) { dataArr = d.tahunan; }
-            return { type: 'bar', data: { labels: dataKemiskinan.tahun, datasets: [{ label: 'Kemiskinan', data: dataArr, backgroundColor: 'rgba(245,158,11,0.7)', borderRadius: 6 }] }, options: barOpts('') };
+        options: lineOpts(""),
+      };
+    },
+    kemiskinan: () => {
+      title.textContent = `Angka Kemiskinan ${regionName} (%)`;
+      const d = dataKemiskinan.wilayah[regionKey];
+      let dataArr = [];
+      if (d && d.tahunan) {
+        dataArr = d.tahunan;
+      }
+      return {
+        type: "bar",
+        data: {
+          labels: dataKemiskinan.tahun,
+          datasets: [
+            {
+              label: "Kemiskinan",
+              data: dataArr,
+              backgroundColor: "rgba(245,158,11,0.7)",
+              borderRadius: 6,
+            },
+          ],
         },
-        gini: () => {
-            title.textContent = `Gini Ratio ${regionName} (Indeks)`;
-            const d = dataGini.wilayah[regionKey];
-            let dataArr = [];
-            if (d && d.tahunan) { dataArr = d.tahunan; }
-            return { type: 'line', data: { labels: dataGini.tahun, datasets: [{ label: 'Gini Ratio', data: dataArr, borderColor: '#f59e0b', backgroundColor: 'rgba(245,158,11,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#f59e0b', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts('') };
+        options: barOpts(""),
+      };
+    },
+    gini: () => {
+      title.textContent = `Gini Ratio ${regionName} (Indeks)`;
+      const d = dataGini.wilayah[regionKey];
+      let dataArr = [];
+      if (d && d.tahunan) {
+        dataArr = d.tahunan;
+      }
+      return {
+        type: "line",
+        data: {
+          labels: dataGini.tahun,
+          datasets: [
+            {
+              label: "Gini Ratio",
+              data: dataArr,
+              borderColor: "#f59e0b",
+              backgroundColor: "rgba(245,158,11,0.1)",
+              fill: true,
+              tension: 0.3,
+              borderWidth: 3,
+              pointRadius: 5,
+              pointBackgroundColor: "#f59e0b",
+              pointBorderColor: "#fff",
+              pointBorderWidth: 2,
+            },
+          ],
         },
-        penduduk: () => {
-            title.textContent = `Jumlah Penduduk ${regionName} (Sensus Penduduk)`;
-            let dataArr = [];
-            if (dataPenduduk[regionKey]) { dataArr = dataPenduduk[regionKey]; }
-            return {
-                type: 'bar',
-                data: {
-                    labels: ['SP 2010', 'SP 2020'],
-                    datasets: [{
-                        label: 'Jumlah Penduduk (jiwa)',
-                        data: dataArr,
-                        backgroundColor: ['rgba(59,130,246,0.7)', 'rgba(16,185,129,0.7)'],
-                        borderRadius: 8,
-                        barThickness: 60
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    indexAxis: 'y',
-                    plugins: {
-                        legend: { display: false },
-                        datalabels: {
-                            anchor: 'end', align: 'right',
-                            formatter: (v) => v.toLocaleString('id-ID') + ' jiwa',
-                            font: { weight: 'bold', size: 18 },
-                            color: '#1e293b'
-                        }
-                    },
-                    scales: {
-                        x: { display: false },
-                        y: { grid: { display: false }, border: { display: false } }
-                    },
-                    layout: { padding: { right: 150 } }
-                }
-            };
+        options: lineOpts(""),
+      };
+    },
+    penduduk: () => {
+      title.textContent = `Jumlah Penduduk ${regionName} (Sensus Penduduk)`;
+      let dataArr = [];
+      if (dataPenduduk[regionKey]) {
+        dataArr = dataPenduduk[regionKey];
+      }
+      return {
+        type: "bar",
+        data: {
+          labels: ["SP 2010", "SP 2020"],
+          datasets: [
+            {
+              label: "Jumlah Penduduk (jiwa)",
+              data: dataArr,
+              backgroundColor: ["rgba(59,130,246,0.7)", "rgba(16,185,129,0.7)"],
+              borderRadius: 8,
+              barThickness: 60,
+            },
+          ],
         },
-        inflasi: () => {
-            title.textContent = `Tingkat Inflasi Year-on-Year (Y-on-Y) `;
-
-            let dataArr = [];
-            // Base labels array spanning Jan 25 to Dec 26. We clip it dynamically below based on actual data length.
-            let labelsArr = ['Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25', 
-                             'Jan 26', 'Feb 26', 'Mar 26', 'Apr 26', 'Mei 26', 'Jun 26', 'Jul 26', 'Ags 26', 'Sep 26', 'Okt 26', 'Nov 26', 'Des 26'];
-
-            if (typeof dataInflasi !== 'undefined' && dataInflasi.wilayah && dataInflasi.wilayah[regionKey]) {
-                const d = dataInflasi.wilayah[regionKey].tahunan;
-                if (d) {
-                    let arr2025 = d['2025'] ? d['2025'].filter(v => v !== null) : [];
-                    let arr2026 = d['2026'] ? d['2026'].filter(v => v !== null) : [];
-                    dataArr = [...arr2025, ...arr2026];
-                }
-            }
-
-            if (dataArr.length === 0) {
-                // Safe Fallback if dataInflasi is totally missing
-                dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-            }
-            
-            // Match label length to actual data points
-            labelsArr = labelsArr.slice(0, dataArr.length);
-
-            return { type: 'line', data: { labels: labelsArr, datasets: [{ label: 'Inflasi Y-on-Y (%)', data: dataArr, borderColor: gradientLine, backgroundColor: gradientFill, fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#7c3aed', pointBorderColor: '#fff', pointBorderWidth: 2, pointHoverRadius: 7 }] }, options: lineOpts('%') };
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          indexAxis: "y",
+          plugins: {
+            legend: { display: false },
+            datalabels: {
+              anchor: "end",
+              align: "right",
+              formatter: (v) => v.toLocaleString("id-ID") + " jiwa",
+              font: { weight: "bold", size: 18 },
+              color: "#1e293b",
+            },
+          },
+          scales: {
+            x: { display: false },
+            y: { grid: { display: false }, border: { display: false } },
+          },
+          layout: { padding: { right: 150 } },
         },
-        wisman: () => {
-            title.textContent = `Jumlah Kunjungan Wisatawan ${regionName} (kunjungan)`;
-            let dataArr = [];
-            let labelsArr = ['Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25', 
-                             'Jan 26', 'Feb 26', 'Mar 26', 'Apr 26', 'Mei 26', 'Jun 26', 'Jul 26', 'Ags 26', 'Sep 26', 'Okt 26', 'Nov 26', 'Des 26'];
+      };
+    },
+    inflasi: () => {
+      title.textContent = `Tingkat Inflasi Year-on-Year (Y-on-Y) `;
 
-            if (typeof dataWisman !== 'undefined' && dataWisman.wilayah && dataWisman.wilayah[regionKey]) {
-                const d = dataWisman.wilayah[regionKey].tahunan;
-                if (d) {
-                    let arr2025 = d['2025'] ? d['2025'].filter(v => v !== null) : [];
-                    let arr2026 = d['2026'] ? d['2026'].filter(v => v !== null) : [];
-                    dataArr = [...arr2025, ...arr2026];
-                }
-            }
+      let dataArr = [];
+      // Base labels array spanning Jan 25 to Dec 26. We clip it dynamically below based on actual data length.
+      let labelsArr = [
+        "Jan 25",
+        "Feb 25",
+        "Mar 25",
+        "Apr 25",
+        "Mei 25",
+        "Jun 25",
+        "Jul 25",
+        "Ags 25",
+        "Sep 25",
+        "Okt 25",
+        "Nov 25",
+        "Des 25",
+        "Jan 26",
+        "Feb 26",
+        "Mar 26",
+        "Apr 26",
+        "Mei 26",
+        "Jun 26",
+        "Jul 26",
+        "Ags 26",
+        "Sep 26",
+        "Okt 26",
+        "Nov 26",
+        "Des 26",
+      ];
 
-            if (dataArr.length === 0) { dataArr = [0]; }
-            labelsArr = labelsArr.slice(0, dataArr.length);
-
-            return {
-                type: 'bar',
-                data: {
-                    labels: labelsArr,
-                    datasets: [
-                        {
-                            label: 'Kunjungan Wisman',
-                            data: dataArr,
-                            backgroundColor: 'rgba(22, 163, 74, 0.75)',
-                            borderRadius: 4,
-                            /* moved to plugins */
-                        },
-                        {
-                            type: 'line',
-                            label: 'Trend',
-                            data: dataArr,
-                            borderColor: '#166534',
-                            backgroundColor: '#166534',
-                            borderWidth: 2,
-                            pointRadius: 0,
-                            datalabels: { display: false }
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { 
-                        legend: { display: true, position: 'bottom' }, 
-                        datalabels: { 
-                            display: true, 
-                            clip: false, 
-                            align: 'top', 
-                            anchor: 'end', 
-                            offset: 2, 
-                            formatter: (v) => v === 0 || v === null ? '' : v.toLocaleString('id-ID'), 
-                            color: '#1e293b', 
-                            font: { weight: 'bold', size: 13 } 
-                        } 
-                    },
-                    scales: {
-                        x: { grid: { display: false } },
-                        y: { display: false }
-                    },
-                    layout: { padding: { top: 40, bottom: 20 } }
-                }
-            };
-        },
-        ekspor: () => {
-            title.textContent = `Nilai Ekspor ${regionName} (Juta USD)`;
-            let dataArr = [];
-            let labelsArr = ['Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25', 
-            'Jan 26', 'Feb 26', 'Mar 26', 'Apr 26', 'Mei 26', 'Jun 26', 'Jul 26', 'Ags 26', 'Sep 26', 'Okt 26', 'Nov 26', 'Des 26'];
-
-            if (typeof dataEkspor !== 'undefined' && dataEkspor.wilayah && dataEkspor.wilayah[regionKey]) {
-                const d = dataEkspor.wilayah[regionKey].tahunan;
-                if (d) {
-                    let arr2025 = d['2025'] ? d['2025'].filter(v => v !== null) : [];
-                    let arr2026 = d['2026'] ? d['2026'].filter(v => v !== null) : [];
-                    dataArr = [...arr2025, ...arr2026];
-                }
-            }
-
-            if (dataArr.length === 0) {
-                const insEl = document.getElementById('modalInsight');
-                if (insEl) insEl.textContent = 'Data belum tersedia untuk wilayah ini.';
-                return { type: 'bar', data: { labels: ['-'], datasets: [{ label: 'Ekspor (Juta USD)', data: [0], backgroundColor: 'rgba(88,80,141,0.3)', borderRadius: 6 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, datalabels: { display: false } }, scales: { y: { display: false }, x: { grid: { display: false } } } } };
-            }
-
-            labelsArr = labelsArr.slice(0, dataArr.length);
-            return { type: 'line', data: { labels: labelsArr, datasets: [{ label: 'Ekspor (Juta USD)', data: dataArr, borderColor: '#58508d', backgroundColor: 'rgba(88,80,141,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#58508d', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts('') };
-        },
-        impor: () => {
-            title.textContent = `Nilai Impor ${regionName} (Juta USD)`;
-            let dataArr = [];
-            let labelsArr = ['Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25', 
-                             'Jan 26', 'Feb 26', 'Mar 26', 'Apr 26', 'Mei 26', 'Jun 26', 'Jul 26', 'Ags 26', 'Sep 26', 'Okt 26', 'Nov 26', 'Des 26'];
-
-            if (typeof dataImpor !== 'undefined' && dataImpor.wilayah && dataImpor.wilayah[regionKey]) {
-                const d = dataImpor.wilayah[regionKey].tahunan;
-                if (d) {
-                    let arr2025 = d['2025'] ? d['2025'].filter(v => v !== null) : [];
-                    let arr2026 = d['2026'] ? d['2026'].filter(v => v !== null) : [];
-                    dataArr = [...arr2025, ...arr2026];
-                }
-            }
-
-            if (dataArr.length === 0) {
-                const insEl = document.getElementById('modalInsight');
-                if (insEl) insEl.textContent = 'Data belum tersedia untuk wilayah ini.';
-                return { type: 'bar', data: { labels: ['-'], datasets: [{ label: 'Impor (Juta USD)', data: [0], backgroundColor: 'rgba(255,99,97,0.3)', borderRadius: 6 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, datalabels: { display: false } }, scales: { y: { display: false }, x: { grid: { display: false } } } } };
-            }
-
-            labelsArr = labelsArr.slice(0, dataArr.length);
-            return { type: 'line', data: { labels: labelsArr, datasets: [{ label: 'Impor (Juta USD)', data: dataArr, borderColor: '#ff6361', backgroundColor: 'rgba(255,99,97,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#ff6361', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts('') };
+      if (
+        typeof dataInflasi !== "undefined" &&
+        dataInflasi.wilayah &&
+        dataInflasi.wilayah[regionKey]
+      ) {
+        const d = dataInflasi.wilayah[regionKey].tahunan;
+        if (d) {
+          let arr2025 = d["2025"] ? d["2025"].filter((v) => v !== null) : [];
+          let arr2026 = d["2026"] ? d["2026"].filter((v) => v !== null) : [];
+          dataArr = [...arr2025, ...arr2026];
         }
-    };
+      }
 
-    if (charts[type]) {
-        const cfg = charts[type]();
-        modalChartInstance = new Chart(ctx, cfg);
-        overlay.classList.add('active');
-    }
+      if (dataArr.length === 0) {
+        // Safe Fallback if dataInflasi is totally missing
+        dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+      }
+
+      // Match label length to actual data points
+      labelsArr = labelsArr.slice(0, dataArr.length);
+
+      return {
+        type: "line",
+        data: {
+          labels: labelsArr,
+          datasets: [
+            {
+              label: "Inflasi Y-on-Y (%)",
+              data: dataArr,
+              borderColor: gradientLine,
+              backgroundColor: gradientFill,
+              fill: true,
+              tension: 0.3,
+              borderWidth: 3,
+              pointRadius: 5,
+              pointBackgroundColor: "#7c3aed",
+              pointBorderColor: "#fff",
+              pointBorderWidth: 2,
+              pointHoverRadius: 7,
+            },
+          ],
+        },
+        options: lineOpts("%"),
+      };
+    },
+    wisman: () => {
+      title.textContent = `Jumlah Kunjungan Wisatawan ${regionName} (kunjungan)`;
+      let dataArr = [];
+      let labelsArr = [
+        "Jan 25",
+        "Feb 25",
+        "Mar 25",
+        "Apr 25",
+        "Mei 25",
+        "Jun 25",
+        "Jul 25",
+        "Ags 25",
+        "Sep 25",
+        "Okt 25",
+        "Nov 25",
+        "Des 25",
+        "Jan 26",
+        "Feb 26",
+        "Mar 26",
+        "Apr 26",
+        "Mei 26",
+        "Jun 26",
+        "Jul 26",
+        "Ags 26",
+        "Sep 26",
+        "Okt 26",
+        "Nov 26",
+        "Des 26",
+      ];
+
+      if (
+        typeof dataWisman !== "undefined" &&
+        dataWisman.wilayah &&
+        dataWisman.wilayah[regionKey]
+      ) {
+        const d = dataWisman.wilayah[regionKey].tahunan;
+        if (d) {
+          let arr2025 = d["2025"] ? d["2025"].filter((v) => v !== null) : [];
+          let arr2026 = d["2026"] ? d["2026"].filter((v) => v !== null) : [];
+          dataArr = [...arr2025, ...arr2026];
+        }
+      }
+
+      if (dataArr.length === 0) {
+        dataArr = [0];
+      }
+      labelsArr = labelsArr.slice(0, dataArr.length);
+
+      return {
+        type: "bar",
+        data: {
+          labels: labelsArr,
+          datasets: [
+            {
+              label: "Kunjungan Wisman",
+              data: dataArr,
+              backgroundColor: "rgba(22, 163, 74, 0.75)",
+              borderRadius: 4,
+              /* moved to plugins */
+            },
+            {
+              type: "line",
+              label: "Trend",
+              data: dataArr,
+              borderColor: "#166534",
+              backgroundColor: "#166534",
+              borderWidth: 2,
+              pointRadius: 0,
+              datalabels: { display: false },
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: true, position: "bottom" },
+            datalabels: {
+              display: true,
+              clip: false,
+              align: "top",
+              anchor: "end",
+              offset: 2,
+              formatter: (v) =>
+                v === 0 || v === null ? "" : v.toLocaleString("id-ID"),
+              color: "#1e293b",
+              font: { weight: "bold", size: 13 },
+            },
+          },
+          scales: {
+            x: { grid: { display: false } },
+            y: { display: false },
+          },
+          layout: { padding: { top: 40, bottom: 20 } },
+        },
+      };
+    },
+    ekspor: () => {
+      title.textContent = `Nilai Ekspor ${regionName} (Juta USD)`;
+      let dataArr = [];
+      let labelsArr = [
+        "Jan 25",
+        "Feb 25",
+        "Mar 25",
+        "Apr 25",
+        "Mei 25",
+        "Jun 25",
+        "Jul 25",
+        "Ags 25",
+        "Sep 25",
+        "Okt 25",
+        "Nov 25",
+        "Des 25",
+        "Jan 26",
+        "Feb 26",
+        "Mar 26",
+        "Apr 26",
+        "Mei 26",
+        "Jun 26",
+        "Jul 26",
+        "Ags 26",
+        "Sep 26",
+        "Okt 26",
+        "Nov 26",
+        "Des 26",
+      ];
+
+      if (
+        typeof dataEkspor !== "undefined" &&
+        dataEkspor.wilayah &&
+        dataEkspor.wilayah[regionKey]
+      ) {
+        const d = dataEkspor.wilayah[regionKey].tahunan;
+        if (d) {
+          let arr2025 = d["2025"] ? d["2025"].filter((v) => v !== null) : [];
+          let arr2026 = d["2026"] ? d["2026"].filter((v) => v !== null) : [];
+          dataArr = [...arr2025, ...arr2026];
+        }
+      }
+
+      if (dataArr.length === 0) {
+        const insEl = document.getElementById("modalInsight");
+        if (insEl) insEl.textContent = "Data belum tersedia untuk wilayah ini.";
+        return {
+          type: "bar",
+          data: {
+            labels: ["-"],
+            datasets: [
+              {
+                label: "Ekspor (Juta USD)",
+                data: [0],
+                backgroundColor: "rgba(88,80,141,0.3)",
+                borderRadius: 6,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              datalabels: { display: false },
+            },
+            scales: { y: { display: false }, x: { grid: { display: false } } },
+          },
+        };
+      }
+
+      labelsArr = labelsArr.slice(0, dataArr.length);
+      return {
+        type: "line",
+        data: {
+          labels: labelsArr,
+          datasets: [
+            {
+              label: "Ekspor (Juta USD)",
+              data: dataArr,
+              borderColor: "#58508d",
+              backgroundColor: "rgba(88,80,141,0.1)",
+              fill: true,
+              tension: 0.3,
+              borderWidth: 3,
+              pointRadius: 5,
+              pointBackgroundColor: "#58508d",
+              pointBorderColor: "#fff",
+              pointBorderWidth: 2,
+            },
+          ],
+        },
+        options: lineOpts(""),
+      };
+    },
+    impor: () => {
+      title.textContent = `Nilai Impor ${regionName} (Juta USD)`;
+      let dataArr = [];
+      let labelsArr = [
+        "Jan 25",
+        "Feb 25",
+        "Mar 25",
+        "Apr 25",
+        "Mei 25",
+        "Jun 25",
+        "Jul 25",
+        "Ags 25",
+        "Sep 25",
+        "Okt 25",
+        "Nov 25",
+        "Des 25",
+        "Jan 26",
+        "Feb 26",
+        "Mar 26",
+        "Apr 26",
+        "Mei 26",
+        "Jun 26",
+        "Jul 26",
+        "Ags 26",
+        "Sep 26",
+        "Okt 26",
+        "Nov 26",
+        "Des 26",
+      ];
+
+      if (
+        typeof dataImpor !== "undefined" &&
+        dataImpor.wilayah &&
+        dataImpor.wilayah[regionKey]
+      ) {
+        const d = dataImpor.wilayah[regionKey].tahunan;
+        if (d) {
+          let arr2025 = d["2025"] ? d["2025"].filter((v) => v !== null) : [];
+          let arr2026 = d["2026"] ? d["2026"].filter((v) => v !== null) : [];
+          dataArr = [...arr2025, ...arr2026];
+        }
+      }
+
+      if (dataArr.length === 0) {
+        const insEl = document.getElementById("modalInsight");
+        if (insEl) insEl.textContent = "Data belum tersedia untuk wilayah ini.";
+        return {
+          type: "bar",
+          data: {
+            labels: ["-"],
+            datasets: [
+              {
+                label: "Impor (Juta USD)",
+                data: [0],
+                backgroundColor: "rgba(255,99,97,0.3)",
+                borderRadius: 6,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              datalabels: { display: false },
+            },
+            scales: { y: { display: false }, x: { grid: { display: false } } },
+          },
+        };
+      }
+
+      labelsArr = labelsArr.slice(0, dataArr.length);
+      return {
+        type: "line",
+        data: {
+          labels: labelsArr,
+          datasets: [
+            {
+              label: "Impor (Juta USD)",
+              data: dataArr,
+              borderColor: "#ff6361",
+              backgroundColor: "rgba(255,99,97,0.1)",
+              fill: true,
+              tension: 0.3,
+              borderWidth: 3,
+              pointRadius: 5,
+              pointBackgroundColor: "#ff6361",
+              pointBorderColor: "#fff",
+              pointBorderWidth: 2,
+            },
+          ],
+        },
+        options: lineOpts(""),
+      };
+    },
+  };
+
+  if (charts[type]) {
+    const cfg = charts[type]();
+    modalChartInstance = new Chart(ctx, cfg);
+    overlay.classList.add("active");
+  }
 }
 
 function closeModal() {
-    document.getElementById('modalOverlay').classList.remove('active');
-    if (modalChartInstance) { modalChartInstance.destroy(); modalChartInstance = null; }
+  document.getElementById("modalOverlay").classList.remove("active");
+  if (modalChartInstance) {
+    modalChartInstance.destroy();
+    modalChartInstance = null;
+  }
 }
 
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeModal();
+});
 
 function barOpts(suffix) {
-    return {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'top', formatter: (v) => v.toLocaleString('id-ID') + suffix, font: { weight: 'bold', size: 20 }, color: '#1e293b' } },
-        scales: { y: { display: false, grace: '30%' }, x: { grid: { display: false }, border: { display: false } } },
-        layout: { padding: { top: 40, right: 40, left: 20 } }
-    };
+  return {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      datalabels: {
+        anchor: "end",
+        align: "top",
+        formatter: (v) => v.toLocaleString("id-ID") + suffix,
+        font: { weight: "bold", size: 20 },
+        color: "#1e293b",
+      },
+    },
+    scales: {
+      y: { display: false, grace: "30%" },
+      x: { grid: { display: false }, border: { display: false } },
+    },
+    layout: { padding: { top: 40, right: 40, left: 20 } },
+  };
 }
 function barOptsDecimal(suffix) {
-    return {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'top', formatter: (v) => v.toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + suffix, font: { weight: 'bold', size: 20 }, color: '#1e293b' } },
-        scales: { y: { display: false, grace: '30%' }, x: { grid: { display: false }, border: { display: false } } },
-        layout: { padding: { top: 40, right: 40, left: 20 } }
-    };
+  return {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      datalabels: {
+        anchor: "end",
+        align: "top",
+        formatter: (v) =>
+          v.toLocaleString("id-ID", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          }) + suffix,
+        font: { weight: "bold", size: 20 },
+        color: "#1e293b",
+      },
+    },
+    scales: {
+      y: { display: false, grace: "30%" },
+      x: { grid: { display: false }, border: { display: false } },
+    },
+    layout: { padding: { top: 40, right: 40, left: 20 } },
+  };
 }
 function lineOpts(suffix) {
-    return {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false }, datalabels: { align: 'top', offset: 6, formatter: (v) => v.toLocaleString('id-ID') + suffix, font: { weight: 'bold', size: 20 }, color: '#1e293b' } },
-        scales: { y: { display: false, grace: '30%' }, x: { grid: { display: false }, border: { display: false }, ticks: { font: { size: 11 } } } },
-        layout: { padding: { top: 40, bottom: 10, right: 40, left: 30 } }
-    };
+  return {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      datalabels: {
+        align: "top",
+        offset: 6,
+        formatter: (v) => v.toLocaleString("id-ID") + suffix,
+        font: { weight: "bold", size: 20 },
+        color: "#1e293b",
+      },
+    },
+    scales: {
+      y: { display: false, grace: "30%" },
+      x: {
+        grid: { display: false },
+        border: { display: false },
+        ticks: { font: { size: 11 } },
+      },
+    },
+    layout: { padding: { top: 40, bottom: 10, right: 40, left: 30 } },
+  };
 }
 
 function lineOptsDecimal(suffix, decimals = 2) {
-    return {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false }, datalabels: { align: 'top', offset: 6, formatter: (v) => v.toLocaleString('id-ID', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) + suffix, font: { weight: 'bold', size: 20 }, color: '#1e293b' } },
-        scales: { y: { display: false, grace: '30%' }, x: { grid: { display: false }, border: { display: false }, ticks: { font: { size: 11 } } } },
-        layout: { padding: { top: 40, bottom: 10, right: 40, left: 30 } }
-    };
+  return {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      datalabels: {
+        align: "top",
+        offset: 6,
+        formatter: (v) =>
+          v.toLocaleString("id-ID", {
+            minimumFractionDigits: decimals,
+            maximumFractionDigits: decimals,
+          }) + suffix,
+        font: { weight: "bold", size: 20 },
+        color: "#1e293b",
+      },
+    },
+    scales: {
+      y: { display: false, grace: "30%" },
+      x: {
+        grid: { display: false },
+        border: { display: false },
+        ticks: { font: { size: 11 } },
+      },
+    },
+    layout: { padding: { top: 40, bottom: 10, right: 40, left: 30 } },
+  };
 }
