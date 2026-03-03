@@ -318,13 +318,22 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             return { type: 'line', data: { labels: labelsArr, datasets: [{ label: 'Inflasi Y-on-Y (%)', data: dataArr, borderColor: gradientLine, backgroundColor: gradientFill, fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#7c3aed', pointBorderColor: '#fff', pointBorderWidth: 2, pointHoverRadius: 7 }] }, options: lineOpts('%') };
         },
         wisman: () => {
-            title.textContent = `Jumlah Kunjungan Wisatawan ${regionName} (ribu kunjungan)`;
-            let labelsArr = ['Des 24', 'Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25'];
-            let barData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            title.textContent = `Jumlah Kunjungan Wisatawan ${regionName} (kunjungan)`;
+            let dataArr = [];
+            let labelsArr = ['Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25', 
+                             'Jan 26', 'Feb 26', 'Mar 26', 'Apr 26', 'Mei 26', 'Jun 26', 'Jul 26', 'Ags 26', 'Sep 26', 'Okt 26', 'Nov 26', 'Des 26'];
 
-            if (regionKey === 'kepulauan_riau') {
-                barData = [195.63, 153.89, 125.70, 128.89, 126.83, 176.37, 215.72, 158.04, 185.01, 176.28, 175.90, 157.37, 247.024];
+            if (typeof dataWisman !== 'undefined' && dataWisman.wilayah && dataWisman.wilayah[regionKey]) {
+                const d = dataWisman.wilayah[regionKey].tahunan;
+                if (d) {
+                    let arr2025 = d['2025'] ? d['2025'].filter(v => v !== null) : [];
+                    let arr2026 = d['2026'] ? d['2026'].filter(v => v !== null) : [];
+                    dataArr = [...arr2025, ...arr2026];
+                }
             }
+
+            if (dataArr.length === 0) { dataArr = [0]; }
+            labelsArr = labelsArr.slice(0, dataArr.length);
 
             return {
                 type: 'bar',
@@ -332,15 +341,15 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
                     labels: labelsArr,
                     datasets: [
                         {
-                            label: 'Kunjungan Wisman (ribu)',
-                            data: barData,
+                            label: 'Kunjungan Wisman',
+                            data: dataArr,
                             backgroundColor: 'rgba(22, 163, 74, 0.75)',
                             borderRadius: 4,
                             datalabels: {
                                 align: 'top',
                                 anchor: 'end',
                                 offset: 2,
-                                formatter: (v) => v.toLocaleString('id-ID', { minimumFractionDigits: 2 }),
+                                formatter: (v) => v.toLocaleString('id-ID'),
                                 color: '#1e293b',
                                 font: { weight: '600', size: 10 }
                             }
@@ -348,7 +357,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
                         {
                             type: 'line',
                             label: 'Trend',
-                            data: barData,
+                            data: dataArr,
                             borderColor: '#166534',
                             backgroundColor: '#166534',
                             borderWidth: 2,
@@ -371,24 +380,50 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
         },
         ekspor: () => {
             title.textContent = `Nilai Ekspor ${regionName} (Juta USD)`;
-            let labelsArr = ["Des'24", "Jan'25", "Feb'25", "Mar'25", "Apr'25", "Mei'25", "Jun'25", "Jul'25", "Ags'25", "Sep'25", "Okt'25", "Nov'25", "Des'25"];
-            let dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            let dataArr = [];
+            let labelsArr = ['Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25', 
+                             'Jan 26', 'Feb 26', 'Mar 26', 'Apr 26', 'Mei 26', 'Jun 26', 'Jul 26', 'Ags 26', 'Sep 26', 'Okt 26', 'Nov 26', 'Des 26'];
 
-            if (regionKey === 'kepulauan_riau') {
-                dataArr = [1839.28, 2177.29, 1796.50, 2052.49, 2003.39, 2386.35, 1902.37, 2001.78, 1883.21, 1935.44, 2134.77, 1850.18, 2071.02];
+            if (typeof dataEkspor !== 'undefined' && dataEkspor.wilayah && dataEkspor.wilayah[regionKey]) {
+                const d = dataEkspor.wilayah[regionKey].tahunan;
+                if (d) {
+                    let arr2025 = d['2025'] ? d['2025'].filter(v => v !== null) : [];
+                    let arr2026 = d['2026'] ? d['2026'].filter(v => v !== null) : [];
+                    dataArr = [...arr2025, ...arr2026];
+                }
             }
 
+            if (dataArr.length === 0) {
+                const insEl = document.getElementById('modalInsight');
+                if (insEl) insEl.textContent = 'Data belum tersedia untuk wilayah ini.';
+                return { type: 'bar', data: { labels: ['-'], datasets: [{ label: 'Ekspor (Juta USD)', data: [0], backgroundColor: 'rgba(88,80,141,0.3)', borderRadius: 6 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, datalabels: { display: false } }, scales: { y: { display: false }, x: { grid: { display: false } } } } };
+            }
+
+            labelsArr = labelsArr.slice(0, dataArr.length);
             return { type: 'line', data: { labels: labelsArr, datasets: [{ label: 'Ekspor (Juta USD)', data: dataArr, borderColor: '#58508d', backgroundColor: 'rgba(88,80,141,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#58508d', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts('') };
         },
         impor: () => {
-            title.textContent = `Nilai Impor ${regionName}, Desember 2024–Desember 2025 (Juta USD)`;
-            let labelsArr = ["Des'24", "Jan'25", "Feb'25", "Mar'25", "Apr'25", "Mei'25", "Jun'25", "Jul'25", "Ags'25", "Sep'25", "Okt'25", "Nov'25", "Des'25"];
-            let dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            title.textContent = `Nilai Impor ${regionName} (Juta USD)`;
+            let dataArr = [];
+            let labelsArr = ['Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25', 
+                             'Jan 26', 'Feb 26', 'Mar 26', 'Apr 26', 'Mei 26', 'Jun 26', 'Jul 26', 'Ags 26', 'Sep 26', 'Okt 26', 'Nov 26', 'Des 26'];
 
-            if (regionKey === 'kepulauan_riau') {
-                dataArr = [1607.57, 1749.79, 1686.27, 1920.16, 1926.94, 2273.53, 1872.70, 1680.45, 1784.58, 1783.55, 1866.03, 1755.49, 1908.61];
+            if (typeof dataImpor !== 'undefined' && dataImpor.wilayah && dataImpor.wilayah[regionKey]) {
+                const d = dataImpor.wilayah[regionKey].tahunan;
+                if (d) {
+                    let arr2025 = d['2025'] ? d['2025'].filter(v => v !== null) : [];
+                    let arr2026 = d['2026'] ? d['2026'].filter(v => v !== null) : [];
+                    dataArr = [...arr2025, ...arr2026];
+                }
             }
 
+            if (dataArr.length === 0) {
+                const insEl = document.getElementById('modalInsight');
+                if (insEl) insEl.textContent = 'Data belum tersedia untuk wilayah ini.';
+                return { type: 'bar', data: { labels: ['-'], datasets: [{ label: 'Impor (Juta USD)', data: [0], backgroundColor: 'rgba(255,99,97,0.3)', borderRadius: 6 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, datalabels: { display: false } }, scales: { y: { display: false }, x: { grid: { display: false } } } } };
+            }
+
+            labelsArr = labelsArr.slice(0, dataArr.length);
             return { type: 'line', data: { labels: labelsArr, datasets: [{ label: 'Impor (Juta USD)', data: dataArr, borderColor: '#ff6361', backgroundColor: 'rgba(255,99,97,0.1)', fill: true, tension: 0.3, borderWidth: 3, pointRadius: 5, pointBackgroundColor: '#ff6361', pointBorderColor: '#fff', pointBorderWidth: 2 }] }, options: lineOpts('') };
         }
     };

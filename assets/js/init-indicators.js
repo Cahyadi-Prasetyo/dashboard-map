@@ -10,7 +10,26 @@ document.addEventListener('DOMContentLoaded', () => {
         return match ? match[1] : null;
     };
 
-    // Update Pertumbuhan Ekonomi (Laju Pertumbuhan PDRB)
+    // Extract the latest valid value and its corresponding month-year string
+    const getLatestMonthlyData = (tahunan) => {
+        const monthsStr = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+        let latestVal = null;
+        let latestLabel = '-';
+
+        // Check 2025 and 2026 arrays exactly as structured
+        ['2025', '2026'].forEach(year => {
+            if (tahunan && tahunan[year]) {
+                tahunan[year].forEach((val, idx) => {
+                    if (val !== null && val !== undefined && val !== 0) {
+                        latestVal = val;
+                        latestLabel = `${monthsStr[idx]} ${year}`;
+                    }
+                });
+            }
+        });
+        return { val: latestVal, label: latestLabel };
+    };
+
     const updateEkonomi = (card, region) => {
         if (typeof dataEkonomi !== 'undefined' && dataEkonomi.wilayah[region]) {
             const arr = dataEkonomi.wilayah[region].tahunan;
@@ -26,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Update PDRB per kapita
     const updatePdrb = (card, region) => {
         if (typeof dataPdrb !== 'undefined' && dataPdrb[region]) {
             const arr = dataPdrb[region];
@@ -35,36 +53,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 const valEl = card.querySelector('.indikator-value');
                 const dateEl = card.querySelector('.indikator-date');
                 if (valEl) valEl.innerHTML = `${formatNum(val, 0, 0)}<br><span>Ribu Rupiah</span>`;
-                if (dateEl) dateEl.innerText = '2025'; // PDRB is mapped to 2025 based on the user's data array length
+                if (dateEl) dateEl.innerText = '2025';
             }
         }
     };
 
-    // Update values for Ekspor and Impor
-    const updateTrade = (card, region, type) => {
-        const dataObj = type === 'ekspor' ? eksporData : imporData;
-
-        if (typeof dataObj !== 'undefined' && dataObj[region]) {
-            const arr = dataObj[region].values;
-            const labels = dataObj[region].labels;
-
+    // Generic updater for monthly structured data (inflasi, ekspor, impor, wisman)
+    const updateMonthly = (card, region, dataObj, unitHtml, formatConfig) => {
+        if (typeof dataObj !== 'undefined' && dataObj.wilayah && dataObj.wilayah[region]) {
+            const { val, label } = getLatestMonthlyData(dataObj.wilayah[region].tahunan);
             const valEl = card.querySelector('.indikator-value');
             const dateEl = card.querySelector('.indikator-date');
-
-            if (arr && arr.length > 0 && labels && labels.length > 0) {
-                const val = arr[arr.length - 1];
-                const label = labels[labels.length - 1]; // e.g., 'Jan 26'
-
-                // Convert 'Jan 26' -> 'Januari 2026' manually for cleaner UI if possible, but raw label is fine too
-                let niceDate = label;
-                if (label === 'Jan 26') niceDate = 'Januari 2026';
-                if (label === 'Des 25') niceDate = 'Desember 2025';
-
-                if (valEl) valEl.innerHTML = `${formatNum(val, 2, 2)}<br><span>Juta USD</span>`;
-                if (dateEl) dateEl.innerText = niceDate;
-            } else {
-                if (valEl) valEl.innerHTML = `-`;
-                if (dateEl) dateEl.innerText = '-';
+            if (val !== null) {
+                if (valEl && formatConfig) {
+                    valEl.innerHTML = `${formatNum(val, formatConfig.min, formatConfig.max)}<br><span>${unitHtml}</span>`;
+                }
+                if (dateEl) dateEl.innerText = label;
             }
         }
     };
@@ -75,15 +79,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const onclickAttr = card.getAttribute('onclick');
         if (!onclickAttr) return;
 
-        const region = extractRegion(onclickAttr) || 'kepulauan_riau'; // default to province if missing (index.html)
+        const region = extractRegion(onclickAttr) || 'kepulauan_riau';
 
         if (onclickAttr.includes("'ekonomi'")) updateEkonomi(card, region);
         if (onclickAttr.includes("'pdrb'")) updatePdrb(card, region);
+        if (onclickAttr.includes("'inflasi'")) updateMonthly(card, region, typeof dataInflasi !== 'undefined' ? dataInflasi : undefined, 'persen', { min: 2, max: 2 });
+        if (onclickAttr.includes("'wisman'")) updateMonthly(card, region, typeof dataWisman !== 'undefined' ? dataWisman : undefined, '', { min: 0, max: 0 });
 
-        // Only run trade updates if it's the province (since we hid them for kab/kot)
+        // Ekspor / Impor are only shown for province
         if (region === 'kepulauan_riau') {
-            if (onclickAttr.includes("'ekspor'")) updateTrade(card, region, 'ekspor');
-            if (onclickAttr.includes("'impor'")) updateTrade(card, region, 'impor');
+            if (onclickAttr.includes("'ekspor'")) updateMonthly(card, region, typeof dataEkspor !== 'undefined' ? dataEkspor : undefined, 'Juta USD', { min: 2, max: 2 });
+            if (onclickAttr.includes("'impor'")) updateMonthly(card, region, typeof dataImpor !== 'undefined' ? dataImpor : undefined, 'Juta USD', { min: 2, max: 2 });
         }
     });
 });
