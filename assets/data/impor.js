@@ -1,10 +1,10 @@
 const imporData = {
     'kepri': {
-        labels: ['Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25'],
-        values: [1600, 1650, 1700, 1750, 1800, 1845],
-        insight: 'Nilai impor Kepulauan Riau mencapai 1.845 juta USD, mayoritas merupakan bahan baku untuk sektor industri.',
+        labels: ['Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25', 'Jan 26'],
+        values: [1686.27, 1920.16, 1926.94, 2273.53, 1872.70, 1680.45, 1784.58, 1783.55, 1866.03, 1755.49, 1908.61, 2073.09],
+        insight: 'Nilai impor Kepulauan Riau mencapai 2.073 juta USD pada Januari 2026, didorong impor bahan baku.',
         def: 'Total nilai barang dan jasa yang dibeli dari luar negeri.',
-        metode: 'Berdasarkan dokumen kepabeanan Pendapatan Impor.',
+        metode: 'Berdasarkan dokumen kepabeanan.',
         img: 'assets/img/import-export.png'
     },
     'bintan': { labels: [], values: [], insight: 'Data belum tersedia', def: '-', metode: '-', img: 'assets/img/import-export.png' },
