@@ -354,7 +354,7 @@ function openModal(type, regionKey = 'kepulauan_riau', regionName = 'Kepulauan R
             title.textContent = `Nilai Ekspor ${regionName} (Juta USD)`;
             let dataArr = [];
             let labelsArr = ['Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'Mei 25', 'Jun 25', 'Jul 25', 'Ags 25', 'Sep 25', 'Okt 25', 'Nov 25', 'Des 25', 
-                             'Jan 26', 'Feb 26', 'Mar 26', 'Apr 26', 'Mei 26', 'Jun 26', 'Jul 26', 'Ags 26', 'Sep 26', 'Okt 26', 'Nov 26', 'Des 26'];
+            'Jan 26', 'Feb 26', 'Mar 26', 'Apr 26', 'Mei 26', 'Jun 26', 'Jul 26', 'Ags 26', 'Sep 26', 'Okt 26', 'Nov 26', 'Des 26'];
 
             if (typeof dataEkspor !== 'undefined' && dataEkspor.wilayah && dataEkspor.wilayah[regionKey]) {
                 const d = dataEkspor.wilayah[regionKey].tahunan;
