@@ -2288,16 +2288,17 @@
 
                     /* Sidebar header — Logo BPS */
                     .sidebar-header {
-                        display: flex;
+                        display: flex !important;
                         align-items: center;
-                        gap: 12px;
-                        padding: 20px 20px 16px;
+                        gap: 10px;
+                        padding: 12px 16px 10px;
+                        margin: 0 !important;
                         border-bottom: 2px solid #e2e8f0;
                         flex-shrink: 0;
                     }
 
                     .sidebar-header img {
-                        height: 40px;
+                        height: 32px;
                         width: auto;
                     }
 
