@@ -2412,6 +2412,8 @@
                         min-height: auto !important;
                         padding-top: 20px !important;
                         padding-bottom: 20px !important;
+                        padding-left: 10px !important;
+                        padding-right: 10px !important;
                         margin-top: 0 !important;
                     }
 
@@ -2424,6 +2426,11 @@
                     .style-64 {
                         width: 100% !important;
                         font-size: 13px !important;
+                    }
+
+                    .hero-img {
+                        height: 275px !important;
+                        object-position: top center !important;
                     }
 
                     .style-67 {
@@ -2441,7 +2448,7 @@
                     .indikator-container {
                         grid-template-columns: repeat(2, 1fr) !important;
                         gap: 10px !important;
-                        padding: 0 10px;
+                        padding: 0;
                     }
 
                     .indikator-icon {
@@ -2527,7 +2534,9 @@
                     }
 
                     .style-150 {
-                        font-size: 13px !important;
+                        font-size: 14px !important;
+                        font-weight: 500 !important;
+                        line-height: 1.5 !important;
                     }
 
                     /* --- MODAL / POPUP --- */
@@ -2611,7 +2620,9 @@
                     }
 
                     .style-291 {
-                        font-size: 13px !important;
+                        font-size: 14px !important;
+                        font-weight: 500 !important;
+                        line-height: 1.6 !important;
                     }
 
                     .style-297 {

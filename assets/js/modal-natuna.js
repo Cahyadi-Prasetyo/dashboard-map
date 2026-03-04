@@ -32,7 +32,7 @@ const indicatorInfo = {
     def: "Persentase penduduk usia sekolah SMA/SMK yang sedang menempuh pendidikan tingkat menengah atas.",
     img: "assets/img/APS.jpg",
     insight: (rn) =>
-      `Angka partisipasi sekolah (APS) SMA/SMK (16-18 tahun) pada tahun 2023 di ${rn} sebesar 75,86%.`,
+      `Angka partisipasi sekolah (APS) SMA/SMK (16-18 tahun) pada tahun 2025 di ${rn} sebesar 86,04%.`,
   },
   ipg: {
     def: "Indikator yang mengukur kesetaraan capaian pembangunan manusia antara laki-laki dan perempuan.",
@@ -41,7 +41,7 @@ const indicatorInfo = {
       `IPG di ${rn} menunjukkan tren fluktatif dari tahun ke tahun.`,
   },
   kemiskinan: {
-    def: "Persentase penduduk yang memiliki pengeluaran per kapita di bawah garis kemiskinan.",
+    def: "Persentase penduduk yang memiliki pengeluaran per kapita sebulan kurang dari garis kemiskinan.",
     img: "assets/img/kemiskinan.jpg",
     insight: (rn) =>
       `Angka kemiskinan di ${rn}  menunjukkan tren penurunan dari tahun 2023 hingga 2025.`,

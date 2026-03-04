@@ -41,7 +41,7 @@ const indicatorInfo = {
       `IPG di ${rn} menunjukkan tren meningkat dari yang menunjukkan kesetaraan capaian pembangunan antara laki-laki dan perempuan semakin membaik`,
   },
   kemiskinan: {
-    def: "Persentase penduduk yang memiliki pengeluaran per kapita di bawah garis kemiskinan.",
+    def: "Persentase penduduk yang memiliki pengeluaran per kapita sebulan kurang dari garis kemiskinan.",
     img: "assets/img/kemiskinan.jpg",
     insight: (rn) =>
       `Angka kemiskinan di ${rn} menunjukkan tren penurunan dari tahun 2022 ke tahun 2025.`,
