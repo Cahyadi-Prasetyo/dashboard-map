@@ -761,6 +761,55 @@
       });
     });
   </script>
+  <script>
+    // Mobile sidebar navigation
+    document.addEventListener('DOMContentLoaded', function () {
+      const hamburger = document.querySelector('.style-8');
+      const navLinks = document.querySelector('.style-10');
+      if (!hamburger || !navLinks) return;
+
+      // Inject logo header di sidebar saja
+      const sidebarHeader = document.createElement('div');
+      sidebarHeader.className = 'sidebar-header';
+      sidebarHeader.innerHTML = '<img src="assets/img/logo_bps.png" alt="Logo BPS">';
+      navLinks.insertBefore(sidebarHeader, navLinks.firstChild);
+
+      // Buat overlay element
+      const overlay = document.createElement('div');
+      overlay.className = 'sidebar-overlay';
+      document.body.appendChild(overlay);
+
+      function openSidebar() {
+        navLinks.classList.add('open');
+        hamburger.classList.add('open');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeSidebar() {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      hamburger.addEventListener('click', function () {
+        if (navLinks.classList.contains('open')) {
+          closeSidebar();
+        } else {
+          openSidebar();
+        }
+      });
+
+      // Tutup sidebar saat overlay diklik
+      overlay.addEventListener('click', closeSidebar);
+
+      // Tutup sidebar saat link diklik
+      navLinks.querySelectorAll('.style-13').forEach(function (link) {
+        link.addEventListener('click', closeSidebar);
+      });
+    });
+  </script>
 </body>
 
 </html>

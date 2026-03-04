@@ -6,7 +6,7 @@ const dataEkonomi = {
   "wilayah": {
     "kepulauan_riau": {
       "nama": "Kepulauan Riau",
-      "tahunan": [-3.80, 3.43, 5.06, 5.16, 5.02, 5.43]
+      "tahunan": [-3.80, 3.43, 5.06, 5.16, 5.02, 6.94]
     },
     "karimun": {
       "nama": "Karimun",

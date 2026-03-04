@@ -1,4 +1,7 @@
 Chart.register(ChartDataLabels);
+const isMobile = () => window.innerWidth <= 767;
+const labelSize = () => isMobile() ? 11 : 20;
+const labelSizeSm = () => isMobile() ? 10 : 13;
 let modalChartInstance = null;
 
 const indicatorInfo = {
@@ -26,7 +29,7 @@ const indicatorInfo = {
       `IPM di ${rn} meningkat secara konsisten dari tahun ke tahun yang menunjukkan perbaikan berkelanjutan dalam kualitas hidup masyarakat.`,
   },
   aps: {
-    def: "Persentase penduduk usia sekolah SMA/SMK yang sedang menempuh pendidikan per 1,000 jumlah penduduk usia pendidikan menengah.",
+    def: "Persentase penduduk usia sekolah SMA/SMK yang sedang menempuh pendidikan tingkat menengah atas.",
     img: "assets/img/APS.jpg",
     insight: (rn) =>
       `Angka partisipasi sekolah (APS) SMA/SMK (16-18 tahun) pada tahun 2022 hingga 2023 ${rn} semakin meningkat.`,
@@ -169,7 +172,7 @@ function openModal(type, regionKey = "lingga", regionName = "Kepulauan Riau") {
               align: "top",
               offset: 6,
               formatter: (v) => v.toLocaleString("id-ID"),
-              font: { weight: "bold", size: 20 },
+              font: { weight: "bold", size: labelSize() },
               color: "#1e293b",
             },
           },
@@ -181,7 +184,7 @@ function openModal(type, regionKey = "lingga", regionName = "Kepulauan Riau") {
               ticks: { font: { size: 11 } },
             },
           },
-          layout: { padding: { top: 30, bottom: 10, left: 40, right: 20 } },
+          layout: { padding: { top: isMobile() ? 20 : 30, bottom: 10, left: isMobile() ? 10 : 40, right: isMobile() ? 10 : 20 } },
         },
       };
     },
@@ -382,7 +385,7 @@ function openModal(type, regionKey = "lingga", regionName = "Kepulauan Riau") {
               anchor: "end",
               align: "right",
               formatter: (v) => v.toLocaleString("id-ID") + " jiwa",
-              font: { weight: "bold", size: 20 },
+              font: { weight: "bold", size: labelSize() },
               color: "#1e293b",
             },
           },
@@ -390,7 +393,7 @@ function openModal(type, regionKey = "lingga", regionName = "Kepulauan Riau") {
             x: { display: false },
             y: { grid: { display: false }, border: { display: false } },
           },
-          layout: { padding: { right: 150 } },
+          layout: { padding: { right: isMobile() ? 50 : 150 } },
         },
       };
     },
@@ -557,7 +560,7 @@ function openModal(type, regionKey = "lingga", regionName = "Kepulauan Riau") {
               formatter: (v) =>
                 v === 0 || v === null ? "" : v.toLocaleString("id-ID"),
               color: "#1e293b",
-              font: { weight: "bold", size: 13 },
+              font: { weight: "bold", size: labelSizeSm() },
             },
           },
           scales: {
@@ -789,7 +792,7 @@ function barOpts(suffix) {
         anchor: "end",
         align: "top",
         formatter: (v) => v.toLocaleString("id-ID") + suffix,
-        font: { weight: "bold", size: 20 },
+        font: { weight: "bold", size: labelSize() },
         color: "#1e293b",
       },
     },
@@ -797,7 +800,7 @@ function barOpts(suffix) {
       y: { display: false, grace: "30%" },
       x: { grid: { display: false }, border: { display: false } },
     },
-    layout: { padding: { top: 40, right: 40, left: 20 } },
+    layout: { padding: { top: isMobile() ? 24 : 40, right: isMobile() ? 10 : 40, left: isMobile() ? 6 : 20 } },
   };
 }
 function barOptsDecimal(suffix) {
@@ -814,7 +817,7 @@ function barOptsDecimal(suffix) {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2,
           }) + suffix,
-        font: { weight: "bold", size: 20 },
+        font: { weight: "bold", size: labelSize() },
         color: "#1e293b",
       },
     },
@@ -822,7 +825,7 @@ function barOptsDecimal(suffix) {
       y: { display: false, grace: "30%" },
       x: { grid: { display: false }, border: { display: false } },
     },
-    layout: { padding: { top: 40, right: 40, left: 20 } },
+    layout: { padding: { top: isMobile() ? 24 : 40, right: isMobile() ? 10 : 40, left: isMobile() ? 6 : 20 } },
   };
 }
 function lineOpts(suffix) {
@@ -835,7 +838,7 @@ function lineOpts(suffix) {
         align: "top",
         offset: 6,
         formatter: (v) => v.toLocaleString("id-ID") + suffix,
-        font: { weight: "bold", size: 20 },
+        font: { weight: "bold", size: labelSize() },
         color: "#1e293b",
       },
     },
@@ -847,6 +850,6 @@ function lineOpts(suffix) {
         ticks: { font: { size: 11 } },
       },
     },
-    layout: { padding: { top: 40, bottom: 10, right: 40, left: 30 } },
+    layout: { padding: { top: isMobile() ? 24 : 40, bottom: 10, right: isMobile() ? 10 : 40, left: isMobile() ? 6 : 30 } },
   };
 }

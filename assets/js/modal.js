@@ -9,7 +9,7 @@ const indicatorInfo = {
     def: "Indikator ekonomi makro yang menggambarkan seberapa jauh keberhasilan pembangunan suatu daerah dalam periode waktu tertentu",
     img: "assets/img/pertumbuhan ekonomi.jpg",
     insight: (rn) =>
-      `Pertumbuhan ekonomi di ${rn} meningkat pada tahun 2025 yaitu sebesar 5,43%.`,
+      `Pertumbuhan ekonomi di ${rn} meningkat pada tahun 2025 yaitu sebesar 6,94%.`,
   },
   tpt: {
     def: "Persentase jumlah pengangguran terhadap jumlah angkatan kerja",
@@ -29,7 +29,7 @@ const indicatorInfo = {
       `IPM di ${rn} meningkat dari tahun ke tahun yang menunjukkan perbaikan berkelanjutan dalam kualitas hidup masyarakat.`,
   },
   aps: {
-    def: "Persentase penduduk usia sekolah SMA/SMK yang sedang menempuh pendidikan per 1,000 jumlah penduduk usia pendidikan menengah.",
+    def: "Persentase penduduk usia sekolah SMA/SMK yang sedang menempuh pendidikan tingkat menengah atas.",
     img: "assets/img/APS.jpg",
     insight: (rn) =>
       `Angka partisipasi sekolah (APS) SMA/SMK (16-18 tahun) di ${rn} semakin meningkat.`,
@@ -69,13 +69,13 @@ const indicatorInfo = {
     insight: (rn) => `Kunjungan wisman di ${rn} meningkat diakhir tahun 2025`,
   },
   ekspor: {
-    def: "Nilai atau volume barang dan jasa yang dijual ke luar negeri dalam periode tertentu.",
+    def: "Nilai barang dan jasa yang dijual ke luar negeri dalam periode tertentu.",
     img: "assets/img/ekspor.png",
     insight: (rn) =>
       `Nilai ekspor ${rn} pada Januari 2026 mencapai US$2,02 miliar.`,
   },
   impor: {
-    def: "Nilai atau volume barang dan jasa yang dibeli dari luar negeri dalam periode tertentu.",
+    def: "Nilai barang dan jasa yang dibeli dari luar negeri dalam periode tertentu.",
     img: "assets/img/impor.jpeg",
     insight: (rn) =>
       `Nilai impor di ${rn} pada Januari 2026 mencapai US$2,07 miliar.`,
