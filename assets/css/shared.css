@@ -2731,3 +2731,56 @@
                         font-size: 16px !important;
                     }
                 }
+
+                /* ============================================= */
+                /* TABLET PORTRAIT (768px - 1023px)              */
+                /* ============================================= */
+                @media (min-width: 768px) and (max-width: 1023px) {
+                    .indikator-container {
+                        grid-template-columns: repeat(2, 1fr) !important;
+                        gap: 16px !important;
+                    }
+
+                    /* Adjust padding horizontally to prevent stretching */
+                    .style-60 {
+                        padding-left: 24px !important;
+                        padding-right: 24px !important;
+                    }
+
+                    .modal-box {
+                        width: 85% !important;
+                        max-width: 800px !important;
+                    }
+                }
+
+                /* ============================================= */
+                /* TAB S10 / TABLET LANDSCAPE (1024px - 1365px)  */
+                /* ============================================= */
+                @media (min-width: 1024px) and (max-width: 1365px) {
+                    .indikator-container {
+                        grid-template-columns: repeat(3, 1fr) !important;
+                        gap: 16px !important;
+                    }
+
+                    /* Center the grid items if they don't fill the space perfectly */
+                    .style-69 {
+                        display: flex;
+                        justify-content: center;
+                    }
+
+                    .style-145 {
+                        flex-direction: column !important;
+                        text-align: center;
+                        align-items: center;
+                    }
+
+                    .style-148 {
+                        /* Provide some margin above the text if stacked */
+                        margin-top: 16px;
+                    }
+
+                    .modal-box {
+                        width: 80% !important;
+                        max-width: 1000px !important;
+                    }
+                }
