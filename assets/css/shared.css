@@ -2268,6 +2268,8 @@
                         height: 100vh !important;
                         background: #ffffff !important;
                         flex-direction: column !important;
+                        justify-content: flex-start !important;
+                        align-items: stretch !important;
                         z-index: 10002;
                         padding: 0 !important;
                         margin: 0 !important;
