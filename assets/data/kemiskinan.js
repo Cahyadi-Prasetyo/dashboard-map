@@ -13,14 +13,22 @@ const dataKemiskinan = {
     "wilayah": {
         "kepulauan_riau": {
             "nama": "Provinsi Kepulauan Riau",
-            "tahunan": [
+              "labels": [
+                "Sep 2022",
+                "Mar 2023",
+                "Mar 2024",
+                "Sep 2024",
+                "Mar 2025",
+                "Sep 2025"
+              ],
+              "tahunan": [
                 5.92,
                 6.12,
                 6.24,
                 5.69,
                 5.37,
                 4.44
-            ]
+              ]
         },
         "karimun": {
             "nama": "Kabupaten Karimun",
