@@ -2152,9 +2152,11 @@
                 }
 
                 /* ============================================= */
-                /* MOBILE SMARTPHONE RESPONSIVE (≤767px)         */
+                /* TABLET & MOBILE NAV (≤1500px)                 */
+                /* Covers Tab S10+ landscape (1400px),           */
+                /* Tab S10 Ultra landscape (1480px)               */
                 /* ============================================= */
-                @media (max-width: 767px) {
+                @media (max-width: 1500px) {
 
                     /* --- Background dekoratif: sembunyikan --- */
                     .style-1 {
@@ -2341,18 +2343,27 @@
                         color: #ffffff !important;
                     }
 
-                    /* --- HERO SECTION --- */
+                    /* --- HERO SECTION (tablet: tetap side-by-side seperti desktop) --- */
+                    .style-16 {
+                        padding-left: 32px !important;
+                        padding-right: 32px !important;
+                    }
+
                     .style-17 {
-                        flex-direction: column !important;
+                        /* Force side-by-side layout on tablets */
+                        flex-direction: row !important;
+                        flex-wrap: wrap !important;
                     }
 
                     .style-18 {
-                        width: 100% !important;
+                        width: 50% !important;
                         flex: 0 0 auto;
+                        padding-left: 8px !important;
+                        padding-right: 8px !important;
                     }
 
                     .style-20 {
-                        width: 100% !important;
+                        width: 50% !important;
                         flex: 0 0 auto;
                     }
 
@@ -2361,25 +2372,27 @@
                     }
 
                     .hero-img {
-                        height: 220px;
+                        height: 275px !important;
                         border-radius: 16px;
+                        object-fit: cover !important;
+                        object-position: bottom center;
+                        background-color: #e8eff5;
                     }
 
                     .hero-overlay {
-                        padding: 16px;
+                        padding: 16px 20px;
+                        background: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.6) 100%) !important;
                     }
 
                     .hero-overlay h2 {
-                        font-size: 18px;
-                        margin-bottom: 4px;
+                        font-size: 22px;
+                        margin-bottom: 6px;
+                        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
                     }
 
                     .hero-overlay p {
-                        font-size: 12px;
-                        display: -webkit-box;
-                        -webkit-line-clamp: 2;
-                        -webkit-box-orient: vertical;
-                        overflow: hidden;
+                        font-size: 13px;
+                        line-height: 1.5;
                     }
 
                     .hero-btn {
@@ -2393,27 +2406,33 @@
                         height: auto !important;
                     }
 
-                    .style-22 {
-                        text-align: center;
-                    }
-
                     .style-24 {
-                        font-size: 22px !important;
-                        line-height: 30px !important;
+                        font-size: 24px !important;
+                        line-height: 32px !important;
                     }
 
+                    .style-43 {
+                        font-size: 15px !important;
+                        line-height: 26px !important;
+                    }
+
+                    /* Mascot: posisi tepat di garis pemisah hero & indikator */
                     .style-59 {
-                        width: 120px;
-                        margin: 16px auto;
+                        width: 150px;
+                        margin-left: auto;
+                        margin-top: 0;
+                        margin-bottom: -120px;
+                        display: block;
+                        position: relative;
+                        z-index: 10;
                     }
 
-                    /* --- SECTION: Indikator Strategis heading --- */
                     .style-60 {
                         min-height: auto !important;
                         padding-top: 20px !important;
                         padding-bottom: 20px !important;
-                        padding-left: 10px !important;
-                        padding-right: 10px !important;
+                        padding-left: 20px !important;
+                        padding-right: 20px !important;
                         margin-top: 0 !important;
                     }
 
@@ -2429,8 +2448,8 @@
                     }
 
                     .hero-img {
-                        height: 275px !important;
-                        object-position: top center !important;
+                        height: 350px !important;
+                        object-position: center center !important;
                     }
 
                     .style-67 {
@@ -2446,8 +2465,8 @@
                     }
 
                     .indikator-container {
-                        grid-template-columns: repeat(2, 1fr) !important;
-                        gap: 10px !important;
+                        grid-template-columns: repeat(3, 1fr) !important;
+                        gap: 12px !important;
                         padding: 0;
                     }
 
@@ -2461,7 +2480,7 @@
                     }
 
                     .indikator-value {
-                        font-size: 28px !important;
+                        font-size: 24px !important;
                     }
 
                     .indikator-value span {
@@ -2499,8 +2518,8 @@
 
                     /* --- POTENSI STRATEGIS --- */
                     .style-137 {
-                        padding-right: 16px !important;
-                        padding-left: 16px !important;
+                        padding-right: 32px !important;
+                        padding-left: 32px !important;
                         padding-bottom: 24px !important;
                     }
 
@@ -2604,6 +2623,8 @@
                     .style-286 {
                         padding-top: 24px !important;
                         padding-bottom: 24px !important;
+                        padding-left: 20px !important;
+                        padding-right: 20px !important;
                     }
 
                     .style-288 {
@@ -2694,6 +2715,100 @@
                 }
 
                 /* ============================================= */
+                /* MOBILE SMARTPHONE ONLY (≤767px)               */
+                /* Ukuran font & spacing lebih kecil untuk HP    */
+                /* ============================================= */
+                @media (max-width: 767px) {
+
+                    /* Hero section: stack vertically on smartphones */
+                    .style-17 {
+                        flex-direction: column !important;
+                    }
+
+                    .style-18 {
+                        width: 100% !important;
+                        padding-left: 0 !important;
+                        padding-right: 0 !important;
+                    }
+
+                    .style-20 {
+                        width: 100% !important;
+                    }
+
+                    .style-22 {
+                        text-align: center;
+                    }
+
+                    .style-59 {
+                        width: 120px;
+                        margin: 16px auto;
+                    }
+
+                    .hero-img {
+                        height: 275px !important;
+                        object-position: top center !important;
+                    }
+
+                    .style-24 {
+                        font-size: 22px !important;
+                        line-height: 30px !important;
+                        margin-top: 16px !important;
+                    }
+
+                    .style-63 {
+                        font-size: 20px !important;
+                        line-height: 28px !important;
+                        padding-top: 10px !important;
+                    }
+
+                    .style-64 {
+                        width: 100% !important;
+                        font-size: 13px !important;
+                    }
+
+                    .style-67 {
+                        width: 100% !important;
+                        font-size: 13px !important;
+                    }
+
+                    .indikator-container {
+                        grid-template-columns: repeat(2, 1fr) !important;
+                    }
+
+                    .indikator-value {
+                        font-size: 28px !important;
+                    }
+
+                    .style-150 {
+                        font-size: 14px !important;
+                        font-weight: 500 !important;
+                        line-height: 1.5 !important;
+                    }
+
+                    .style-291 {
+                        font-size: 14px !important;
+                        font-weight: 500 !important;
+                        line-height: 1.6 !important;
+                    }
+
+                    .modal-box {
+                        width: 95vw !important;
+                        max-width: 100% !important;
+                        height: 90vh !important;
+                        padding: 16px !important;
+                    }
+
+                    .modal-chart {
+                        min-height: 280px !important;
+                        padding: 12px 4px !important;
+                    }
+
+                    .modal-chart canvas {
+                        max-height: 260px !important;
+                    }
+                }
+
+                /* ============================================= */
                 /* MOBILE SMALL (≤480px) — Ponsel kecil          */
                 /* ============================================= */
                 @media (max-width: 480px) {
@@ -2729,58 +2844,5 @@
 
                     .modal-header h3 {
                         font-size: 16px !important;
-                    }
-                }
-
-                /* ============================================= */
-                /* TABLET PORTRAIT (768px - 1023px)              */
-                /* ============================================= */
-                @media (min-width: 768px) and (max-width: 1023px) {
-                    .indikator-container {
-                        grid-template-columns: repeat(2, 1fr) !important;
-                        gap: 16px !important;
-                    }
-
-                    /* Adjust padding horizontally to prevent stretching */
-                    .style-60 {
-                        padding-left: 24px !important;
-                        padding-right: 24px !important;
-                    }
-
-                    .modal-box {
-                        width: 85% !important;
-                        max-width: 800px !important;
-                    }
-                }
-
-                /* ============================================= */
-                /* TAB S10 / TABLET LANDSCAPE (1024px - 1365px)  */
-                /* ============================================= */
-                @media (min-width: 1024px) and (max-width: 1365px) {
-                    .indikator-container {
-                        grid-template-columns: repeat(3, 1fr) !important;
-                        gap: 16px !important;
-                    }
-
-                    /* Center the grid items if they don't fill the space perfectly */
-                    .style-69 {
-                        display: flex;
-                        justify-content: center;
-                    }
-
-                    .style-145 {
-                        flex-direction: column !important;
-                        text-align: center;
-                        align-items: center;
-                    }
-
-                    .style-148 {
-                        /* Provide some margin above the text if stacked */
-                        margin-top: 16px;
-                    }
-
-                    .modal-box {
-                        width: 80% !important;
-                        max-width: 1000px !important;
                     }
                 }
