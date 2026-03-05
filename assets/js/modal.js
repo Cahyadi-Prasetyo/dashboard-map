@@ -320,9 +320,16 @@ function openModal(
         dataArr = d.tahunan;
       }
     
-      // Khusus Provinsi Kepri pakai label Sep/Mar
-      if (regionKey === "kepulauan_riau" && d.labels) {
-        labelsArr = d.labels;
+      // Jika Provinsi Kepulauan Riau, ganti label sesuai data yang tersedia
+      if (regionKey === "kepulauan_riau") {
+        labelsArr = [
+          "Sep 2022",
+          "Mar 2023",
+          "Mar 2024",
+          "Sep 2024",
+          "Mar 2025",
+          "Sep 2025",
+        ];
       }
     
       return {
