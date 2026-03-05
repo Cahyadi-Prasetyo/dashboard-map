@@ -314,22 +314,15 @@ function openModal(
     
       const d = dataKemiskinan.wilayah[regionKey];
       let dataArr = [];
+      let labelsArr = dataKemiskinan.tahun; // default tahunan
     
       if (d && d.tahunan) {
         dataArr = d.tahunan;
       }
     
-      let labelsArr = dataKemiskinan.tahun;
-    
-      if (regionKey === "kepulauan_riau") {
-        labelsArr = [
-          "Sep 2022",
-          "Mar 2023",
-          "Mar 2024",
-          "Sep 2024",
-          "Mar 2025",
-          "Sep 2025",
-        ];
+      // Khusus Provinsi Kepri pakai label Sep/Mar
+      if (regionKey === "kepulauan_riau" && d.labels) {
+        labelsArr = d.labels;
       }
     
       return {
