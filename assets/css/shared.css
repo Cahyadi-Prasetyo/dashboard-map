@@ -597,7 +597,7 @@
                 }
 
                 .style-19 {
-                    max-width:100%; height: auto; vertical-align:middle; box-sizing:border-box; border-radius: 30px;
+                    width: 100%; max-height: 320px; object-fit: cover; vertical-align:middle; box-sizing:border-box; border-radius: 30px;
                 }
 
                 .style-20 {
@@ -1798,6 +1798,163 @@
 
                 .komponen-ipm-card:hover {
                     transform: translateY(-2px);
+                }
+
+                /* ================================================= */
+                /* FULL HD TV / LARGE MONITOR (≥1920px)             */
+                /* For 75" Full HD TV: 1920×1080 at DPR 1            */
+                /* Moderate scale-up for comfortable TV viewing     */
+                /* ================================================= */
+                @media (min-width: 1920px) {
+
+                    /* Scale up base font size */
+                    body, html {
+                        font-size: 110%;
+                    }
+
+                    /* Widen main container */
+                    .style-16 {
+                        max-width: 1600px;
+                        margin: 0 auto;
+                    }
+
+                    /* Hero carousel: taller images */
+                    .hero-img {
+                        height: 500px;
+                        border-radius: 28px;
+                    }
+
+                    .hero-overlay {
+                        padding: 24px 32px;
+                    }
+
+                    .hero-overlay h2 {
+                        font-size: 32px;
+                        margin-bottom: 8px;
+                    }
+
+                    .hero-overlay p {
+                        font-size: 18px;
+                    }
+
+                    .hero-btn {
+                        font-size: 20px;
+                        padding: 8px 16px;
+                    }
+
+                    /* Hero title & paragraph */
+                    .style-24 {
+                        font-size: 48px !important;
+                        line-height: 60px !important;
+                    }
+
+                    .style-43 {
+                        font-size: 22px !important;
+                        line-height: 34px !important;
+                    }
+
+                    /* Mascot: larger on TV */
+                    .style-59 {
+                        width: 250px;
+                    }
+
+                    /* Nav links: larger touch targets */
+                    .style-13 {
+                        font-size: 20px !important;
+                        padding: 10px 20px !important;
+                    }
+
+                    /* Indicators: wider container, larger cards */
+                    .indikator-container {
+                        max-width: 1600px;
+                        gap: 28px;
+                    }
+
+                    .indikator-icon {
+                        width: 64px !important;
+                        height: 64px !important;
+                    }
+
+                    .indikator-title {
+                        font-size: 16px !important;
+                    }
+
+                    .indikator-value {
+                        font-size: 48px;
+                    }
+
+                    .indikator-date {
+                        font-size: 14px !important;
+                    }
+
+                    /* Section heading */
+                    .style-63 {
+                        font-size: 28px !important;
+                    }
+
+                    .style-64 {
+                        font-size: 18px !important;
+                    }
+
+                    /* Potensi Strategis: scale up */
+                    .style-137 {
+                        padding: 40px 60px !important;
+                    }
+
+                    .style-141 {
+                        font-size: 28px !important;
+                    }
+
+                    .style-145,
+                    .style-153,
+                    .style-161,
+                    .style-169 {
+                        font-size: 22px !important;
+                    }
+
+                    .style-146,
+                    .style-154,
+                    .style-162,
+                    .style-170 {
+                        font-size: 16px !important;
+                        line-height: 1.7 !important;
+                    }
+
+                    /* Footer: larger text */
+                    .style-286 {
+                        padding: 40px 60px !important;
+                    }
+
+                    .style-290 {
+                        font-size: 22px !important;
+                    }
+
+                    .style-291 {
+                        font-size: 16px !important;
+                        line-height: 1.8 !important;
+                    }
+
+                    /* Modal: more spacious */
+                    .modal-box {
+                        max-width: 1600px;
+                        padding: 48px;
+                    }
+
+                    .modal-header h3 {
+                        font-size: 28px;
+                    }
+
+                    .modal-chart {
+                        min-height: 450px;
+                    }
+
+                    .modal-info-text {
+                        font-size: 17px;
+                    }
+
+                    .modal-insight {
+                        font-size: 16px;
+                    }
                 }
 
                 /* ============================= */
