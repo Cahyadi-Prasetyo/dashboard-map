@@ -311,15 +311,31 @@ function openModal(
     },
     kemiskinan: () => {
       title.textContent = `Angka Kemiskinan ${regionName} (%)`;
+    
       const d = dataKemiskinan.wilayah[regionKey];
       let dataArr = [];
+    
       if (d && d.tahunan) {
         dataArr = d.tahunan;
       }
+    
+      let labelsArr = dataKemiskinan.tahun;
+    
+      if (regionKey === "kepulauan_riau") {
+        labelsArr = [
+          "Sep 2022",
+          "Mar 2023",
+          "Mar 2024",
+          "Sep 2024",
+          "Mar 2025",
+          "Sep 2025",
+        ];
+      }
+    
       return {
         type: "bar",
         data: {
-          labels: dataKemiskinan.tahun,
+          labels: labelsArr,
           datasets: [
             {
               label: "Kemiskinan",
