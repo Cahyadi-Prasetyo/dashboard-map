@@ -38,7 +38,7 @@ const indicatorInfo = {
     def: "Indikator yang mengukur kesetaraan capaian pembangunan manusia antara laki-laki dan perempuan.",
     img: "assets/img/IPG.jpeg",
     insight: (rn) =>
-      `IPG di ${rn} menunjukkan tren meningkat dari yang menunjukkan kesetaraan capaian pembangunan antara laki-laki dan perempuan semakin membaik`,
+      `IPG di ${rn} menunjukkan tren meningkat yang menunjukkan kesetaraan capaian pembangunan antara laki-laki dan perempuan semakin membaik`,
   },
   kemiskinan: {
     def: "Persentase penduduk yang memiliki pengeluaran per kapita sebulan kurang dari garis kemiskinan.",
