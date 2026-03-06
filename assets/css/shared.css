@@ -1652,7 +1652,7 @@
                 }
 
                 /* Responsive */
-                @media (max-width: 768px) {
+                @media (max-width: 711px) {
                     .eko-split {
                         grid-template-columns: 1fr;
                     }
@@ -2297,7 +2297,7 @@
                     font-size: 15px; color: var(--primary); display: block; margin-bottom: 6px;
                 }
 
-                @media (max-width: 768px) {
+                @media (max-width: 711px) {
                     .modal-body-split {
                         grid-template-columns: 1fr;
                     }
