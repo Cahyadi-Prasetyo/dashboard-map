@@ -76,7 +76,7 @@
         /* ============================= */
         /* RESPONSIVE */
         /* ============================= */
-        @media (max-width: 900px) {
+        @media (max-width: 799px) {
             .indikator-dua-kolom {
                 grid-template-columns: 1fr;
                 /* jadi 1 kolom di HP */
@@ -1295,7 +1295,7 @@
                 }
 
 
-                @media (max-width: 1024px) {
+                @media (max-width: 1279px) {
                     .indikator-container {
                         grid-template-columns: repeat(2, 1fr);
                     }
@@ -1652,7 +1652,7 @@
                 }
 
                 /* Responsive */
-                @media (max-width: 711px) {
+                @media (max-width: 799px) {
                     .eko-split {
                         grid-template-columns: 1fr;
                     }
@@ -2124,13 +2124,13 @@
                     margin-top: 10px;
                 }
 
-                @media (max-width: 900px) {
+                @media (max-width: 1279px) {
                     .indikator-card {
                         width: calc(33.333% - 20px);
                     }
                 }
 
-                @media (max-width: 768px) {
+                @media (max-width: 799px) {
                     .indikator-card {
                         width: calc(50% - 20px);
                     }
@@ -2297,7 +2297,7 @@
                     font-size: 15px; color: var(--primary); display: block; margin-bottom: 6px;
                 }
 
-                @media (max-width: 711px) {
+                @media (max-width: 799px) {
                     .modal-body-split {
                         grid-template-columns: 1fr;
                     }
@@ -2309,11 +2309,25 @@
                 }
 
                 /* ============================================= */
-                /* TABLET & MOBILE NAV (≤1500px)                 */
-                /* Covers Tab S10+ landscape (1400px),           */
-                /* Tab S10 Ultra landscape (1480px)               */
+                /* COMPACT DESKTOP NAV (1281px – 1500px)          */
+                /* Nav items diperkecil agar muat 9 link           */
                 /* ============================================= */
-                @media (max-width: 1500px) {
+                @media (min-width: 1281px) and (max-width: 1500px) {
+                    .style-11 {
+                        gap: 2px !important;
+                    }
+
+                    .style-13 {
+                        padding: 6px 8px !important;
+                        font-size: 13px !important;
+                    }
+                }
+
+                /* ============================================= */
+                /* TABLET & MOBILE NAV (≤1280px)                  */
+                /* Tab S4 (1280×800) & di bawahnya: burger nav    */
+                /* ============================================= */
+                @media (max-width: 1280px) {
 
                     /* --- Background dekoratif: sembunyikan --- */
                     .style-1 {
@@ -2872,10 +2886,10 @@
                 }
 
                 /* ============================================= */
-                /* MOBILE SMARTPHONE ONLY (≤767px)               */
+                /* MOBILE SMARTPHONE ONLY (≤799px)               */
                 /* Ukuran font & spacing lebih kecil untuk HP    */
                 /* ============================================= */
-                @media (max-width: 767px) {
+                @media (max-width: 799px) {
 
                     /* Hero section: stack vertically on smartphones */
                     .style-17 {
