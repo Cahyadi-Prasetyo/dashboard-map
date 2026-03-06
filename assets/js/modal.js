@@ -38,13 +38,13 @@ const indicatorInfo = {
     def: "Indikator yang mengukur kesetaraan capaian pembangunan manusia antara laki-laki dan perempuan.",
     img: "assets/img/IPG.jpeg",
     insight: (rn) =>
-      `IPG di ${rn} menunjukkan tren meningkat dari yang menunjukkan kesetaraan capaian pembangunan antara laki-laki dan perempuan semakin membaik`,
+      `IPG di ${rn} menunjukkan tren meningkat yang menunjukkan kesetaraan capaian pembangunan antara laki-laki dan perempuan semakin membaik`,
   },
   kemiskinan: {
     def: "Persentase penduduk yang memiliki pengeluaran per kapita sebulan kurang dari garis kemiskinan.",
     img: "assets/img/kemiskinan.jpg",
     insight: (rn) =>
-      `Angka kemiskinan di ${rn} menunjukkan tren penurunan dari tahun 2022 ke tahun 2025.`,
+      `Pada September 2025, persentase penduduk miskin (penduduk dengan pengeluaran per kapita per bulan di bawah Garis Kemiskinan) di Provinsi Kepulauan Riau mencapai 4,26 persen`,
   },
   gini: {
     def: "Indikator yang menunjukkan tingkat ketimpangan pengeluaran secara menyeluruh",
@@ -311,15 +311,31 @@ function openModal(
     },
     kemiskinan: () => {
       title.textContent = `Angka Kemiskinan ${regionName} (%)`;
+    
       const d = dataKemiskinan.wilayah[regionKey];
       let dataArr = [];
+      let labelsArr = dataKemiskinan.tahun; // default tahunan
+    
       if (d && d.tahunan) {
         dataArr = d.tahunan;
       }
+    
+      // Jika Provinsi Kepulauan Riau, ganti label sesuai data yang tersedia
+      if (regionKey === "kepulauan_riau") {
+        labelsArr = [
+          "Sep 2022",
+          "Mar 2023",
+          "Mar 2024",
+          "Sep 2024",
+          "Mar 2025",
+          "Sep 2025",
+        ];
+      }
+    
       return {
         type: "bar",
         data: {
-          labels: dataKemiskinan.tahun,
+          labels: labelsArr,
           datasets: [
             {
               label: "Kemiskinan",
