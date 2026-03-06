@@ -565,11 +565,16 @@
                 }
 
                 .style-11 {
-                    padding-top:0px; padding-bottom:0px; margin-bottom:0px; flex-direction:row; gap:8px; margin-left: auto !important; --bs-nav-link-padding-x: 0; --bs-nav-link-padding-y: 0.5rem; --bs-nav-link-font-weight:; --bs-nav-link-color: rgba(0, 0, 0, 0.65); --bs-nav-link-hover-color: rgba(0, 0, 0, 0.8); --bs-nav-link-disabled-color: rgba(0, 0, 0, 0.3); display:flex; padding-left:0px; list-style:outside none none; margin-top:0px; box-sizing:border-box;
+                    padding-top:0px; padding-bottom:0px; margin-bottom:0px; flex-direction:row; flex-wrap: wrap; gap:8px; margin-left: auto !important; --bs-nav-link-padding-x: 0; --bs-nav-link-padding-y: 0.5rem; --bs-nav-link-font-weight:; --bs-nav-link-color: rgba(0, 0, 0, 0.65); --bs-nav-link-hover-color: rgba(0, 0, 0, 0.8); --bs-nav-link-disabled-color: rgba(0, 0, 0, 0.3); display:flex; padding-left:0px; list-style:outside none none; margin-top:0px; box-sizing:border-box;
                 }
 
                 .style-12 {
                     box-sizing:border-box;
+                }
+
+                .style-13.active {
+                    background-color: #2563eb !important;
+                    color: white !important;
                 }
 
                 .style-13 {
@@ -1859,6 +1864,10 @@
                     }
 
                     /* Nav links: larger touch targets */
+                    .style-3 {
+                        max-width: 1600px !important;
+                    }
+
                     .style-13 {
                         font-size: 20px !important;
                         padding: 10px 20px !important;
@@ -1983,8 +1992,9 @@
                     }
 
                     /* Expand the top navigation */
+                    /* Expand the top navigation */
                     .style-3 {
-                        max-width: 98% !important;
+                        max-width: 2200px !important;
                     }
 
                     .style-13 {
@@ -2309,26 +2319,24 @@
                 }
 
                 /* ============================================= */
-                /* COMPACT DESKTOP NAV (1164px – 1500px)          */
-                /* Nav items diperkecil agar muat 9 link           */
-                /* Tab S4 @ 100–110% zoom (1280–1163px) masuk sini */
+                /* COMPACT DESKTOP NAV (1501px – 1919px)          */
                 /* ============================================= */
-                @media (min-width: 1164px) and (max-width: 1500px) {
+                @media (min-width: 1501px) and (max-width: 1919px) {
                     .style-11 {
                         gap: 2px !important;
                     }
 
                     .style-13 {
-                        padding: 6px 8px !important;
-                        font-size: 13px !important;
+                        padding: 6px 10px !important;
+                        font-size: 14px !important;
                     }
                 }
 
                 /* ============================================= */
-                /* TABLET & MOBILE NAV (≤1163px)                  */
-                /* Tab S4 @ zoom >110%: burger nav                */
+                /* TABLET & MOBILE NAV (≤1500px)                  */
+                /* Hamburger nav for tablets & zoomed desktops    */
                 /* ============================================= */
-                @media (max-width: 1163px) {
+                @media (max-width: 1500px) {
 
                     /* --- Background dekoratif: sembunyikan --- */
                     .style-1 {
