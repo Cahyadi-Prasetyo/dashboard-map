@@ -1115,11 +1115,11 @@
                 }
 
                 .style-137 {
-                    max-width:1320px; padding-bottom:48px; --bs-gutter-x: 1.5rem; --bs-gutter-y: 0; width: 100%; padding-right:12px; padding-left:12px; margin-right: auto; margin-left: auto; box-sizing:border-box;
+                    max-width:1320px; padding-bottom:48px; margin-top:48px; --bs-gutter-x: 1.5rem; --bs-gutter-y: 0; width: 100%; padding-right:12px; padding-left:12px; margin-right: auto; margin-left: auto; box-sizing:border-box;
                 }
 
                 .style-138 {
-                    --bs-gutter-x: 1.5rem; --bs-gutter-y: 0; display:flex; flex-wrap:wrap; margin-top:0px; margin-right:-12px; margin-left:-12px; box-sizing:border-box;
+                    --bs-gutter-x: 1.5rem; --bs-gutter-y: 0; display:flex; flex-wrap:wrap; margin-top:0px; margin-right:-12px; margin-left:-12px; align-items: flex-start; box-sizing:border-box;
                 }
 
                 .style-139 {
@@ -1138,7 +1138,7 @@
                 }
 
                 .style-142 {
-                    align-items:center; justify-content:center; height:473.188px; display:flex; box-sizing:border-box;
+                    align-items:flex-start; justify-content:center; height:auto; display:flex; box-sizing:border-box;
                 }
 
                 .style-143 {
@@ -1146,7 +1146,7 @@
                 }
 
                 .style-144 {
-                    font-size:25px; font-weight:700; padding-bottom:16px; margin-top:100px; margin-bottom:8px; line-height:33.6px; color:rgb(33, 37, 41); box-sizing:border-box;
+                    font-size:25px; font-weight:700; padding-bottom:16px; margin-top:0px; margin-bottom:8px; line-height:33.6px; color:rgb(33, 37, 41); box-sizing:border-box;
                 }
 
                 .style-145 {
@@ -2698,28 +2698,64 @@
 
                     /* --- POTENSI STRATEGIS --- */
                     .style-137 {
-                        padding-right: 32px !important;
-                        padding-left: 32px !important;
-                        padding-bottom: 24px !important;
+                        padding-right: 24px !important;
+                        padding-left: 24px !important;
+                        padding-bottom: 100px !important;
+                        /* Increased to prevent footer overlap */
+                        margin-top: 48px !important;
                     }
 
                     .style-138 {
-                        flex-direction: column !important;
+                        flex-direction: row !important;
+                        flex-wrap: nowrap !important;
+                        align-items: center !important;
+                        margin-left: 0 !important;
+                        margin-right: 0 !important;
                     }
 
                     .style-139 {
-                        width: 100% !important;
-                        margin-bottom: 16px;
+                        width: 40% !important;
+                        margin-bottom: 0 !important;
+                        padding-left: 0 !important;
+                        padding-right: 16px !important;
                     }
 
                     .style-140 {
-                        max-height: 250px;
-                        object-fit: cover;
+                        max-height: 350px;
+                        width: 100%;
+                        object-fit: contain;
                         border-radius: 12px;
                     }
 
                     .style-141 {
+                        width: 60% !important;
+                        padding-left: 16px !important;
+                        padding-right: 0 !important;
+                    }
+                }
+
+                @media (max-width: 799px) {
+                    .style-137 {
+                        padding-right: 16px !important;
+                        padding-left: 16px !important;
+                    }
+
+                    .style-138 {
+                        flex-direction: column-reverse !important;
+                        align-items: center !important;
+                    }
+
+                    .style-139 {
                         width: 100% !important;
+                        padding-left: 0 !important;
+                        padding-right: 0 !important;
+                        margin-top: 32px !important;
+                    }
+
+                    .style-141 {
+                        width: 100% !important;
+                        padding-left: 0 !important;
+                        padding-right: 0 !important;
                     }
 
                     .style-142 {
