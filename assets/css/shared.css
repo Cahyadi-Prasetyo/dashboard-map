@@ -2309,10 +2309,11 @@
                 }
 
                 /* ============================================= */
-                /* COMPACT DESKTOP NAV (1281px – 1500px)          */
+                /* COMPACT DESKTOP NAV (1164px – 1500px)          */
                 /* Nav items diperkecil agar muat 9 link           */
+                /* Tab S4 @ 100–110% zoom (1280–1163px) masuk sini */
                 /* ============================================= */
-                @media (min-width: 1281px) and (max-width: 1500px) {
+                @media (min-width: 1164px) and (max-width: 1500px) {
                     .style-11 {
                         gap: 2px !important;
                     }
@@ -2324,10 +2325,10 @@
                 }
 
                 /* ============================================= */
-                /* TABLET & MOBILE NAV (≤1280px)                  */
-                /* Tab S4 (1280×800) & di bawahnya: burger nav    */
+                /* TABLET & MOBILE NAV (≤1163px)                  */
+                /* Tab S4 @ zoom >110%: burger nav                */
                 /* ============================================= */
-                @media (max-width: 1280px) {
+                @media (max-width: 1163px) {
 
                     /* --- Background dekoratif: sembunyikan --- */
                     .style-1 {
