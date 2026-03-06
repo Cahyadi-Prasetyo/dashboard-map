@@ -2193,8 +2193,8 @@
                 }
 
                 .modal-box {
-                    background: #fff; border-radius: 16px; width: 90vw; max-width: 1400px;
-                    height: 85vh; max-height: 90vh; overflow-y: auto; overflow-x: hidden; padding: 40px;
+                    background: #fff; border-radius: 16px; width: 80vw; max-width: 1200px;
+                    height: 80vh; max-height: 90vh; overflow-y: auto; overflow-x: hidden; padding: 32px;
                     box-sizing: border-box;
                     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
                     animation: modalIn 0.25s ease;
@@ -2232,7 +2232,8 @@
                 /* Modal Body */
                 .modal-body-split {
                     display: grid;
-                    grid-template-columns: 35% 1fr;
+                    grid-template-columns: 32% 1fr;
+                    /* slightly narrower left side */
                     gap: 32px;
                     flex: 1;
                 }
@@ -2246,7 +2247,8 @@
                 .modal-img {
                     width: 100%;
                     height: auto;
-                    max-height: 400px;
+                    max-height: 320px;
+                    /* Reduced from 400px */
                     object-fit: cover;
                     border-radius: 12px;
                     margin-bottom: 20px;
